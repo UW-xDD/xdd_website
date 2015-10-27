@@ -44,7 +44,7 @@
   var template = $('#template').html();
   Mustache.parse(template);
 
-  var colors = ['#2D95BF', '#955BA5', '#112F41', '#068587', '#4FB99F', '#F2B134', '#ED553B', '#DBC73D', '#C44E18', '#61B594', '#C40076', '#16005A', '#C3E92E', '#363535', '#DB6E73', '#FFBB6A', '#46906E', '#175882', '#A1B4BA', '#3392B8', '#4C4C4C', '#62B072', '#2B1D2E', '#323657', '#076473', '#54B087', '#D6F567', '#6D8C75', '#D9AD77', '#BF7B75', '#74DDB8', '#F2DFA7', '#D99F59', '#D9782B', '#D9782B', '#5C474C', '#7D736A', '#54656B', '#B04C2E'];
+  var colors = ['#2D95BF', '#955BA5', '#112F41', '#068587', '#4FB99F', '#F2B134', '#ED553B', '#DBC73D', '#C44E18', '#61B594', '#C40076', '#16005A', '#C3E92E', '#363535', '#DB6E73', '#FFBB6A', '#46906E', '#175882', '#A1B4BA', '#3392B8', '#4C4C4C', '#62B072', '#2B1D2E', '#323657', '#076473', '#54B087', '#D6F567', '#6D8C75', '#D9AD77', '#BF7B75', '#74DDB8', '#F2DFA7', '#D99F59', '#D9782B', '#5C474C', '#7D736A', '#54656B', '#B04C2E'];
 
   $.getJSON('https://geodeepdive.org/api/v1/metrics?all', function(data) {
     var results = data.success.data.metrics;
