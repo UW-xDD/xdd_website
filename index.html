@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GeoDeepDive</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  <link href="https://fonts.googleapis.com/css?family=Maven+Pro&amp;text=macrostrat" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="./dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" type="text/css" href="./dist/css/styles.css"/>
+
+</head>
+<body>
+  <div class="wrapper container-fluid">
+    <div class="header clearfix">
+      <nav>
+        <ul class="nav nav-pills pull-right">
+          <li role="presentation"><a href="#">Stats</a></li>
+          <li role="presentation"><a href="#">About</a></li>
+          <li role="presentation"><a href="#">People</a></li>
+        </ul>
+      </nav>
+      <h3 class="text-muted">GeoDeepDive</h3>
+    </div>
+
+    <!--<div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="title">
+            <h1>GeoDeepDive</h1><br>
+            <p>Doing the (geoscience) data</p>
+          </div>
+        </div>
+      </div>
+    </div>-->
+
+  <script id="template" type="x-tmpl-mustache">
+    <div class="row summary-row">
+      <div class="col-sm-12 {{type}}">
+        <div class="row">
+          <div class="col-sm-7 summary-type">{{name}}</div>
+          <div class="col-sm-5 summary-stat" id="elsevier-fetched"><span>{{fetched}}</span> Fetched</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3 summary-stat" id="elsevier-ocr"><span>{{ocr}}</span> OCR</div>
+          <div class="col-sm-3 summary-stat" id="elsevier-cuneiform"><span>{{cuneiform}}</span> Cuneiform</div>
+          <div class="col-sm-3 summary-stat" id="elsevier-nlp"><span>{{nlp}}</span> NLP</div>
+          <div class="col-sm-3 summary-stat" id="elsevier-fonttype"><span>{{fonttype}}</span> FontType</div>
+        </div>
+      </div>
+    </div>
+  </script>
+
+  <script src="./dist/js/zepto.min.js"></script>
+  <script src="./dist/js/underscore.min.js"></script>
+  <script src="./dist/js/mustache.min.js"></script>
+  <script src="./dist/js/index.js"></script>
+</body>
+</html>
