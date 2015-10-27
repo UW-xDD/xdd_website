@@ -39,14 +39,14 @@
     <div class="row summary-row">
       <div class="col-sm-12 {{type}}">
         <div class="row">
-          <div class="col-sm-7 summary-type">{{name}}</div>
-          <div class="col-sm-5 summary-stat" id="elsevier-fetched"><span>{{fetched}}</span> Fetched</div>
+          <div class="col-sm-7 summary-type {{journal}}" style="background-color: {{color}}{{^color}}none{{/color}}; border-color: {{color}}{{^color}}none{{/color}};">{{name}}</div>
+          <div class="col-sm-5 summary-stat fetched {{journal}}" style="border-color: {{color}}{{^color}}none{{/color}}; color: {{color}}{{^color}}none{{/color}};"><span>{{fetched}}</span> Fetched</div>
         </div>
         <div class="row">
-          <div class="col-sm-3 summary-stat" id="elsevier-ocr"><span>{{ocr}}</span> OCR</div>
-          <div class="col-sm-3 summary-stat" id="elsevier-cuneiform"><span>{{cuneiform}}</span> Cuneiform</div>
-          <div class="col-sm-3 summary-stat" id="elsevier-nlp"><span>{{nlp}}</span> NLP</div>
-          <div class="col-sm-3 summary-stat" id="elsevier-fonttype"><span>{{fonttype}}</span> FontType</div>
+          <div class="col-sm-3 summary-stat {{journal}}" style="border-color: {{color}}{{^color}}none{{/color}}; color: {{color}}{{^color}}none{{/color}};"><span>{{ocr}}</span> OCR</div>
+          <div class="col-sm-3 summary-stat {{journal}}" style="border-color: {{color}}{{^color}}none{{/color}}; color: {{color}}{{^color}}none{{/color}};"><span>{{cuneiform}}</span> Cuneiform</div>
+          <div class="col-sm-3 summary-stat {{journal}}" style="border-color: {{color}}{{^color}}none{{/color}}; color: {{color}}{{^color}}none{{/color}};"><span>{{nlp}}</span> NLP</div>
+          <div class="col-sm-3 summary-stat {{journal}}" style="border-color: {{color}}{{^color}}none{{/color}}; color: {{color}}{{^color}}none{{/color}};"><span>{{fonttype}}</span> FontType</div>
         </div>
       </div>
     </div>
