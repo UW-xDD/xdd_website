@@ -10,7 +10,7 @@
   margin: 0 auto;
 }
 .header {
-  padding: 25px;
+  padding: 25px 25px 10px 25px;
   border-bottom: 1px solid #e5e5e5;
 }
 .header h3 {
@@ -97,7 +97,14 @@ div[id*="-fetched"] > span {
   border-style: solid;
   padding: 25px;
 }
-
+.journal-wrapper {
+  text-align: center;
+}
+.journal-source {
+  font-size: 14px;
+  letter-spacing: 2px;
+  font-weight: 200;
+}
 .fetched > span {
   font-size: 65px;
 }
