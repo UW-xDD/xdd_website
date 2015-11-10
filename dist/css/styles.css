@@ -108,6 +108,28 @@ div[id*="-fetched"] > span {
 .fetched > span {
   font-size: 65px;
 }
+
+.recent {
+  border: 3px solid #E06E2D;
+}
+.recent-title {
+  background-color: #E06E2D;
+  height: 160px;
+}
+.recent-list {
+  list-style: none;
+
+}
+.recent-list > li {
+  padding: 10px 0;
+  padding-left: 2em;
+  text-indent: -2em;
+  color: #555;
+}
+.recent-list a {
+  color: #333;
+  text-decoration: none;
+}
 @media(max-width: 600px) {
   .row {
     display: block;
