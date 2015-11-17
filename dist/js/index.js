@@ -46,9 +46,26 @@
     return parts.join(".");
   }
 
+  function getRandomColor() {
+    var color = randomColor();
+    while (last5Colors.indexOf(color) > -1) {
+      color = randomColor();
+    }
+
+    last5Colors.push(color);
+
+    if (last5Colors.length > 5) {
+      last5Colors.shift();
+    }
+
+    return color;
+  }
+
   function randomColor() {
     return colors[Math.floor(Math.random() * (colors.length - 1))];
   }
+
+  var last5Colors = [];
 
   var template = $('#template').html();
   Mustache.parse(template);
@@ -82,7 +99,6 @@
         } else {
           d.doi = '';
         }
-
 
       });
 
@@ -126,7 +142,7 @@
         .reverse()
         .slice(0, colors.length * 2)
         .forEach(function(d, i) {
-          $('.wrapper').append(parseContent(d, d.nospace.replace(/_/g, ' '), 't' + (i + 1), randomColor(), true))
+          $('.wrapper').append(parseContent(d, d.nospace.replace(/_/g, ' '), 't' + (i + 1), getRandomColor(), true))
         });
 
         deferred.resolve();
