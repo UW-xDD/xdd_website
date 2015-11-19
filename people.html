@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GeoDeepDive</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  <link href="https://fonts.googleapis.com/css?family=Maven+Pro&amp;text=macrostrat" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" type="text/css" href="./dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" type="text/css" href="./dist/css/styles.css"/>
+  <style>
+
+  .first-row {
+    margin-top: 35px;
+  }
+  .section-title h3 {
+    font-size: 30px;
+    letter-spacing: 1px;
+    font-weight: 300 !important;
+    color: #777;
+  }
+  .person-info {
+    background-color:#fbfbfb;
+  }
+  .person-name, .person-details {
+    background-color: #fff;
+    padding: 15px;
+  }
+  .person-name {
+    margin-top: 15px;
+  }
+
+  .person-name > p {
+    color: #777;
+    letter-spacing: 1px;
+    font-weight: 200;
+  }
+  .person-details {
+    color: #444;
+    font-weight: 300;
+  }
+  .person-image {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 500px;
+  }
+  #booker {
+    background-image: url('./dist/img/booker.jpg');
+  }
+
+  </style>
+
+</head>
+<body>
+  <div class="wrapper container-fluid">
+    <div class="header clearfix">
+      <nav>
+        <ul class="nav nav-pills pull-right">
+          <li role="presentation"><a href="/">Stats</a></li>
+          <li role="presentation"><a href="/about.html">About</a></li>
+          <li role="presentation" class="active"><a href="/people.html">People</a></li>
+        </ul>
+      </nav>
+      <h3 class="text-muted">GeoDeepDive</h3>
+    </div>
+
+
+    <div class="row first-row">
+      <div class="col-sm-5 person-info">
+        <div class="person-name">
+          <h3>Booker B. Claude</h3>
+          <p>Chief Technologist</p>
+        </div>
+        <div class="person-details">
+          Known for his good looks, charm, and love of "My Little Lion" treats, Booker manages
+          GeoDeepDive's long term infrastructure strategy and acts as the face of the project.
+        </div>
+      </div>
+      <div class="col-sm-7 person-image" id="booker"></div>
+    </div>
+
+
+  </div>
+
+  <script src="./dist/js/zepto.min.js"></script>
+  <script src="./dist/js/underscore.min.js"></script>
+  <script src="./dist/js/colors.js"></script>
+
+</body>
+</html>
