@@ -106,6 +106,9 @@
       // Report USGS
       $('.wrapper').append(parseContent(sourceTotal(results, 'USGS'), 'USGS', 'usgs'))
 
+      // Report Wiley
+      $('.wrapper').append(parseContent(sourceTotal(results, 'Wiley'), 'Wiley', 'wiley'))
+
       $('.wrapper').append(recent);
 
       // Report the top journals

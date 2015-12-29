@@ -92,6 +92,15 @@ div[id*="-fetched"] > span {
   padding: 25px;
 }
 
+.wiley .summary-type {
+  background-color: #AA012E;
+}
+.wiley div[class^="col-sm-"] {
+  border: 3px solid #AA012E;
+  color: #AA012E;
+  padding: 25px;
+}
+
 .journal {
   border-width: 3px;
   border-style: solid;
