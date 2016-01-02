@@ -29,7 +29,7 @@
   justify-content: center;
 }
 .title > h1 {
-  font-size: 75px;
+  font-size: 65px;
   font-weight: 200;
   letter-spacing: 1px;
   max-width: 50%;
@@ -42,7 +42,7 @@
 
 .summary-stat > span {
   display: block;
-  font-size: 30px;
+  font-size: 25px;
   font-weight: 200;
 }
 
@@ -55,15 +55,15 @@
 }
 
 div[id*="-fetched"] > span {
-  font-size: 65px;
+  font-size:525px;
 }
 
 .summary-type {
-  font-size: 50px;
+  font-size: 40px;
   color: #F7F7F7 !important;
 }
 .summary-type.journal {
-  font-size: 30px;
+  font-size: 25px;
 }
 .totals .summary-type {
   background-color: #F15A5A;
@@ -115,7 +115,7 @@ div[id*="-fetched"] > span {
   font-weight: 200;
 }
 .fetched > span {
-  font-size: 65px;
+  font-size: 50px;
 }
 
 .recent {

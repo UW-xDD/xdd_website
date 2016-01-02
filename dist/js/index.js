@@ -11,7 +11,7 @@
       data["journal"] = "journal";
     }
 
-    if (name === 'Elsevier' || name === 'USGS') {
+    if (name === 'Elsevier' || name === 'USGS' || name === 'Wiley') {
       data["source"] = "Publisher";
     }
 

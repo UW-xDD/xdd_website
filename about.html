@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>GeoDeepDive</title>
+  <title>GeoDeepDive: Project Overview</title>
   <meta charset="utf-8" />
   <meta http-equiv="Content-Language" content="en">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
@@ -22,6 +22,9 @@
   .first-row {
     margin-top: 35px;
   }
+  .new-row {
+    margin-top: 35px;
+  }
   .section-title h3 {
     font-size: 30px;
     letter-spacing: 1px;
@@ -32,6 +35,15 @@
     .row {
       display: block;
     }
+  }
+  .person-image {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 500px;
+  }
+  #gdd {
+    background-image: url('./dist/img/gdd.png');
   }
   </style>
 
@@ -52,16 +64,37 @@
 
     <div class="row first-row">
       <div class="col-sm-3 section-title">
-        <h3>Background</h3>
+        <h3>Project Overview</h3>
       </div>
-      <div class="col-sm-6">
+      <div class="col-sm-7">
         <p>
-          Heirloom helvetica gastropub typewriter tote bag mumblecore williamsburg lumbersexual direct trade, post-ironic forage 8-bit. Wayfarers brooklyn blog, gentrify slow-carb cliche pickled artisan cred mlkshk dreamcatcher fashion axe VHS meggings. Migas scenester pinterest offal letterpress meditation, art party kinfolk hella wayfarers authentic. Humblebrag bitters paleo chambray, thundercats truffaut mumblecore salvia vegan stumptown dreamcatcher cred. Irony quinoa viral, squid food truck single-origin coffee brunch fixie polaroid listicle twee yuccie slow-carb everyday carry. Celiac PBR&B sartorial, actually small batch knausgaard jean shorts normcore meditation tumblr pinterest narwhal pitchfork squid. Venmo knausgaard paleo irony mustache drinking vinegar, wolf butcher iPhone next level vice put a bird on it.
+          The primary focus of this U.S. National Science Foundation <a href='http://earthcube.org'>EarthCube building block</a> project is the construction of a cyberinfrastructure that is capable of supporting end-to-end text and data mining (TDM) and knowledge base creation/augmentation activities in the geosciences. The infrastructure includes the following key components:<ul><li>Automated, rate-controlled and authenticated original document fetching</li><li>Secure original document storage and bibliographic/source metadata management</li><li>Automated pre-processing of documents by multiple software tools; ability to quickly deploy new tools/versions of tools across all documents</li><li><a href='https://geodeepdive.org/api'>API</a> for basic full-text search and discovery capabilities</li><li>Ability to pre-index documents on the basis of external dictionaries</li><li>Ability to generate documented, bibliographically complete testing and development datasets based on user-supplied terms</li><li>Supporting the at-scale deployment of tested user-developed TDM applications, with on-demand updates as new relevant documents are acquired</li></ul>
         </p>
       </div>
     </div>
+ <hr>
+    <div class="row new-row">
+      <div class="col-sm-3 section-title">
+        <h3>Available TDM Data Products</h3>
+      </div>
+      <div class="col-sm-7">
+        <p>
+        Natural language analysis tools from Stanford CoreNLP:<br><a href='http://stanfordnlp.github.io/CoreNLP/index.html'><img><img src="./dist/img/corenlp.png" alt="CoreNLP" style="width: 50%;"></a><br>
+        Tesseract optical character recognition and parsing:<br><a href='https://code.google.com/p/tesseract-ocr/'><img><img src="./dist/img/tesseract.png" alt="CoreNLP" style="width: 50%;"></a><br>
+        <a href='https://launchpad.net/cuneiform-linux'>Cuneiform</a> optical character recognition and parsing.<br>Custom font and layout recognition scripts.</p><p>We have the ability to rapidly ryn new tools and versions of tools against the entire TDM library as they become available.
+        </p>
+      </div>
+    </div>
+ <hr>
+    <div class="row new-row">
+      <div class="col-sm-3 section-title">
+        <h3>Infrastructure Schematic Overview</h3>
+      </div>
+      <div class="col-sm-7">
+         <img src="./dist/img/gdd.png" alt="gdd" style="width: 100%;">
+      </div>
+    </div>
 
-    
   </div>
 
   <script src="./dist/js/zepto.min.js"></script>
