@@ -10,50 +10,6 @@
 
   <link rel="stylesheet" type="text/css" href="./dist/css/bootstrap.min.css"/>
   <link rel="stylesheet" type="text/css" href="./dist/css/styles.css"/>
-  <style>
-
-  .first-row {
-    margin-top: 15px;
-  }
-  .new-row {
-    margin-top: 35px;
-  }
-  .section-title h3 {
-    font-size: 30px;
-    letter-spacing: 1px;
-    font-weight: 300 !important;
-    color: #777;
-  }
-  .person-info {
-    background-color:#fbfbfb;
-  }
-  .person-name, .person-details {
-    background-color: #fff;
-    padding: 15px;
-  }
-  .person-name {
-    margin-top: 15px;
-  }
-
-  .person-name > p {
-    color: #777;
-    letter-spacing: 1px;
-    font-weight: 200;
-  }
-  .person-details {
-    color: #444;
-    font-weight: 300;
-  }
-  .person-image {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 500px;
-  }
-  #booker {
-    background-image: url('./dist/img/booker.jpg');
-  }
-  </style>
 
 </head>
 <body>
@@ -73,38 +29,49 @@
     <div class="row first-row">
       <div class="col-sm-7 person-info">
         <div class="person-name">
-          <h3>UW-Madison Infrastructure Team</h3>
-          <h4><a href='http://strata.geology.wisc.edu'>Shanan Peters</a> <small>(geoscience)</small><br><a href='http://www.cs.wisc.edu/people/miron'>Miron Livny</a> <small>(computer science)</small></h4>
-          <p>UW Project Leads</p>
-          <h4><a href='https://www.cs.wisc.edu/people/iross'>Ian Ross</a> <small>(lead developer)</small><br><a href='http://www.cs.wisc.edu/people/tim'>Tim Thiesen</a> <small>(infrastructure coordinator)</small><br><a href='http://www.johnjcz.com'>John Czaplewski</a> <small>(supporting developer)</small></h4>
-          <p>UW Project Technical Team</p>
+          <h3 class="person-title">UW-Madison Infrastructure Team</h3>
+
+          <div class="person-team">
+            <p class="team-heading">UW Project Leads</p>
+            <p><a href='http://strata.geology.wisc.edu'>Shanan Peters</a> <small>(geoscience)</small></p>
+            <p><a href='http://www.cs.wisc.edu/people/miron'>Miron Livny</a> <small>(computer science)</small></p>
+          </div>
+
+          <div class="person-team">
+            <p class="team-heading">UW Project Technical Team</p>
+            <p><a href='https://www.cs.wisc.edu/people/iross'>Ian Ross</a> <small>(lead developer)</small></p>
+            <p><a href='http://www.cs.wisc.edu/people/tim'>Tim Thiesen</a> <small>(infrastructure coordinator)</small></p>
+            <p><a href='http://www.johnjcz.com'>John Czaplewski</a> <small>(supporting developer)</small></p>
+          </div>
+
         </div>
         <div class="person-details">
-          Our team combines expertise in both geoscience and computer science, helping to ensure that the cyberinfrastructure being developed is secure, scalable and dependable while at the same time satisfying the needs of end users. Researchers in geoscience, including UW-Madison postodocs Jon Husson and Andrew Zaffos, Princeton undergraduate Julia Wilcots, and Carnegie Institute postdoc Chao Liu, are helping test the infrastructure and put it to use by developing <a href='https://gsa.confex.com/gsa/2015AM/webprogram/Paper269475.html'>working applications</a>.
+          Our team combines expertise in both geoscience and computer science, helping to ensure that the cyberinfrastructure being developed is secure, scalable and dependable while at the same time satisfying the needs of end users. Researchers in geoscience, including UW-Madison postdocs Jon Husson and Andrew Zaffos, Princeton undergraduate Julia Wilcots, and Carnegie Institute postdoc Chao Liu, are helping test the infrastructure and put it to use by developing <a href='https://gsa.confex.com/gsa/2015AM/webprogram/Paper269475.html'>working applications</a>.
         </div>
       </div>
       <div class="col-sm-5 person-image" id="booker"></div>
     </div>
- <hr>
+
     <div class="row new-row">
       <div class="col-sm-7 person-info">
-        <h3>Stanford DeepDive Team</h3>
         <div class="person-name">
-          <h4><a href='http://deepdive.stanford.edu'>Christoper Ré</a> <small>(computer science)</small><br><a href='http://deepdive.stanford.edu'>Ce Zhang</a> <small>(computer science)</small></h4>
-          <p>DeepDive Project Leads</p>
+          <h3 class="person-title">Stanford DeepDive Team</h3>
+
+          <div class="person-team">
+            <p class="team-heading">DeepDive Project Leads</p>
+            <p><a href='http://deepdive.stanford.edu'>Christoper Ré</a> <small>(computer science)</small></p>
+            <p><a href='http://deepdive.stanford.edu'>Ce Zhang</a> <small>(computer science)</small></p>
+          </div>
         </div>
+
         <div class="person-details">
-          Chris Ré's team is focused on the DeepDive platform for knowledge base creation. The testing and development datasets produced by the UW-Madison TDM infrastructure are DeepDive-ready. 
+          Chris Ré's team is focused on the DeepDive platform for knowledge base creation. The testing and development datasets produced by the UW-Madison TDM infrastructure are DeepDive-ready.
         </div>
       </div>
       <div class="col-sm-5"><a href='http://deepdive.stanford.edu'><img><img src="./dist/img/deepdive.png" alt="DeepDive" style="width: 100%;"></a></div>
     </div>
 
   </div>
-
-  <script src="./dist/js/zepto.min.js"></script>
-  <script src="./dist/js/underscore.min.js"></script>
-  <script src="./dist/js/colors.js"></script>
 
 </body>
 </html>

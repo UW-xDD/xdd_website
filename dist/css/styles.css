@@ -8,6 +8,7 @@
 .wrapper {
   max-width: 1200px;
   margin: 0 auto;
+  padding-bottom: 100px;
 }
 .header {
   padding: 25px 25px 10px 25px;
@@ -138,6 +139,69 @@ div[id*="-fetched"] > span {
 .recent-list a {
   color: #333;
   text-decoration: none;
+}
+
+.first-row {
+  margin-top: 15px;
+}
+.new-row {
+  margin-top: 35px;
+}
+.section-title h3 {
+  font-size: 30px;
+  letter-spacing: 1px;
+  font-weight: 300 !important;
+  color: #777;
+}
+.person-info {
+  background-color:#fbfbfb;
+}
+.person-name, .person-details {
+  background-color: #fff;
+  padding: 15px;
+}
+.person-name {
+  margin-top: 15px;
+}
+
+.person-name > p {
+  color: #777;
+  letter-spacing: 1px;
+  font-weight: 200;
+}
+.person-details {
+  color: #444;
+  font-weight: 300;
+}
+.person-image {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 500px;
+}
+#booker {
+  background-image: url('../img/booker.jpg');
+}
+
+.person-team {
+  line-height: 12px;
+  font-size: 15px;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+.person-team a {
+  color: #333;
+}
+
+.team-heading {
+  color: #aaa;
+  font-weight: 300;
+  letter-spacing: 1px;
+  padding-bottom: 2px;
+}
+
+.person-title {
+  color: #555;
 }
 @media(max-width: 600px) {
   .row {
