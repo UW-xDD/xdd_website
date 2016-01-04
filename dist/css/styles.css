@@ -203,6 +203,30 @@ div[id*="-fetched"] > span {
 .person-title {
   color: #555;
 }
+
+.center {
+  display: inline-block;
+  vertical-align: middle;
+  float: none;
+}
+.aligner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.aligner h1, .aligner p {
+  margin: 0 auto;
+}
+
+.aligner h1 {
+  font-weight: 100;
+}
+
+.product {
+  padding: 35px 0;
+}
+
 @media(max-width: 600px) {
   .row {
     display: block;
