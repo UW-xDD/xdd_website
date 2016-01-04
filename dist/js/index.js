@@ -72,6 +72,8 @@
         } else {
           d.doi = '';
         }
+        
+        d.externalLink = (d.doi) ? 'http://dx.doi.org/' + d.doi : d.url;
 
       });
 
