@@ -66,40 +66,9 @@ div[id*="-fetched"] > span {
 .summary-type.journal {
   font-size: 25px;
 }
-.totals .summary-type {
-  background-color: #F15A5A;
-}
-.totals div[class^="col-sm-"] {
-  border: 3px solid #F15A5A;
-  color: #F15A5A;
-  padding: 25px;
-}
 
-.elsevier .summary-type {
-  background-color: #F0C419;
-}
-.elsevier div[class^="col-sm-"] {
-  border: 3px solid #F0C419;
-  color: #F0C419;
-  padding: 25px;
-}
-
-.usgs .summary-type {
-  background-color: #4EBA6F;
-}
-.usgs div[class^="col-sm-"] {
-  border: 3px solid #4EBA6F;
-  color: #4EBA6F;
-  padding: 25px;
-}
-
-.wiley .summary-type {
-  background-color: #AA012E;
-}
-.wiley div[class^="col-sm-"] {
-  border: 3px solid #AA012E;
-  color: #AA012E;
-  padding: 25px;
+.publisher {
+  font-size: 38px;
 }
 
 .journal {

@@ -1,18 +1,12 @@
 (function() {
-  function parseContent(data, name, type, color, isJournal) {
+  function parseContent(data, name, type, color, isPublisher) {
     data["name"] = name;
     data["type"] = type;
+    data["publisher"] = (isPublisher) ? "publisher" : "";
+    data["source"] = (isPublisher) ? "Publisher" : data["source"];
 
     if (color) {
       data["color"] = color;
-    }
-
-    if (isJournal) {
-      data["journal"] = "journal";
-    }
-
-    if (name === 'Elsevier' || name === 'USGS' || name === 'Wiley') {
-      data["source"] = "Publisher";
     }
 
     Object.keys(data).forEach(function(d) {
@@ -30,6 +24,7 @@
       .filter(function(d) { if (d.source === source) { return d }});
 
     return {
+      name: source,
       fetched: journals.map(function(d) { return d.fetched }).reduce(function(a, b) { return a + b}, 0),
       ocr: journals.map(function(d) { return d.ocr }).reduce(function(a, b) { return a + b}, 0),
       cuneiform: journals.map(function(d) { return d.cuneiform }).reduce(function(a, b) { return a + b}, 0),
@@ -86,7 +81,6 @@
       }
 
       deferred.resolve(Mustache.render(template, recent));
-    //  $('.wrapper').append();
     });
 
     return deferred.promise;
@@ -98,17 +92,35 @@
       var results = data.success.data.metrics;
 
       // Report totals
-      $('.wrapper').append(parseContent(results.total, 'Total', 'totals'))
+      $('.wrapper').append(parseContent(results.total, 'Total', 'totals', '#F15A5A', true));
 
-      // Report Elsevier
-      $('.wrapper').append(parseContent(sourceTotal(results, 'Elsevier'), 'Elsevier', 'elsevier'))
+      // Define some default colors to keep source colors consistent
+      var sourceColors = ['#F0C419', '#4EBA6F', '#AA012E', '#686354', '#363863', '#556E53', '#37B7B5', '#CA4B7C',
+    '#433751'];
 
-      // Report USGS
-      $('.wrapper').append(parseContent(sourceTotal(results, 'USGS'), 'USGS', 'usgs'))
+      // Find, process, and append publishers
+      _.uniq(
+        Object.keys(results)
+          .map(function(d) {
+            return results[d].source
+          })
+          .filter(function(d) {
+            if (d) {
+              return d;
+            }
+          })
+      )
+      .map(function(source) {
+        return sourceTotal(results, source);
+      })
+      .sort(function(a, b) {
+        return b.fetched - a.fetched;
+      })
+      .forEach(function(source, index) {
+        $('.wrapper').append(parseContent(source, source['name'], source['name'].toLowerCase(), sourceColors[index], true));
+      });
 
-      // Report Wiley
-      $('.wrapper').append(parseContent(sourceTotal(results, 'Wiley'), 'Wiley', 'wiley'))
-
+      // Append the most recently fetched articles
       $('.wrapper').append(recent);
 
       // Report the top journals
@@ -123,7 +135,7 @@
         .reverse()
         .slice(0, colorUtil.colors.length * 2)
         .forEach(function(d, i) {
-          $('.wrapper').append(parseContent(d, d.nospace.replace(/_/g, ' '), 't' + (i + 1), colorUtil.random(), true))
+          $('.wrapper').append(parseContent(d, d.nospace.replace(/_/g, ' '), 't' + (i + 1), colorUtil.random()))
         });
 
         deferred.resolve();
