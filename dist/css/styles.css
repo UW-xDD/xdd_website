@@ -143,13 +143,13 @@ div[id*="-fetched"] > span {
   font-weight: 300;
 }
 .person-image {
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   height: 500px;
 }
-#booker {
-  background-image: url('../img/booker.jpg');
+#team {
+  background-image: url('../img/team.jpg');
 }
 
 .person-team {
