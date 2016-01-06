@@ -72,7 +72,7 @@
         } else {
           d.doi = '';
         }
-        
+
         d.externalLink = (d.doi) ? 'http://dx.doi.org/' + d.doi : d.url;
 
       });
@@ -114,6 +114,11 @@
       )
       .map(function(source) {
         return sourceTotal(results, source);
+      })
+      .filter(function(source) {
+        if (source.name != 'Publisher') {
+          return source;
+        }
       })
       .sort(function(a, b) {
         return b.fetched - a.fetched;
