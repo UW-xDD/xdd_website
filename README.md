@@ -1,7 +1,7 @@
 # GeoDeepDive.org
 
 ## Setup
-`npm install`
+`npm install -g gulp`
 
 ## Running
 `python -m SimpleHTTPServer 8000`
