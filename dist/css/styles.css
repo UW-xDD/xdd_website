@@ -196,8 +196,21 @@ div[id*="-fetched"] > span {
   padding: 35px 0;
 }
 
+.title-short {
+  display: none;
+}
+
 @media(max-width: 600px) {
   .row {
+    display: block;
+  }
+  .nav.nav-pills.pull-right {
+    margin-right: -25px;
+  }
+  .title-full {
+    display: none;
+  }
+  .title-short {
     display: block;
   }
 }
