@@ -1,7 +1,10 @@
 # GeoDeepDive.org
 
 ## Setup
-`npm install -g gulp`
+If you do not have gulp installed globally, do that first with `npm install -g gulp`
+
+`npm install`
+
 
 ## Running
 `python -m SimpleHTTPServer 8000`
