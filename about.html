@@ -208,7 +208,7 @@
         <h3>Pipeline</h3>
       </div>
       <div class="col-sm-7">
-         <p>The path of a document from its source at a content provider, to a derived data product and, ultimately, to a synthetic result set, is referred to as the “pipeline”. A rough schematic of the pipeline leading up to the raw data for TDM work is as follows:</p>
+         <p>The path of a document from its source at a content provider, to a derived data product and, ultimately, to a <a href="http://www.nature.com/news/computers-read-the-fossil-record-1.17868" target="_blank">synthetic result set</a>, is referred to as the “pipeline”. A rough schematic of the pipeline leading up to the raw data for TDM work is as follows:</p>
          <img src="./dist/img/README_diagram.png" alt="gdd" style="width: 100%;">
         <br><br>
          <p>
@@ -222,9 +222,9 @@
         <h3>Infrastructure Schematic Overview</h3>
       </div>
       <div class="col-sm-7">
-         <p>The following image provides a general overview of the pipeline. The processes starts on the right-hand side of the “brick wall”. Our secure servers fetch original documents from our partner content providers. These documents, and associated bibliographic and URL metadata, are stored on access restricted encrypted volumes. Each institution has its own mechanism of providing original content and making it accessible to our infrastructure. </p>
+         <p>The following image provides a general overview of the pipeline. The processes starts on the right-hand side of the “brick wall”. Here, our secure servers fetch original documents from partner content providers. These documents, and associated bibliographic and URL metadata, are stored on encrypted volumes that have highly restricted access. Each partner content provider has its own mechanism of providing original documents and our system can be fine-tuned to accommodate the preferred rate of fetching specified by each provider.</p>
          <img src="./dist/img/gdd.png" alt="gdd" style="width: 100%;">
-         <p>After obtaining the original documents and associated bibliographic metadata, the next step is processing the documents to generate  data products (such as NLP, see above). Doing so requires the use of <a href="https://research.cs.wisc.edu/htcondor/htc.html" target="_blank">High Throughput Computing</a>. All of the files transferred to the HTC system are encrypted. The data products, which add formatting, layout, and linguistic annotation to the original text, are now ready for use in TDM applications built by domain scientists.</p>
+         <p>After obtaining the original documents and associated bibliographic metadata, the next step is processing the documents to generate  data products (such as NLP, see above). Doing so requires the use of <a href="https://research.cs.wisc.edu/htcondor/htc.html" target="_blank">High Throughput Computing</a>. All of the files that are transferred to the HTC system are encrypted to prevent unauthorized access of any original content in the unlikely event that the HTC jobs get lost or intercepted. The data products for each document, consisting of files indicating formatting, layout, and linguistic annotations, are now ready for use in <a href="http://deepdive.stanford.edu/doc/advanced/deepdiveapp.html" target="_blank">TDM applications</a> built by domain scientists.</p>
       </div>
     </div>
 
@@ -235,7 +235,7 @@
       </div>
       <div class="col-sm-7">
         <p>
-          Every word and datum that can be derived from our infrastructure is fully traceable back to the original content provided by our partner publishers and organizations. Users must provide full citation and, when relevant, URL links back to all original works that contributed data to their application or results. This infrastructure should also be cited and we welcome new collaborations.
+          Every word and datum that can be derived from our infrastructure is fully traceable back to the original content provided by our partner publishers and organizations. Users are required to provide full citation and, when relevant, URL links back to all of the original works that contributed data to an application or result. The GeoDeepDive infrastructure can also be cited and we welcome new collaborations.
         </p>
       </div>
     </div>
