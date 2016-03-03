@@ -76,6 +76,9 @@ div[id*="-fetched"] > span {
   border-style: solid;
   padding: 25px;
 }
+.journal:not(:first-child) {
+  border-left-width: 0;
+}
 .journal-wrapper {
   text-align: center;
 }
@@ -83,6 +86,9 @@ div[id*="-fetched"] > span {
   font-size: 14px;
   letter-spacing: 2px;
   font-weight: 200;
+}
+.fetched {
+  border-bottom-width: 0;
 }
 .fetched > span {
   font-size: 50px;
@@ -212,5 +218,11 @@ div[id*="-fetched"] > span {
   }
   .title-short {
     display: block;
+  }
+  .journal:not(:first-child) {
+    border-left-width: 3px;
+  }
+  .journal:not(:last-child) {
+    border-bottom-width: 0; 
   }
 }
