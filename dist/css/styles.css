@@ -148,6 +148,10 @@ div[id*="-fetched"] > span {
   color: #444;
   font-weight: 300;
 }
+.person-details > p {
+  max-width: 400px;
+  line-height: 26px;
+}
 .person-image {
   background-size: contain;
   background-position: center;
@@ -206,6 +210,19 @@ div[id*="-fetched"] > span {
   display: none;
 }
 
+.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
+  background-color: #777;
+}
+
+a {
+  color: #333;
+  font-weight: 500;
+}
+a:hover {
+  text-decoration: none;
+  color: #F15A5A;
+}
+
 @media(max-width: 600px) {
   .row {
     display: block;
@@ -223,6 +240,6 @@ div[id*="-fetched"] > span {
     border-left-width: 3px;
   }
   .journal:not(:last-child) {
-    border-bottom-width: 0; 
+    border-bottom-width: 0;
   }
 }
