@@ -124,7 +124,10 @@
         return b.fetched - a.fetched;
       })
       .forEach(function(source, index) {
-        $('.wrapper').append(parseContent(source, source['name'], source['name'].toLowerCase(), sourceColors[index], true));
+        if (source.name != 'All documents') {
+          $('.wrapper').append(parseContent(source, source['name'], source['name'].toLowerCase(), sourceColors[index], true));
+        }
+
       });
 
       // Append the most recently fetched articles
