@@ -3,7 +3,7 @@
     data["name"] = name;
     data["type"] = type;
     data["publisher"] = (isPublisher) ? "publisher" : "";
-    data["source"] = (isPublisher) ? "Publisher" : data["source"];
+    data["source"] = (type === 'totals') ? 'All documents' : (isPublisher) ? "Publisher" : data["source"];
 
     if (color) {
       data["color"] = color;
