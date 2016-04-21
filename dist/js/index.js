@@ -30,6 +30,7 @@
       cuneiform: journals.map(function(d) { return d.cuneiform }).reduce(function(a, b) { return a + b}, 0),
       nlp: journals.map(function(d) { return d.nlp }).reduce(function(a, b) { return a + b}, 0),
       nlp352: journals.map(function(d) { return d.nlp352 }).reduce(function(a, b) { return a + b}, 0),
+      nlp360: journals.map(function(d) { return d.nlp360 }).reduce(function(a, b) { return a + b}, 0),
       fonttype: journals.map(function(d) { return d.fonttype }).reduce(function(a, b) { return a + b}, 0)
     }
   }
