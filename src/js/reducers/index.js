@@ -1,6 +1,5 @@
 import { combineReducers } from 'redux'
 import { REQUEST_DICTIONARIES, RECIEVE_DICTIONARIES } from '../actions'
-//import { stats, handleFetching} from './stats'
 // import all reducers here
 
 const stats = (state = [], action) => {
@@ -36,10 +35,10 @@ const handleFetching = (state = {
 
 
 
-const statsApp = combineReducers({
+const reducers = combineReducers({
   // list reducers here
   stats,
   handleFetching
 })
 
-export default statsApp
+export default reducers

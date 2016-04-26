@@ -7,7 +7,7 @@ class DictionaryList extends Component {
   }
 
   render() {
-    const { dictionaries } = this.props
+    const { dictionaries, onDictionaryClick } = this.props
     return (
       <div>
         {dictionaries.map(dictionary =>

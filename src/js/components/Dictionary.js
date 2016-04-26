@@ -6,10 +6,14 @@ class Dictionary extends Component {
   }
 
   render() {
-    const { name } = this.props
+    const { name, onClick } = this.props
     console.log(this.props)
     return (
-      <div>{name}</div>
+      <div className='row'>
+        <div className='col-sm-12' onClick={onClick}>
+          {name}
+        </div>
+      </div>
     )
   }
 }
