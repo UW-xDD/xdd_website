@@ -30,9 +30,21 @@ export function recieveDictionaries(json) {
 }
 
 function formatResponse(data) {
+  const summary = {
+    terms: data.map(function(d) { return parseInt(d.n_terms.replace(',', '')) }).reduce((a, b) => { return a + b }, 0),
+    hits: data.map(function(d) { return parseInt(d.hits.replace(',', '')) }).reduce((a, b) => { return a + b }, 0),
+    docs: data.map(function(d) { return parseInt(d.n_docs.replace(',', '')) }).reduce((a, b) => { return a + b }, 0),
+    pubs: data.map(function(d) { return parseInt(d.n_pubs.replace(',', '')) }).reduce((a, b) => { return a + b }, 0)
+  }
   return data.map(d => {
     d.showDetails = false
     d.coverage = parseInt((d.not_found/d.n_terms) * 100)
+
+    d.term_strength = (d.n_terms/summary.terms) * 100
+    d.hit_strength = (d.hits/summary.hits) * 100
+    d.doc_strength = (d.n_docs/summary.docs) * 100
+    d.pub_strength = (d.n_pubs/summary.pubs) * 100
+
     d.hits = addCommas(d.hits)
     d.n_terms = addCommas(d.n_terms)
     d.n_docs = addCommas(d.n_docs)

@@ -9,11 +9,13 @@ import reducers from './reducers'
 import App from './components/App'
 import { fetchDictionaries } from './actions'
 
+// Create the data store
 let store = createStore(
   reducers,
   applyMiddleware(thunkMiddleware)
 )
 
+// Render the application
 render(
   <Provider store={store}>
     <App/>
