@@ -60,7 +60,7 @@ export const fetchDictionaries = () => {
     // Update state to know dictionaries are being fetched
     dispatch(requestDictionaries())
 
-    return fetch('http://localhost:5000/api/v1/stats/dictionary?all')
+    return fetch('https://geodeepdive.org/api/v1/stats/dictionary?all')
       .then(response => response.json())
       .then(formatted => formatResponse(formatted.success.data))
       .then(json => dispatch(recieveDictionaries(json)))
