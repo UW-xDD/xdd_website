@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react'
+import Top10 from './Top10'
 
 function findClass(d) {
   d = parseInt(d)
@@ -46,13 +47,20 @@ class Dictionary extends Component {
   }
 
   render() {
-    const { dict_id, name, term_strength, pub_strength, hit_strength, doc_strength, n_terms, coverage, ingestion_date, subset_date, n_docs, hits, n_pubs, onClick } = this.props
-    console.log(this.props)
+    const { dict_id, name, term_strength, pub_strength, hit_strength, doc_strength, n_terms, coverage, ingestion_date, subset_date, n_docs, hits, n_pubs, terms, articles, journals, onClick, showDetails } = this.props
+
     return (
       <div className='stat-container'>
         <div className='row'>
-          <div className='col-sm-6 stat-box title' onClick={onClick}>
+          <div className='col-sm-4 stat-box title'>
             {name}
+          </div>
+          <div className='col-sm-2 stat-box' onClick={onClick}>
+            <div className='expand-container'>
+              <div className='expand-icon'>
+                >>
+              </div>
+            </div>
           </div>
           <div className={'col-sm-3 stat-box ' + findStrength(term_strength)}>
             <span>{n_terms}</span>
@@ -63,6 +71,50 @@ class Dictionary extends Component {
             coverage
           </div>
         </div>
+
+        <div className={'hidden-tables ' + (showDetails == dict_id ? 'show-tables' : '')}>
+          <div className='row table-title-row'>
+            <div className='col-sm-4'>
+              <span className='table-title'>Top terms</span>
+            </div>
+            <div className='col-sm-4'>
+              <span className='table-title'>Top articles</span>
+            </div>
+            <div className='col-sm-4'>
+              <span className='table-title'>Top journals</span>
+            </div>
+          </div>
+
+          <div className='row'>
+            <div className='col-sm-4'>
+              <Top10
+                type='terms'
+                data={terms}
+              />
+            </div>
+            <div className='col-sm-4'>
+              <Top10
+                type='articles'
+                data={articles.map(d => {
+                  return {
+                    term: d.title + '. ' + d.authors + '. ' + d.coverdate + '. ' + d.pubname + '. ' + d.source + '. ',
+                    hits: d.hits
+                }})}
+              />
+            </div>
+            <div className='col-sm-4'>
+              <Top10
+                type='journals'
+                data={journals.map(d => {
+                  return {
+                    term: d.pubname + ', ' + d.source,
+                    hits: d.hits
+                }})}
+              />
+            </div>
+          </div>
+        </div>
+
         <div className='row'>
           <div className={'col-sm-3 stat-box status ' + parseDate(ingestion_date)}>
             <span>{ingestion_date}</span>
@@ -93,7 +145,7 @@ class Dictionary extends Component {
 
 Dictionary.propTypes = {
   onClick: PropTypes.func.isRequired,
-  showDetails: PropTypes.bool.isRequired
+  showDetails: PropTypes.number.isRequired
 }
 
 export default Dictionary

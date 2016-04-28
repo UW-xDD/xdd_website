@@ -4,7 +4,10 @@ import DictionaryList from '../components/DictionaryList'
 
 const mapStateToProps = (state) => {
   return {
-    dictionaries: state.handleFetching.items
+    dictionaries: state.handleFetching.items,
+    ingestions: state.handleFetching.ingestions,
+    subsets: state.handleFetching.subsets,
+    showDetails: state.handleFetching.showDetails
   }
 }
 
