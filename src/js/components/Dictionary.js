@@ -52,16 +52,10 @@ class Dictionary extends Component {
     return (
       <div className='stat-container'>
         <div className='row'>
-          <div className='col-sm-4 stat-box title'>
-            {name}
+          <div className='col-sm-6 stat-box title' onClick={onClick}>
+            {name}    <span className='expand-icon'> >> </span>
           </div>
-          <div className='col-sm-2 stat-box' onClick={onClick}>
-            <div className='expand-container'>
-              <div className='expand-icon'>
-                >>
-              </div>
-            </div>
-          </div>
+
           <div className={'col-sm-3 stat-box ' + findStrength(term_strength)}>
             <span>{n_terms}</span>
             terms
@@ -74,42 +68,34 @@ class Dictionary extends Component {
 
         <div className={'hidden-tables ' + (showDetails == dict_id ? 'show-tables' : '')}>
           <div className='row table-title-row'>
-            <div className='col-sm-4'>
+            <div className='col-sm-3'>
               <span className='table-title'>Top terms</span>
             </div>
-            <div className='col-sm-4'>
+            <div className='col-sm-6'>
               <span className='table-title'>Top articles</span>
             </div>
-            <div className='col-sm-4'>
+            <div className='col-sm-3'>
               <span className='table-title'>Top journals</span>
             </div>
           </div>
 
           <div className='row'>
-            <div className='col-sm-4'>
+            <div className='col-sm-3'>
               <Top10
                 type='terms'
-                data={terms}
+                data={ terms }
               />
             </div>
-            <div className='col-sm-4'>
+            <div className='col-sm-6'>
               <Top10
                 type='articles'
-                data={articles.map(d => {
-                  return {
-                    term: d.title + '. ' + d.authors + '. ' + d.coverdate + '. ' + d.pubname + '. ' + d.source + '. ',
-                    hits: d.hits
-                }})}
+                data={ articles }
               />
             </div>
-            <div className='col-sm-4'>
+            <div className='col-sm-3'>
               <Top10
                 type='journals'
-                data={journals.map(d => {
-                  return {
-                    term: d.pubname + ', ' + d.source,
-                    hits: d.hits
-                }})}
+                data={ journals }
               />
             </div>
           </div>

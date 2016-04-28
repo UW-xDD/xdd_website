@@ -7,7 +7,7 @@ class Top10 extends Component {
   }
 
   render() {
-    const { data, type} = this.props
+    const { data, type } = this.props
 
     return (
       <table className='table table-striped'>
@@ -18,14 +18,35 @@ class Top10 extends Component {
           </tr>
         </thead>
         <tbody>
+
         {data.map((d, i) => {
-          return (
-            <tr key={i}>
-              <td className={(type === 'articles' ? 'small-text' : '')}>{d.term}</td>
-              <td>{addCommas(d.hits)}</td>
-            </tr>
-          )
+          switch (type) {
+            case 'terms':
+              return (
+                <tr key={i}>
+                  <td>{d.term}</td>
+                  <td>{addCommas(d.hits)}</td>
+                </tr>
+              )
+            case 'articles':
+              return (
+                <tr key={i}>
+                  <td className='small-text'>{d.authors}. <a href='{d.content_url}'>{d.title}</a>. {d.pubname}. {d.coverdate}. {d.source}.</td>
+                  <td>{addCommas(d.hits)}</td>
+                </tr>
+              )
+            case 'journals':
+              return (
+                <tr key={i}>
+                  <td>{d.pubname} <span className='small-text source'>{d.source}</span></td>
+                  <td>{addCommas(d.hits)}</td>
+                </tr>
+              )
+            default:
+              return
+          }
         })}
+
         </tbody>
       </table>
     )
@@ -34,8 +55,7 @@ class Top10 extends Component {
 
 Top10.propTypes = {
   data: PropTypes.arrayOf(PropTypes.shape({
-    hits: PropTypes.string.isRequired,
-    term: PropTypes.string.isRequired
+    hits: PropTypes.string.isRequired
   }).isRequired).isRequired
 }
 
