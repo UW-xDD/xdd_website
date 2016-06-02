@@ -25,7 +25,7 @@
 
     return {
       name: source,
-      fetched: journals.map(function(d) { return d.fetched }).reduce(function(a, b) { return a + b}, 0),
+      fetched: journals.map(function(d) { if (isNaN(d.fetched)) { d.fetched = parseInt(d.fetched.replace(/,/g, ''))} return d.fetched }).reduce(function(a, b) { return a + b}, 0),
       ocr: journals.map(function(d) { return d.ocr }).reduce(function(a, b) { return a + b}, 0),
       cuneiform: journals.map(function(d) { return d.cuneiform }).reduce(function(a, b) { return a + b}, 0),
       nlp: journals.map(function(d) { return d.nlp }).reduce(function(a, b) { return a + b}, 0),
