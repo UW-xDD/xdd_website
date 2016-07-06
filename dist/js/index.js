@@ -132,7 +132,7 @@
       });
 
       // Append the most recently fetched articles
-      $('.wrapper').append(recent);
+      //$('.wrapper').append(recent);
 
       // Report the top journals
       delete results.total;
@@ -155,9 +155,10 @@
   }
 
 
-  getRecent()
-    .then(function(recent) {
-      getStats(recent)
-    })
+  // getRecent()
+  //   .then(function(recent) {
+  //     getStats(recent)
+  //   })
+  getStats()
 
 })();
