@@ -6,79 +6,412 @@
   <meta http-equiv="Content-Language" content="en">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-  <link href="https://fonts.googleapis.com/css?family=Maven+Pro&amp;text=macrostrat" rel="stylesheet" type="text/css">
-
   <link rel="stylesheet" type="text/css" href="./dist/css/bootstrap.min.css"/>
   <link rel="stylesheet" type="text/css" href="./dist/css/styles.css"/>
 
+  <style>
+    body, html {
+      height: 100%;
+      width: 100%;
+    }
+    h1 {
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    .wrapper {
+      height: 100%;
+      padding: 0;
+    }
+    .header {
+      margin-top: 35px;
+      margin-right: 25px;
+      margin-left: 25px;
+    }
+    .title-full, .title-short, .nav-pills>li>a {
+      color: #fff;
+      letter-spacing: 1px;
+    }
+    .header > h3 {
+      font-size: 35px;
+    }
+    .nav-pills>li>a {
+      font-size: 17px;
+    }
+    .main {
+      height: 100%;
+      width: 100%;
+      margin-top: -115px;
+      background: url('../dist/img/main_large.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    .wrapper {
+      max-width: none;
+    }
+    .copy-container {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .copy {
+      font-size: 25px;
+      color: #ffffff;
+      text-align: center;
+      padding: 150px;
+    }
+    .big {
+      font-size: 55px;
+    }
+    .section {
+      height: 100%;
+      width: 100%;
+      margin-bottom: 75px;
+    }
+    .half-section {
+      width: 50%;
+      height: 100%;
+      display: inline-block;
+    }
+    .publishers {
+      background: url('../dist/img/publishers.jpg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .count {
+      font-weight: bold;
+      font-size: 95px;
+    }
+    .count-label {
+      font-size: 55%;
+    }
+    .count-sub {
+      font-size: 25px;
+    }
+    .publishers > .copy-container {
+      text-align: center;
+      height: 100%;
+    }
+    .sqldump {
+      background: url('../dist/img/data.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      float: left;
+    }
+    .tdm {
+      height: 100%;
+    }
+    .tdm > div {
+      padding: 50px;
+    }
+    .info {
+      padding-bottom: 15px;
+      font-size: 15px;
+      line-height: 26px;
+    }
+    .apps, .team {
+      padding: 50px;
+    }
+    .team-blurb {
+      width: 50%;
+      font-weight: 200;
+    }
+    .person {
+      display: flex;
+      align-items: center;
+      margin: 10px;
+      padding: 10px;
+      background-color: rgba(0,0,0,0.04);
+    }
+    .person-pic {
+      height: 100px;
+      width: 100px;
+      display: inline-block;
+      border-radius: 4px;
+    }
+    .person-desc {
+      display: inline-block;
+      margin-left: 15px;
+    }
+    .person-desc > h4 {
+      margin-bottom: 5px;
+    }
+    .person-desc > p {
+      margin: 0;
+    }
+    .person-title {
+      font-style: italic;
+    }
+    .person-dept {
+      color: #333;
+      font-weight: 200;
+    }
+    .wisconsin {
+      padding: 25px;
+    }
+    .stanford > .team-blurb {
+      text-align: right;
+      margin-left: 50%;
+    }
+    .group {
+      letter-spacing: 2px;
+      font-size: 25px;
+      text-align: right;
+    }
+    @media(max-width: 600px) {
+      .big {
+        font-size: 40px;
+      }
+      .copy {
+        font-size: 15px;
+      }
+      .count {
+        font-size: 50px;
+      }
+      .half-section {
+        width: 100%;
+        height: 50%;
+        display: inline-table;
+      }
+      .data {
+        height: auto;
+      }
+      .apps {
+        height: auto;
+      }
+      .team-blurb {
+        width: 100%;
+      }
+      .wisconsin {
+        padding: 0;
+      }
+      .team {
+        padding: 10px;
+      }
+      .stanford > .team-blurb {
+        margin-left: 0;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="wrapper container-fluid">
     <div class="header clearfix">
       <nav>
         <ul class="nav nav-pills pull-right">
-          <li role="presentation" class="active"><a href="/">Stats</a></li>
+          <li role="presentation"><a href="/statistics">Stats</a></li>
           <li role="presentation"><a href="/about.html">About</a></li>
-          <li role="presentation"><a href="/people.html">People</a></li>
+          <li role="presentation"><a href="#the-team">Team</a></li>
         </ul>
       </nav>
       <h3 class="text-muted title-full">GeoDeepDive</h3>
       <h3 class="text-muted title-short">GDD</h3>
     </div>
+    <div class="section main">
+      <div class="copy-container">
+        <div class="copy">
+          A <span class='big'>digital library</span> and <span class='big'>cyberinfrastructure</span> facilitating the <span class='big'>discovery</span> and <span class='big'>utilization</span> of <span class='big'>data</span> & <span class='big'>knowledge</span> in published documents
+        </div>
+      </div>
+    </div>
+
+    <div class="section publishers">
+      <div class="copy-container">
+        <div>
+          <p class='count'>1,500,000 <span class='count-label'>documents</span></p>
+          <p class='count-sub'>Growing at ~30,000/week</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section data">
+      <div class="half-section sqldump">
+
+      </div>
+      <div class="half-section">
+        <div class="copy-container tdm">
+          <div>
+            <h1>Enabling TDM</h1>
+            <p class="info">In collaboration with UW Libraries, GeoDeepDive has negotiated text and data mining-friendly contracts with major publishers that allow scientists to programatically mine the published scientific literature, primarily in geological and biological sciences</p>
+
+            <p class="info">All documents ingested are run through the Center for High Throughput Computing's infrastructure to extract machine-readable inputs for TDM activities. So far, approximately 10 years of computing time have used.</p>
+
+            <p class="info">Our <a href="https://github.com/UW-Deepdive-Infrastructure/app-template">app-template</a> allows collaborators to quickly bootstrap applications that can deployed on large corpora on the GeoDeepDive infrastructure</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section apps">
+      <div class="copy-container">
+        <div>
+          <h1>End-user Workflow</h1>
+          <div class="app-step">
+            <h3>Have an idea</h3>
+            <p>A question that can be answered by mining the scientific literature. 1.5 million documents from 8 publishers are currently available.</p>
+          </div>
+          <div class="app-step">
+            <h3>Fork the application template</h3>
+            <p>Find the application template <a href="https://github.com/UW-DeepDive-Infrastructure/app-template">on Github</a></p>
+          </div>
+          <div class="app-step">
+            <h3>Update config file</h3>
+            <p>Use words of interest to identify relevant documents. A subset of the literature that contains these words is then generated for testing purposes.</p>
+          </div>
+          <div class="app-step">
+            <h3>Write an application</h3>
+            <p>Identify an output schema that can be used to answer the original question, and write an application to parse the input into the desired structure. Python, Postgres, R, and associated modules are currently supported.</p>
+          </div>
+          <div class="app-step">
+            <h3>Run on full dataset</h3>
+            <p>Commit your application to a GeoDeepDive infrastructure repository on Github to run your application on our infrastructure and generate results.</p>
+          </div>
+          <div class="app-step">
+            <h3>Analyze results</h3>
+            <p>Download and analyze results, identify strengths and weaknesses. We will provide bibliographical information about all relevant documents.</p>
+          </div>
+          <div class="app-step">
+            <h3>Iterate</h3>
+            <p>Troubleshoot application, resubmit, generate new results. We will continue to grow the dataset as more matching documents are fetched.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section team" id="the-team">
+      <div class="copy-container">
+        <div>
+          <div>
+            <h1>The Team</h1>
+            <p class="team-blurb">The GeoDeepDive team is made up of domain experts in both the Geosciences and Computer Sciences, librarians, infrastructure developers, and undergraduate, graduate, and postdoctoral researchers</p>
+          </div>
+          <div class="person-group wisconsin">
+            <h3 class="group">Wisconsin Infrastructure Team</h3>
+            <div class="row person-row">
+              <div class="col-sm-6 person">
+                <img class="person-pic" src="../dist/img/shanan.jpg">
+                <div class="person-desc">
+                  <h4>Shanan Peters</h4>
+                  <p class="person-title">Project Lead</p>
+                  <p class="person-dept">Geoscience</p>
+                </div>
+              </div>
+              <div class="col-sm-6 person">
+                <img class="person-pic" src="../dist/img/miron.jpg">
+                <div class="person-desc">
+                  <h4>Miron Livny</h4>
+                  <p class="person-title">Project Lead</p>
+                  <p class="person-dept">Computer Science</p>
+                </div>
+              </div>
+            </div>
+            <div class="row person-row">
+              <div class="col-sm-4 person">
+                <img class="person-pic" src="../dist/img/default-person.png">
+                <div class="person-desc">
+                  <h4>Ian Ross</h4>
+                  <p class="person-title">Lead Developer</p>
+                  <p class="person-dept">Computer Science</p>
+                </div>
+              </div>
+              <div class="col-sm-4 person">
+                <img class="person-pic" src="../dist/img/default-person.png">
+                <div class="person-desc">
+                  <h4>Tim Thiesen</h4>
+                  <p class="person-title">Infrastructure Coordinator</p>
+                  <p class="person-dept">Computer Science</p>
+                </div>
+              </div>
+              <div class="col-sm-4 person">
+                <img class="person-pic" src="../dist/img/john.jpg">
+                <div class="person-desc">
+                  <h4>John Czaplewski</h4>
+                  <p class="person-title">Developer</p>
+                </div>
+              </div>
+            </div>
+            <div class="row person-row">
+              <div class="col-sm-4 person">
+                <img class="person-pic" src="../dist/img/default-person.png">
+                <div class="person-desc">
+                  <div class="person-desc">
+                    <h4>Aimee Glassel</h4>
+                    <p class="person-title">Academic Librarian</p>
+                    <p class="person-dept">Libraries</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4 person">
+                <img class="person-pic" src="../dist/img/jon.jpg">
+                <div class="person-desc">
+                  <h4>Jon Husson</h4>
+                  <p class="person-title">Postdoctoral Researcher</p>
+                  <p class="person-dept">Geoscience</p>
+                </div>
+              </div>
+              <div class="col-sm-4 person">
+                <img class="person-pic" src="../dist/img/andrew.jpg">
+                <div class="person-desc">
+                  <h4>Andrew Zaffos</h4>
+                  <p class="person-title">Postdoctoral Researcher</p>
+                  <p class="person-dept">Geoscience</p>
+                </div>
+              </div>
+            </div>
+            <div class="row person-row">
+              <div class="col-sm-4 person">
+                <img class="person-pic" src="../dist/img/valerie.jpg">
+                <div class="person-desc">
+                  <h4>Valerie Syverson</h4>
+                  <p class="person-title">Postdoctoral Researcher</p>
+                  <p class="person-dept">Geoscience</p>
+                </div>
+              </div>
+              <div class="col-sm-4 person">
+                <img class="person-pic" src="../dist/img/default-person.png">
+                <div class="person-desc">
+                  <h4>Julia Wilcots</h4>
+                  <p class="person-title">Undergrad App Builder</p>
+                  <p class="person-dept">Princeton</p>
+                </div>
+              </div>
+              <div class="col-sm-4 person">
+                <img class="person-pic" src="../dist/img/default-person.png">
+                <div class="person-desc">
+                  <h4>Chao Liu</h4>
+                  <p class="person-title">Postdoctoral App Builder</p>
+                  <p class="person-dept">Carnegie Institute</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="person-group stanford">
+            <h3 class="group">Stanford DeepDive Team</h3>
+            <p class="team-blurb">Chris Ré's team is focused on the DeepDive platform for knowledge base creation, and ensuring the datasets produced by the UW-Madison infrastructure team are DeepDive-ready.</p>
+            <div class="row person-row">
+              <div class="col-sm-6 person">
+                <img class="person-pic" src="../dist/img/chris.jpg">
+                <div class="person-desc">
+                  <h4>Christoper Ré</h4>
+                  <p class="person-title">Project Lead</p>
+                  <p class="person-dept">Computer Science</p>
+                </div>
+              </div>
+              <div class="col-sm-6 person">
+                <img class="person-pic" src="../dist/img/ce.jpg">
+                <div class="person-desc">
+                  <h4>Ce Zhang</h4>
+                  <p class="person-title">Postdoctoral Researcher</p>
+                  <p class="person-dept">Computer Science</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
-
-  <script id="recent_template" type="x-tmpl-mustache">
-    <div class="row summary-row">
-      <div class="col-sm-12">
-        <div class="row">
-          <div class="col-sm-12 summary-type recent recent-title">Recently Fetched</div>
-        </div>
-        <div class="row">
-          <div class="col-sm-6 recent">
-            <ul class="recent-list">
-            {{#first}}
-              <li>
-                {{#author}}{{name}}, {{/author}}
-                <a href="{{externalLink}}" target="_blank">{{title}}</a>. {{journal}}{{#volume}} {{volume}}{{/volume}}{{#pages}}, p. {{pages}}{{/pages}}. doi:{{doi}}. {{publisher}}.
-              </li>
-            {{/first}}
-            </ul>
-          </div>
-          <div class="col-sm-6 recent">
-            <ul class="recent-list">
-            {{#second}}
-              <li>
-                {{#author}}{{name}}, {{/author}}
-                <a href="{{externalLink}}" target="_blank">{{title}}</a>. {{journal}}{{#volume}} {{volume}}{{/volume}}{{#pages}}, p. {{pages}}{{/pages}}. doi:{{doi}}. {{publisher}}.
-              </li>
-            {{/second}}
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </script>
-
-  <script id="template" type="x-tmpl-mustache">
-    <div class="row summary-row">
-      <div class="col-sm-12 {{type}} {{publisher}}">
-        <div class="row">
-          <div class="col-sm-7 summary-type journal" style="background-color: {{color}}{{^color}}none{{/color}}; border-color: {{color}}{{^color}}none{{/color}};"><div class='journal-wrapper {{publisher}}'>{{name}} <br><p class="journal-source">{{source}}</p></div></div>
-          <div class="col-sm-5 summary-stat fetched journal" style="border-color: {{color}}{{^color}}none{{/color}}; color: {{color}}{{^color}}none{{/color}};"><span>{{fetched}}</span> Documents</div>
-        </div>
-        <div class="row">
-          <div class="col-sm-3 summary-stat journal" style="border-color: {{color}}{{^color}}none{{/color}}; color: {{color}}{{^color}}none{{/color}};"><span>{{ocr}}</span> Tesseract 3.02</div>
-          <div class="col-sm-3 summary-stat journal" style="border-color: {{color}}{{^color}}none{{/color}}; color: {{color}}{{^color}}none{{/color}};"><span>{{cuneiform}}</span> Cuneiform 1.1</div>
-          <div class="col-sm-3 summary-stat journal" style="border-color: {{color}}{{^color}}none{{/color}}; color: {{color}}{{^color}}none{{/color}};"><span>{{nlp352}}</span> Stanford NLP 3.5.2</div>
-          <div class="col-sm-3 summary-stat journal" style="border-color: {{color}}{{^color}}none{{/color}}; color: {{color}}{{^color}}none{{/color}};"><span>{{nlp360}}</span> Stanford NLP 3.6.0 </div>
-          <div class="col-sm-3 summary-stat journal" style="border-color: {{color}}{{^color}}none{{/color}}; color: {{color}}{{^color}}none{{/color}};"><span>{{fonttype}}</span> FontType</div>
-        </div>
-      </div>
-    </div>
-  </script>
-
-  <script src="./dist/js/libs.min.js"></script>
-  <script src="./dist/js/index.js"></script>
 </body>
 </html>

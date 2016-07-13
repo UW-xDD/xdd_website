@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GeoDeepDive</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  <link rel="stylesheet" type="text/css" href="../dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" type="text/css" href="../dist/css/styles.css"/>
+
+</head>
+<body>
+  <div class="wrapper container-fluid">
+    <div class="header clearfix">
+      <nav>
+        <ul class="nav nav-pills pull-right">
+          <li role="presentation" class="active"><a href="/statistics">Stats</a></li>
+          <li role="presentation"><a href="/about.html">About</a></li>
+          <li role="presentation"><a href="/people.html">People</a></li>
+        </ul>
+      </nav>
+      <h3 class="text-muted title-full">GeoDeepDive</h3>
+      <h3 class="text-muted title-short">GDD</h3>
+    </div>
+  </div>
+
+  <script id="recent_template" type="x-tmpl-mustache">
+    <div class="row summary-row">
+      <div class="col-sm-12">
+        <div class="row">
+          <div class="col-sm-12 summary-type recent recent-title">Recently Fetched</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6 recent">
+            <ul class="recent-list">
+            {{#first}}
+              <li>
+                {{#author}}{{name}}, {{/author}}
+                <a href="{{externalLink}}" target="_blank">{{title}}</a>. {{journal}}{{#volume}} {{volume}}{{/volume}}{{#pages}}, p. {{pages}}{{/pages}}. doi:{{doi}}. {{publisher}}.
+              </li>
+            {{/first}}
+            </ul>
+          </div>
+          <div class="col-sm-6 recent">
+            <ul class="recent-list">
+            {{#second}}
+              <li>
+                {{#author}}{{name}}, {{/author}}
+                <a href="{{externalLink}}" target="_blank">{{title}}</a>. {{journal}}{{#volume}} {{volume}}{{/volume}}{{#pages}}, p. {{pages}}{{/pages}}. doi:{{doi}}. {{publisher}}.
+              </li>
+            {{/second}}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </script>
+
+  <script id="template" type="x-tmpl-mustache">
+    <div class="row summary-row">
+      <div class="col-sm-12 {{type}} {{publisher}}">
+        <div class="row">
+          <div class="col-sm-7 summary-type journal" style="background-color: {{color}}{{^color}}none{{/color}}; border-color: {{color}}{{^color}}none{{/color}};"><div class='journal-wrapper {{publisher}}'>{{name}} <br><p class="journal-source">{{source}}</p></div></div>
+          <div class="col-sm-5 summary-stat fetched journal" style="border-color: {{color}}{{^color}}none{{/color}}; color: {{color}}{{^color}}none{{/color}};"><span>{{fetched}}</span> Documents</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3 summary-stat journal" style="border-color: {{color}}{{^color}}none{{/color}}; color: {{color}}{{^color}}none{{/color}};"><span>{{ocr}}</span> Tesseract 3.02</div>
+          <div class="col-sm-3 summary-stat journal" style="border-color: {{color}}{{^color}}none{{/color}}; color: {{color}}{{^color}}none{{/color}};"><span>{{cuneiform}}</span> Cuneiform 1.1</div>
+          <div class="col-sm-3 summary-stat journal" style="border-color: {{color}}{{^color}}none{{/color}}; color: {{color}}{{^color}}none{{/color}};"><span>{{nlp352}}</span> Stanford NLP 3.5.2</div>
+          <div class="col-sm-3 summary-stat journal" style="border-color: {{color}}{{^color}}none{{/color}}; color: {{color}}{{^color}}none{{/color}};"><span>{{nlp360}}</span> Stanford NLP 3.6.0 </div>
+          <div class="col-sm-3 summary-stat journal" style="border-color: {{color}}{{^color}}none{{/color}}; color: {{color}}{{^color}}none{{/color}};"><span>{{fonttype}}</span> FontType</div>
+        </div>
+      </div>
+    </div>
+  </script>
+
+  <script src="../dist/js/libs.min.js"></script>
+  <script src="../dist/js/index.js"></script>
+</body>
+</html>
