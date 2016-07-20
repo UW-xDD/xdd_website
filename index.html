@@ -4,12 +4,16 @@
   <title>GeoDeepDive</title>
   <meta charset="utf-8" />
   <meta http-equiv="Content-Language" content="en">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <link rel="stylesheet" type="text/css" href="./dist/css/bootstrap.min.css"/>
   <link rel="stylesheet" type="text/css" href="./dist/css/styles.css"/>
   <link rel="stylesheet" type="text/css" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/>
   <style>
+    body {
+      overflow-x: hidden;
+      overflow-y: scroll;
+    }
     body, html {
       height: 100%;
       width: 100%;
@@ -112,6 +116,7 @@
     }
     .apps, .team {
       padding: 50px;
+      height: auto;
     }
     .team-blurb {
       width: 50%;
@@ -162,6 +167,7 @@
     @media(max-width: 600px) {
       .main {
         margin-top: -120px;
+        height: 110%;
       }
       .header {
         margin: 0;
@@ -173,10 +179,12 @@
         font-size: 14px;
       }
       .big {
-        font-size: 40px;
+        font-size: 35px;
       }
       .copy {
         font-size: 15px;
+        padding: 0;
+        padding-top: 40px;
       }
       .count {
         font-size: 50px;
@@ -218,8 +226,8 @@
           <li role="presentation"><a href="#the-team">Team</a></li>
         </ul>
       </nav>
-      <h3 class="text-muted title-full">GeoDeepDive</h3>
-      <h3 class="text-muted title-short">GDD</h3>
+      <h3 class="text-muted title-full"><a href="/">GeoDeepDive</a></h3>
+      <h3 class="text-muted title-short"><a href="/">GDD</a></h3>
     </div>
     <div class="section main">
       <div class="copy-container">
@@ -305,7 +313,7 @@
               <div class="col-sm-6 person">
                 <img class="person-pic" src="../dist/img/shanan.jpg">
                 <div class="person-desc">
-                  <h4>Shanan Peters</h4>
+                  <h4><a href="http://strata.geology.wisc.edu" target="_blank">Shanan Peters</a></h4>
                   <p class="person-title">Project Lead</p>
                   <p class="person-dept">Geoscience</p>
                 </div>
@@ -313,7 +321,7 @@
               <div class="col-sm-6 person">
                 <img class="person-pic" src="../dist/img/miron.jpg">
                 <div class="person-desc">
-                  <h4>Miron Livny</h4>
+                  <h4><a href="http://www.cs.wisc.edu/people/miron" target="_blank">Miron Livny</a></h4>
                   <p class="person-title">Project Lead</p>
                   <p class="person-dept">Computer Science</p>
                 </div>
@@ -323,7 +331,7 @@
               <div class="col-sm-4 person">
                 <img class="person-pic" src="../dist/img/default-person.png">
                 <div class="person-desc">
-                  <h4>Ian Ross</h4>
+                  <h4><a href="https://www.cs.wisc.edu/people/iross" target="_blank">Ian Ross</a></h4>
                   <p class="person-title">Lead Developer</p>
                   <p class="person-dept">Computer Science</p>
                 </div>
@@ -331,7 +339,7 @@
               <div class="col-sm-4 person">
                 <img class="person-pic" src="../dist/img/default-person.png">
                 <div class="person-desc">
-                  <h4>Tim Thiesen</h4>
+                  <h4><a href="http://www.cs.wisc.edu/people/tim" target="_blank">Tim Thiesen</a></h4>
                   <p class="person-title">Infrastructure Coordinator</p>
                   <p class="person-dept">Computer Science</p>
                 </div>
@@ -339,7 +347,7 @@
               <div class="col-sm-4 person">
                 <img class="person-pic" src="../dist/img/john.jpg">
                 <div class="person-desc">
-                  <h4>John Czaplewski</h4>
+                  <h4><a href="http://www.johnjcz.com" target="_blank">John Czaplewski</a></h4>
                   <p class="person-title">Developer</p>
                 </div>
               </div>
@@ -349,7 +357,7 @@
                 <img class="person-pic" src="../dist/img/default-person.png">
                 <div class="person-desc">
                   <div class="person-desc">
-                    <h4>Aimee Glassel</h4>
+                    <h4><a href="https://www.library.wisc.edu/about/directory/staff-page/aimee-glassel/" target="_blank">Aimee Glassel</a></h4>
                     <p class="person-title">Academic Librarian</p>
                     <p class="person-dept">Libraries</p>
                   </div>
@@ -358,7 +366,7 @@
               <div class="col-sm-4 person">
                 <img class="person-pic" src="../dist/img/jon.jpg">
                 <div class="person-desc">
-                  <h4>Jon Husson</h4>
+                  <h4><a href="http://www.jonhusson.com" target="_blank">Jon Husson</a></h4>
                   <p class="person-title">Postdoctoral Researcher</p>
                   <p class="person-dept">Geoscience</p>
                 </div>
@@ -366,7 +374,7 @@
               <div class="col-sm-4 person">
                 <img class="person-pic" src="../dist/img/andrew.jpg">
                 <div class="person-desc">
-                  <h4>Andrew Zaffos</h4>
+                  <h4><a href="http://www.azstrata.org" target="_blank">Andrew Zaffos</a></h4>
                   <p class="person-title">Postdoctoral Researcher</p>
                   <p class="person-dept">Geoscience</p>
                 </div>
@@ -384,17 +392,27 @@
               <div class="col-sm-4 person">
                 <img class="person-pic" src="../dist/img/default-person.png">
                 <div class="person-desc">
-                  <h4>Julia Wilcots</h4>
-                  <p class="person-title">Undergrad App Builder</p>
-                  <p class="person-dept">Princeton</p>
+                  <h4>Chao Liu</h4>
+                  <p class="person-title">Postdoctoral App Builder</p>
+                  <p class="person-dept">Carnegie Institute</p>
                 </div>
               </div>
               <div class="col-sm-4 person">
                 <img class="person-pic" src="../dist/img/default-person.png">
                 <div class="person-desc">
-                  <h4>Chao Liu</h4>
-                  <p class="person-title">Postdoctoral App Builder</p>
-                  <p class="person-dept">Carnegie Institute</p>
+                  <h4>Julia Wilcots</h4>
+                  <p class="person-title">Undergrad App Builder</p>
+                  <p class="person-dept">Princeton</p>
+                </div>
+              </div>
+            </div>
+            <div class="row person-row">
+              <div class="col-sm-4 person">
+                <img class="person-pic" src="../dist/img/default-person.png">
+                <div class="person-desc">
+                  <h4><a href="https://github.com/ItoErika/ItoErika.github.io" target="_blank">Erika Ito</a></h4>
+                  <p class="person-title">Undergrad App Builder</p>
+                  <p class="person-dept">UW Madison</p>
                 </div>
               </div>
             </div>
@@ -406,7 +424,7 @@
               <div class="col-sm-6 person">
                 <img class="person-pic" src="../dist/img/chris.jpg">
                 <div class="person-desc">
-                  <h4>Christoper Ré</h4>
+                  <h4><a href="http://cs.stanford.edu/people/chrismre/" target="_blank">Christoper Ré</a></h4>
                   <p class="person-title">Project Lead</p>
                   <p class="person-dept">Computer Science</p>
                 </div>
@@ -414,7 +432,7 @@
               <div class="col-sm-6 person">
                 <img class="person-pic" src="../dist/img/ce.jpg">
                 <div class="person-desc">
-                  <h4>Ce Zhang</h4>
+                  <h4><a href="http://cs.stanford.edu/people/czhang/" target="_blank">Ce Zhang</a></h4>
                   <p class="person-title">Postdoctoral Researcher</p>
                   <p class="person-dept">Computer Science</p>
                 </div>
@@ -424,7 +442,27 @@
         </div>
       </div>
     </div>
-
+    <div class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-4 footer-title">
+            <h3><a href="/">GeoDeepDive</a></h3>
+          </div>
+          <div class="col-sm-4 footer-links">
+            <p><a href="/statistics">Stats</a></p>
+            <p><a href="/about.html">About</a></p>
+            <p><a href="/#the-team">Team</a></p>
+          </div>
+          <div class="col-sm-4 footer-funding">
+            <a href="http://www.nsf.gov/"><img src="dist/img/nsf.jpg"></a>
+            <a href="http://earthcube.org/"><img src="dist/img/earthcube.jpg"></a>
+            <a href="http://chtc.cs.wisc.edu/"><img src="dist/img/chtc.jpg" class="chtc"></a>
+            <a href="http://geoscience.wisc.edu/geoscience/"><img src="dist/img/geobucky.jpg"></a>
+            <p>Funded by NSF ICER 1343760</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </body>
 </html>
