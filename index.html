@@ -49,6 +49,26 @@
       background-size: cover;
       background-repeat: no-repeat;
     }
+    .contact {
+      height: 100%;
+      width: 100%;
+      background: url('../dist/img/typewriter.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    .contact-title {
+      font-size: 60px;
+    }
+    .contact-text {
+      font-size: 20px;
+    }
+    .contact-copy > p {
+      margin-top: 10%;
+      max-width: 500px;
+    }
+    .contact-email {
+      letter-spacing: 1px;
+    }
     .wrapper {
       max-width: none;
     }
@@ -215,6 +235,12 @@
       .stanford > .team-blurb {
         margin-left: 0;
       }
+      .contact-title {
+        font-size: 40px;
+      }
+      .contact-text {
+        font-size: 18px;
+      }
     }
   </style>
 </head>
@@ -302,12 +328,22 @@
       </div>
     </div>
 
+    <div class="section contact" id="contact">
+      <div class="copy-container">
+        <div class="copy contact-copy">
+          <h1 class="contact-title">Get in touch</h1>
+          <p class="contact-text">Whether you're a publisher interested in contributing your content to our infrastructure, a scientist interested in collaboration, or just curious to know more, let us know!</p>
+          <p>contact@geodeepdive.org</p>
+        </div>
+      </div>
+    </div>
+
     <div class="section team" id="the-team">
       <div class="copy-container">
         <div>
           <div>
             <h1>The Team</h1>
-            <p class="team-blurb">The GeoDeepDive team is made up of domain experts in both the Geosciences and Computer Sciences, librarians, infrastructure developers, and undergraduate, graduate, and postdoctoral researchers</p>
+            <p class="team-blurb">The GeoDeepDive team is based at the University of Wisconsin - Madison and is made up of domain experts in both the Geosciences and Computer Sciences, librarians, infrastructure developers, and undergraduate, graduate, and postdoctoral researchers</p>
           </div>
           <div class="person-group wisconsin">
             <h3 class="group">Wisconsin Infrastructure Team</h3>
@@ -453,6 +489,7 @@
           <div class="col-sm-4 footer-links">
             <p><a href="/statistics">Stats</a></p>
             <p><a href="/about.html">About</a></p>
+            <p><a href="/#contact">Contact</a></p>
             <p><a href="/#the-team">Team</a></p>
           </div>
           <div class="col-sm-4 footer-funding">
