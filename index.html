@@ -268,8 +268,10 @@
     <div class="section publishers">
       <div class="copy-container">
         <div>
-          <p class='count'>1,600,000 <span class='count-label'>documents</span></p>
-          <p class='count-sub'>Growing at roughly 30,000 per week</p>
+          <p class='count'><span id="totalDocs">1,600,000</span> <span class='count-label'>documents</span></p>
+          <p class='count-sub'><span id="monthlyDocs">30,000</span> ingested this month</p>
+          <p class='count-sub'><span id="weeklyDocs">1,432</span> ingested this week</p>
+          <p class='count-sub'><span id="dailyDocs">123</span> ingested today</p>
         </div>
       </div>
     </div>
@@ -503,5 +505,24 @@
       </div>
     </div>
   </div>
+
+  <script src="dist/js/zepto.min.js"></script>
+  <script>
+    function commaize(x) {
+      x = parseInt(x);
+      var parts = x.toString().split(".");
+      parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      return parts.join(".");
+    }
+
+    $(document).ready(function() {
+      $.get("https://geodeepdive.org/api/v1/metrics/basic", function(data) {
+        $('#totalDocs').html(commaize(data.success.data.total))
+        $('#monthlyDocs').html(commaize(data.success.data.lastMonth))
+        $('#weeklyDocs').html(commaize(data.success.data.lastWeek))
+        $('#dailyDocs').html(commaize(data.success.data.lastDay))
+      })
+    })
+  </script>
 </body>
 </html>
