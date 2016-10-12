@@ -99,7 +99,7 @@
 
       // Define some default colors to keep source colors consistent
       var sourceColors = ['#F0C419', '#4EBA6F', '#AA012E', '#686354', '#363863', '#556E53', '#37B7B5', '#CA4B7C',
-    '#433751'];
+    '#433751', '#2980B9'];
 
       // Find, process, and append publishers
       _.uniq(
