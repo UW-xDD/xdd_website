@@ -6,8 +6,6 @@
   <meta http-equiv="Content-Language" content="en">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-  <link href="https://fonts.googleapis.com/css?family=Maven+Pro&amp;text=macrostrat" rel="stylesheet" type="text/css">
-
   <link rel="stylesheet" type="text/css" href="./dist/css/bootstrap.min.css"/>
   <link rel="stylesheet" type="text/css" href="./dist/css/styles.css"/>
   <style>
@@ -64,6 +62,15 @@
   }
 
   </style>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-81221089-1', 'auto');
+    ga('send', 'pageview');
+  </script>
 
 </head>
 <body>
@@ -71,13 +78,13 @@
     <div class="header clearfix">
       <nav>
         <ul class="nav nav-pills pull-right">
-          <li role="presentation"><a href="/">Stats</a></li>
+          <li role="presentation"><a href="/statistics">Stats</a></li>
           <li role="presentation" class="active"><a href="/about.html">About</a></li>
-          <li role="presentation"><a href="/people.html">People</a></li>
+          <li role="presentation"><a href="/#the-team">Team</a></li>
         </ul>
       </nav>
-      <h3 class="text-muted title-full">GeoDeepDive</h3>
-      <h3 class="text-muted title-short">GDD</h3>
+      <h3 class="text-muted title-full"><a href="/">GeoDeepDive</a></h3>
+      <h3 class="text-muted title-short"><a href="/">GDD</a></h3>
     </div>
 
     <div class="row first-row">
@@ -121,7 +128,7 @@
       <div class="col-sm-7">
         <p>
           <a href="https://www.elsevier.com" target="_blank">
-            <img src="./dist/img/elsevier.jpeg" alt="elsevier" class="partner partner-small"/>
+            <img src="./dist/img/elsevier.jpeg" alt="elsevier" class="partner-small"/>
           </a>
           <a href="http://www.wiley.com" target="_blank">
             <img src="./dist/img/wiley_wordmark.png" alt="wiley" class="partner"/>
@@ -129,17 +136,20 @@
           <a href="https://sites.agu.org" target="_blank">
             <img src="./dist/img/agu.png" alt="agu" class="partner"/>
           </a>
+          <a href="http://www.sepm.org" target="_blank">
+            <img src="./dist/img/sepm.jpg" alt="SEPM" class="partner-small"/>
+          </a>
           <a href="http://www.usgs.gov" target="_blank">
             <img src="./dist/img/usgs.jpg" alt="USGS" class="partner"/>
           </a>
-          <a href="http://www.sepm.org" target="_blank">
-            <img src="./dist/img/sepm.jpg" alt="SEPM" class="partner partner-small"/>
-          </a>
          <a href="http://www.geosociety.org/index.htm" target="_blank">
-            <img src="./dist/img/GSA.jpg" alt="GSA" class="partner partner-small"/>
+            <img src="./dist/img/GSA.jpg" alt="GSA" class="partner-small"/>
           </a>
           <a href="http://www.cdnsciencepub.com" target="_blank">
-            <img src="./dist/img/CSP.png" alt="CSP" class="partner partner"/>
+            <img src="./dist/img/CSP.png" alt="CSP" class="partner"/>
+          </a>
+          <a href="http://taylorandfrancis.com" target="_blank">
+            <img src="./dist/img/TF.jpg" alt="TF" class="partner"/>
           </a>
         </p>
         <p>Check back often. We are actively seeking new partnerships and content providers.</p>
@@ -255,13 +265,34 @@
         <p class="about-p">
           Every word and datum that can be derived from our infrastructure is fully traceable back to the original content provided by our partner publishers and organizations. Users must provide full citation and, when relevant, URL links back to all of the original works that contributed data to an application or result. The GeoDeepDive infrastructure can also be cited and we welcome new collaborations, both scientific and informatic.
         </p>
-        <p class="about-p">        
+        <p class="about-p">
           Applications can be developed and run on our infrastructure using the GeoDeepDive <a href="https://github.com/UW-Deepdive-Infrastructure/app-template">app-template</a>.
         </p>
       </div>
     </div>
 
   </div>
-
+  <div class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 footer-title">
+          <h3><a href="/">GeoDeepDive</a></h3>
+        </div>
+        <div class="col-sm-4 footer-links">
+          <p><a href="/statistics">Stats</a></p>
+          <p><a href="/about.html">About</a></p>
+          <p><a href="/#contact">Contact</a></p>
+          <p><a href="/#the-team">Team</a></p>
+        </div>
+        <div class="col-sm-4 footer-funding">
+          <a href="http://www.nsf.gov/"><img src="dist/img/nsf.jpg"></a>
+          <a href="http://earthcube.org/"><img src="dist/img/earthcube.jpg"></a>
+          <a href="http://chtc.cs.wisc.edu/"><img src="dist/img/chtc.jpg" class="chtc"></a>
+          <a href="http://geoscience.wisc.edu/geoscience/"><img src="dist/img/geobucky.jpg"></a>
+          <p>Funded by NSF ICER 1343760</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

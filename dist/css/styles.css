@@ -19,7 +19,9 @@
   margin-bottom: 0;
   line-height: 40px;
 }
-
+.header > h3 > a {
+  color: inherit;
+}
 .nav-pills a {
   color: #777;
 }
@@ -37,6 +39,33 @@
   display: block;
 }
 
+.footer {
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid #aaa;
+  padding: 20px;
+  color: #777;
+}
+.footer-title > .title-full {
+  color: #777 !important;
+}
+.footer-links {
+  text-align: center;
+  font-size: 17px;
+}
+.footer-links > p > a {
+  color: #777 !important;
+}
+.footer-funding {
+  text-align: center;
+}
+.footer-funding > a > img {
+  height: 40px;
+  margin: 10px;
+}
+.chtc {
+  height: 35px !important;
+}
 .summary-row {
   padding: 20px;
 }
@@ -241,5 +270,8 @@ a:hover {
   }
   .journal:not(:last-child) {
     border-bottom-width: 0;
+  }
+  .footer-title {
+    text-align: center;
   }
 }

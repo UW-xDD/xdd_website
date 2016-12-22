@@ -5,21 +5,26 @@
   <meta charset="utf-8" />
   <meta http-equiv="Content-Language" content="en">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-
-  <link href="https://fonts.googleapis.com/css?family=Maven+Pro&amp;text=macrostrat" rel="stylesheet" type="text/css">
-
   <link rel="stylesheet" type="text/css" href="./dist/css/bootstrap.min.css"/>
   <link rel="stylesheet" type="text/css" href="./dist/css/styles.css"/>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
+    ga('create', 'UA-81221089-1', 'auto');
+    ga('send', 'pageview');
+  </script>
 </head>
 <body>
   <div class="wrapper container-fluid">
     <div class="header clearfix">
       <nav>
         <ul class="nav nav-pills pull-right">
-          <li role="presentation"><a href="/">Stats</a></li>
+          <li role="presentation"><a href="/statistics">Stats</a></li>
           <li role="presentation"><a href="/about.html">About</a></li>
-          <li role="presentation" class="active"><a href="/people.html">People</a></li>
+          <li role="presentation"><a href="/#the-team">Team</a></li>
         </ul>
       </nav>
       <h3 class="text-muted title-full">GeoDeepDive</h3>
@@ -41,7 +46,7 @@
           <div class="person-team">
             <p class="team-heading">UW Technical Team</p>
             <p><a href="https://www.cs.wisc.edu/people/iross" target="_blank">Ian Ross</a> <small>(lead developer)</small></p>
-            <p><a href="http://www.cs.wisc.edu/people/tim" target="_blank">Tim Thiesen</a> <small>(infrastructure coordinator)</small></p>
+            <p><a href="http://www.cs.wisc.edu/people/tim" target="_blank">Tim Theisen</a> <small>(infrastructure coordinator)</small></p>
             <p><a href="http://www.johnjcz.com" target="_blank">John Czaplewski</a> <small>(supporting developer)</small></p>
           </div>
 
@@ -77,6 +82,28 @@
       <div class="col-sm-5"><a href="http://deepdive.stanford.edu" target="_blank"><img><img src="./dist/img/deepdive.png" alt="DeepDive" style="width: 100%;"></a></div>
     </div>
 
+  </div>
+  <div class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 footer-title">
+          <h3><a href="/">GeoDeepDive</a></h3>
+        </div>
+        <div class="col-sm-4 footer-links">
+          <p><a href="/statistics">Stats</a></p>
+          <p><a href="/about.html">About</a></p>
+          <p><a href="/#contact">Contact</a></p>
+          <p><a href="/#the-team">Team</a></p>
+        </div>
+        <div class="col-sm-4 footer-funding">
+          <a href="http://www.nsf.gov/"><img src="dist/img/nsf.jpg"></a>
+          <a href="http://earthcube.org/"><img src="dist/img/earthcube.jpg"></a>
+          <a href="http://chtc.cs.wisc.edu/"><img src="dist/img/chtc.jpg" class="chtc"></a>
+          <a href="http://geoscience.wisc.edu/geoscience/"><img src="dist/img/geobucky.jpg"></a>
+          <p>Funded by NSF ICER 1343760</p>
+        </div>
+      </div>
+    </div>
   </div>
 
 </body>
