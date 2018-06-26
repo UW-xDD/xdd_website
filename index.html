@@ -135,7 +135,7 @@
       font-size: 15px;
       line-height: 26px;
     }
-    .apps, .team {
+    .apps, .team, .news {
       padding: 50px;
       height: auto;
     }
@@ -188,6 +188,22 @@
       letter-spacing: 2px;
       font-size: 25px;
       text-align: right;
+    }
+    .news-items {
+      list-style: none;
+      margin-left: 0;
+      padding-left: 0;
+    }
+    .news-items > li {
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+    .news-items > li > a {
+      font-size: 80%;
+    }
+    .news-item-title {
+      font-size: 110%;
+      font-weight: 500;
     }
     @media(max-width: 600px) {
       .main {
@@ -317,6 +333,23 @@
       </div>
     </div>
 
+    <div class="section news">
+      <div class="">
+        <h1>News</h1>
+        <div>
+          <ul class="news-items">
+            <li><span class="news-item-title">Automated text and data mining: knowledge base creation and augmentation.</span> Shanan Peters. June 2018. <a href="https://youtu.be/wzGKFS4IefI?t=8801">https://youtu.be/wzGKFS4IefI?t=8801</a></li>
+            <li><span class="news-item-title">What kind of discoveries might be hidden in the growing sea of ‘dark data’? GeoDeepDive might be able to tell us.</span> EarthCube blog. March 2018. <a href="https://earthcube.blog/2018/03/06/geodeepdive-into-darkdata/">https://earthcube.blog/2018/03/06/geodeepdive-into-darkdata/</a>
+            <li><span class="news-item-title">UW Digital Humanities Research Network Podcast.</span> Fall 2017. <a href="http://dhrn.wiscprintdigital.org/uw-dh-archive/geodeepdive/">http://dhrn.wiscprintdigital.org/uw-dh-archive/geodeepdive/</a></li>
+            <li><span class="news-item-title">Massive, computer-analyzed geological database reveals chemistry of ancient ocean.</span> University of Wisconsin - Madison News. March 2017. <a href="https://news.wisc.edu/massive-computer-analyzed-geological-database-reveals-chemistry-of-ancient-ocean/">https://news.wisc.edu/massive-computer-analyzed-geological-database-reveals-chemistry-of-ancient-ocean/</a></li>
+            <li><span class="news-item-title">Scientists search 3 million publications to unlock sea change secret.</span> Engadget. March 2017. <a href="https://www.engadget.com/2017/03/30/scientists-search-3-million-publications-to-unlock-sea-change-se/">https://www.engadget.com/2017/03/30/scientists-search-3-million-publications-to-unlock-sea-change-se/</a></li>
+            <li><span class="news-item-title">Computers read the fossil record.</span> Nature News. June 2015. <a href="https://www.nature.com/news/computers-read-the-fossil-record-1.17868">https://www.nature.com/news/computers-read-the-fossil-record-1.17868</a></li>
+            <li><span class="news-item-title">Computer equal to or better than humans at cataloging science.</span> University of Wisconsin - Madison News. December 2014. <a href="https://news.wisc.edu/computer-equal-to-or-better-than-humans-at-cataloging-science/">https://news.wisc.edu/computer-equal-to-or-better-than-humans-at-cataloging-science/</a></li>
+          </ul>
+        </li>
+      </div>
+    </div>
+
     <div class="section apps">
       <div class="copy-container">
         <div>
@@ -410,7 +443,7 @@
               <div class="col-sm-4 person">
                 <img class="person-pic" src="../dist/img/john.jpg">
                 <div class="person-desc">
-                  <h4><a href="http://www.johnjcz.com" target="_blank">John Czaplewski</a></h4>
+                  <h4><a href="https://www.johnjcz.com" target="_blank">John Czaplewski</a></h4>
                   <p class="person-title">Developer</p>
                 </div>
               </div>
@@ -424,14 +457,6 @@
                     <p class="person-title">Academic Librarian</p>
                     <p class="person-dept">Libraries</p>
                   </div>
-                </div>
-              </div>
-              <div class="col-sm-4 person">
-                <img class="person-pic" src="../dist/img/valerie.jpg">
-                <div class="person-desc">
-                  <h4>Valerie Syverson</h4>
-                  <p class="person-title">Postdoctoral Researcher</p>
-                  <p class="person-dept">Geoscience</p>
                 </div>
               </div>
             </div>
@@ -451,6 +476,8 @@
               </div>
             </div>
           </div>
+
+
 
           <div class="person-group collaborators">
             <h3 class="group">Collaborators</h3>
@@ -474,21 +501,21 @@
                 </div>
               </div>
               <div class="col-sm-4 person">
-                <img class="person-pic" src="../dist/img/ce.jpg">
+                <img class="person-pic" src="../dist/img/valerie.jpg">
                 <div class="person-desc">
-                  <h4><a href="https://www.inf.ethz.ch/personal/ce.zhang/" target="_blank">Ce Zhang</a></h4>
-                  <p class="person-title">Assistant Professor</p>
-                  <p class="person-dept">ETH Zurich</p>
+                  <h4>Valerie Syverson</h4>
+                  <p class="person-title">Postdoctoral Researcher</p>
+                  <p class="person-dept">Geoscience</p>
                 </div>
               </div>
             </div>
             <div class="row person-row">
               <div class="col-sm-4 person">
-                <img class="person-pic" src="../dist/img/default-person.png">
+                <img class="person-pic" src="../dist/img/ce.jpg">
                 <div class="person-desc">
-                  <h4>Chao Liu</h4>
-                  <p class="person-title">Postdoctoral App Builder</p>
-                  <p class="person-dept">Carnegie Institute</p>
+                  <h4><a href="https://www.inf.ethz.ch/personal/ce.zhang/" target="_blank">Ce Zhang</a></h4>
+                  <p class="person-title">Assistant Professor</p>
+                  <p class="person-dept">ETH Zurich</p>
                 </div>
               </div>
               <div class="col-sm-4 person">
@@ -510,6 +537,14 @@
             </div>
 
             <div class="row person-row">
+              <div class="col-sm-4 person">
+                <img class="person-pic" src="../dist/img/default-person.png">
+                <div class="person-desc">
+                  <h4>Chao Liu</h4>
+                  <p class="person-title">Postdoctoral App Builder</p>
+                  <p class="person-dept">Carnegie Institute</p>
+                </div>
+              </div>
               <div class="col-sm-4 person">
                 <img class="person-pic" src="../dist/img/default-person.png">
                 <div class="person-desc">
