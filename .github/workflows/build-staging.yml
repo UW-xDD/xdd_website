@@ -2,7 +2,8 @@ name: Build staging image
 
 on:
   push:
-    tags: [ staging.* ]
+    tags:
+       - 'staging.*'
 
 jobs:
   build:
