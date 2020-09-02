@@ -21,4 +21,4 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: uwxdd/xdd-website
-          tag: staging-$SHA8
+          tags: staging-$SHA8
