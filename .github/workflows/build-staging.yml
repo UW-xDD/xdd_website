@@ -7,8 +7,6 @@ on:
 
 jobs:
   build:
-    env:
-      SHA8: ${GITHUB_SHA::8}
     runs-on: ubuntu-latest
 
     steps:
@@ -21,4 +19,4 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: uwxdd/xdd-website
-          tags: staging-${{ SHA8 }} 
+          tags: staging-${{ GITHUB_SHA }} 
