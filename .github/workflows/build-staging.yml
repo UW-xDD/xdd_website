@@ -3,7 +3,7 @@ name: Build staging image
 on:
   push:
     tags:
-       - 'staging.*'
+       - 'staging*'
 
 jobs:
   build:
