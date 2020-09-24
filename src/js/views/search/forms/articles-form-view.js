@@ -35,6 +35,8 @@ define([
 					return this.$el.find('.article-title input').val();
 				case 'author':
 					return this.$el.find('.author-name input').val();
+				case 'publication':
+					return this.$el.find('.publication-name input').val();
 				case 'publisher':
 					return this.$el.find('.publisher-name input').val();
 				case 'published_after':
@@ -52,6 +54,7 @@ define([
 			return {
 				title: this.getValue('title'),
 				author: this.getValue('author'),
+				publication: this.getValue('publication'),
 				publisher: this.getValue('publisher'),
 				published_after: this.getValue('published_after'),
 				published_before: this.getValue('published_before'),

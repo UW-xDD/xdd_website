@@ -31,7 +31,7 @@ define([
 
 		getValue: function(key) {
 			switch (key) {
-				case 'name':
+				case 'journal':
 					return this.$el.find('.journal-name input').val();
 				case 'publisher':
 					return this.$el.find('.publisher-name input').val();
@@ -40,7 +40,7 @@ define([
 
 		getValues: function() {
 			return {
-				name: this.getValue('name'),
+				journal: this.getValue('journal'),
 				publisher: this.getValue('publisher')
 			};
 		}

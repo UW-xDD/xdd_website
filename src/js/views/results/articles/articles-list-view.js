@@ -1,10 +1,10 @@
 /******************************************************************************\
 |                                                                              |
-|                                 article-view.js                              |
+|                             articles-list-view.js                            |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines a view for displaying a set of search results.           |
+|        This defines a view for displaying a list of articles.                |
 |                                                                              |
 |******************************************************************************|
 |        Copyright (C) 2012-2020 Morgridge Institute for Research (MIR)        |
