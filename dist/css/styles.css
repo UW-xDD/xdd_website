@@ -252,6 +252,29 @@ a:hover {
   color: #F15A5A;
 }
 
+.nav > li > a:hover, 
+.nav > li > a:focus {
+  background-color: silver;
+  color: white;
+}
+
+.results li {
+  padding: 20px;
+}
+
+.results li:not(:last-child) {
+  margin-bottom: 20px;
+  border-bottom: 1px dashed lightgrey;
+}
+
+.result .form-group {
+  margin-bottom: 0;
+}
+
+button i {
+  margin-right: 10px;
+}
+
 @media(max-width: 600px) {
   .row {
     display: block;
