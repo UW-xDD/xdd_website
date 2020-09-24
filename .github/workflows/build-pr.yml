@@ -1,7 +1,7 @@
-name: Docker Image CI
+name: Build image from PR
 
 on:
-  push:
+  pull_request:
     branches: [ master ]
 
 jobs:
@@ -12,12 +12,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Set outputs
+        id: vars
+        run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
+
       - name: Build and push Docker images
         uses: docker/build-push-action@v1
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: uwxdd/xdd-website
-          tag_with_ref: true
-          tag_with_sha: true
-          tags: latest
+          tags: staging-pr${{ github.event.number }}-${{ steps.vars.outputs.sha_short }} 
