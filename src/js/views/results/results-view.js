@@ -15,11 +15,13 @@ define([
 	'underscore',
 	'collections/articles',
 	'collections/journals',
+	'collections/publishers',
 	'views/base-view',
 	'views/results/articles/articles-list-view',
 	'views/results/journals/journals-list-view',
+	'views/results/publishers/publishers-list-view',
 	'utilities/web/query-string'
-], function($, _, Articles, Journals, BaseView, ArticlesListView, JournalsListView, QueryString) {
+], function($, _, Articles, Journals, Publishers, BaseView, ArticlesListView, JournalsListView, PublishersListView, QueryString) {
 	
 	//
 	// querying methods
@@ -172,6 +174,22 @@ define([
 			this.searchApi('journals', params);		
 		},
 
+		searchPublishers: function(options) {
+			var params = {};
+
+			//
+			// set API params
+			//
+
+			if (options.publisher) {
+				params.publisher = options.publisher;
+			}
+
+			// perform search
+			//
+			this.searchApi('publishers', params);		
+		},
+
 		//
 		// rendering methods
 		//
@@ -187,6 +205,9 @@ define([
 				case 'journals':
 					this.searchJournals(options);
 					break;
+				case 'publishers':
+					this.searchPublishers(options);
+					break;
 			}
 		},
 
@@ -199,6 +220,12 @@ define([
 		showJournals(journals) {
 			this.showChildView('results', new JournalsListView({
 				collection: journals
+			}));
+		},
+
+		showPublishers(publishers) {
+			this.showChildView('results', new PublishersListView({
+				collection: publishers
 			}));
 		},
 
