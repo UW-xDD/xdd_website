@@ -4,6 +4,6 @@
 		<div class="input-group-addon">
 			<i class="fa fa-newspaper-o"></i></i>
 		</div>
-		<input type="text" class="form-control" placeholder="Company Name" />
+		<input type="text" class="form-control" placeholder="Publisher / Company Name" />
 	</div>
 </div>
