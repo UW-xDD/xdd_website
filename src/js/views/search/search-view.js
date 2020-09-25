@@ -45,13 +45,23 @@ define([
 			return this.$el.find('.categories li.active').attr('class').replace('active', '').trim();
 		},
 
+		getMaxResults: function() {
+			return this.$el.find('.max-results').val();
+		},
+
+		getMaxResultsPerPage: function() {
+			return this.$el.find('.max-per-page').val();
+		},
+
 		getValues: function() {
 			var category = this.getCategory();
 
 			// concat category and form values for that category
 			//
 			return _.extend({
-				category: category
+				category: category,
+				max: this.getMaxResults(),
+				max_per_page: this.getMaxResultsPerPage()
 			}, this.getChildView('form').getValues());
 		},
 

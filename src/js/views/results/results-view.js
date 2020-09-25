@@ -13,6 +13,7 @@
 define([
 	'jquery',
 	'underscore',
+	'text!templates/results/results.tpl',
 	'collections/articles',
 	'collections/journals',
 	'collections/publishers',
@@ -20,8 +21,9 @@ define([
 	'views/results/articles/articles-list-view',
 	'views/results/journals/journals-list-view',
 	'views/results/publishers/publishers-list-view',
-	'utilities/web/query-string'
-], function($, _, Articles, Journals, Publishers, BaseView, ArticlesListView, JournalsListView, PublishersListView, QueryString) {
+	'utilities/web/query-string',
+	'utilities/web/address-bar'
+], function($, _, Template, Articles, Journals, Publishers, BaseView, ArticlesListView, JournalsListView, PublishersListView, QueryString, AddressBar) {
 	
 	//
 	// querying methods
@@ -41,28 +43,112 @@ define([
 		// attributes
 		//
 
-		template: _.template('<div class="results"></div><div class="message"></div>'),
+		template: _.template(Template),
 
 		regions: {
 			results: '.results'
 		},
 
+		events: {
+			'click .first': 'onClickFirst',
+			'click .prev': 'onClickPrev',
+			'change .page-number': 'onChangePageNumber',
+			'click .next': 'onClickNext',
+			'click .last': 'onClickLast',
+		},
+
 		api: 'https://xdd.wisc.edu/api',
+
+		//
+		// constructor
+		//
+
+		initialize: function() {
+			this.category = QueryString.getParam('category');
+			this.options = QueryString.decode(QueryString.get());
+
+			// parse options
+			//
+			if (this.options.page_number && typeof this.options.page_number == 'string') {
+				this.options.page_number = parseInt(this.options.page_number);
+			}
+			if (this.options.page_number && typeof this.options.max_per_page == 'string') {
+				this.options.max_per_page = parseInt(this.options.max_per_page);
+			}
+
+			// set defaults
+			//
+			if (!this.options.page_number) {
+				this.options.page_number = 1;
+			}
+			if (!this.options.max_per_page) {
+				this.options.max_per_page = 1000;
+			}
+		},
+
+		//
+		// querying methods
+		//
+
+		getItems: function(data, pageNumber, maxPerPage) {
+			var items = [];
+			var first = (pageNumber - 1) * maxPerPage;
+			var last = (pageNumber) * maxPerPage - 1;
+
+			// clamp to data
+			//
+			if (last > data.length - 1) {
+				last = data.length - 1;
+			}
+
+			// select items to display
+			//
+			var items = [];
+			for (var i = first; i <= last; i++) {
+				items.push(data[i]);
+			}
+
+			return items;
+		},
+
+		getPageNumber: function() {
+			return this.$el.find('.page-number').val();
+		},
+
+		//
+		// setting methods
+		//
+
+		setPageNumber: function(pageNumber) {
+
+			// set attributes
+			//
+			this.pageNumber = pageNumber;
+
+			// update url
+			//
+			var params = QueryString.decode(QueryString.get());
+			params.page_number = pageNumber;
+			var queryString = QueryString.encode(params);
+			var state = window.history.state;
+			var url = AddressBar.get('base') + '?' + queryString;
+			window.history.pushState(state, '', url);
+
+			// update display
+			//
+			this.showPageNumber(pageNumber);
+			this.showResults();
+
+			// scroll to top
+			//
+			window.scrollTo(0, 0);
+		},
 
 		//
 		// searching methods
 		//
 
 		searchApi(category, params) {
-
-			// set optional parameter defaults
-			//
-			if (!params) {
-				params = {};
-			}
-			if (params.max == undefined) {
-				params.max = 10;
-			}
 
 			// make request
 			//
@@ -72,20 +158,19 @@ define([
 				//
 				success: (data) => {
 					if (data.success) {
+						this.data = data.success.data;
 
-						// display results
+						// compute number of pages
 						//
-						switch (category) {
-							case 'articles':
-								this.showArticles(new Articles(data.success.data));
-								break;
-							case 'journals':
-								this.showJournals(new Journals(data.success.data));
-								break;
-							case 'publishers':
-								this.showPublishers(new Publishers(data.success.data));
-								break;
-						}
+						this.numPages = Math.ceil(this.data.length / this.options.max_per_page);
+
+						// update pager
+						//
+						this.showNumPages(this.numPages);
+
+						// show results list
+						//
+						this.setPageNumber(this.options.page_number);
 					} else if (data.error) {
 
 						// display error message
@@ -106,6 +191,10 @@ define([
 			//
 			// set API params
 			//
+
+ 			if (options.max) {
+				params.max = options.max;
+			}
 
 			if (options.title) {
 				params.title = options.title;
@@ -195,20 +284,79 @@ define([
 		//
 
 		onRender: function() {
-			var category = QueryString.getParam('category');
-			var options = QueryString.decode(QueryString.get())
-
-			switch (category) {
+			switch (this.category) {
 				case 'articles':
-					this.searchArticles(options);
+					this.searchArticles(this.options);
 					break;
 				case 'journals':
-					this.searchJournals(options);
+					this.searchJournals(this.options);
 					break;
 				case 'publishers':
-					this.searchPublishers(options);
+					this.searchPublishers(this.options);
 					break;
 			}
+		},
+
+		showResults: function() {
+			var items = this.getItems(this.data, this.pageNumber, this.options.max_per_page);
+
+			// display results
+			//
+			switch (this.category) {
+				case 'articles':
+					this.showArticles(new Articles(items));
+					break;
+				case 'journals':
+					this.showJournals(new Journals(items));
+					break;
+				case 'publishers':
+					this.showPublishers(new Publishers(items));
+					break;
+			}
+
+			// set starting line number
+			//
+			var start = (this.pageNumber - 1) * this.options.max_per_page + 1;
+			this.$el.find('ol').attr('start', start);
+
+			// show header
+			//
+			var finish = start + (this.options.max_per_page - 1);
+			if (finish > this.data.length) {
+				finish = this.data.length;
+			}
+			this.showHeader(start, finish, this.data.length);
+		},
+
+		showHeader: function(start, finish, count) {
+			this.$el.find('.start').text(start);
+
+			// hide / show range
+			//
+			if (finish - start == count - 1) {
+				this.$el.find('.range').hide();
+			} else {
+				this.$el.find('.range').show();
+			}
+
+			// hide / show end of range
+			//
+			if (start == finish) {
+				this.$el.find('.range-end').hide();
+			} else {
+				this.$el.find('.range-end').show();
+			}
+
+			this.$el.find('.finish').text(finish);
+			this.$el.find('.count').text(count);
+		},
+
+		showPageNumber: function(pageNumber) {
+			this.$el.find('.page-number').val(pageNumber);
+		},
+
+		showNumPages: function(numPages) {
+			this.$el.find('.num-pages').val(numPages);
 		},
 
 		showArticles(articles) {
@@ -231,6 +379,39 @@ define([
 
 		showMessage(message) {
 			$('.message').html(message);
+		},
+
+		//
+		// mouse event handling methods
+		//
+
+		onClickFirst: function() {
+			this.setPageNumber(1);
+		},
+
+		onClickPrev: function() {
+			let pageNumber = this.pageNumber - 1;
+			if (pageNumber < 1) {
+				pageNumber = this.numPages;
+			}
+			this.setPageNumber(pageNumber);
+		},
+
+		onChangePageNumber: function() {
+			let pageNumber = Math.min(Math.max(parseInt(this.getPageNumber()), 1), this.numPages);
+			this.setPageNumber(pageNumber);
+		},
+
+		onClickNext: function() {
+			let pageNumber = this.pageNumber + 1;
+			if (pageNumber > this.numPages) {
+				pageNumber = 1;
+			}
+			this.setPageNumber(pageNumber);
+		},
+
+		onClickLast: function() {
+			this.setPageNumber(this.numPages);
 		}
 	});
 });

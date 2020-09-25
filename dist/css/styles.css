@@ -275,6 +275,40 @@ button i {
   margin-right: 10px;
 }
 
+.page-controls {
+  text-align: center;
+  max-width: 350px;
+  margin: auto;
+}
+
+.input-group-addon button {
+    width: 20px;
+    text-align: center;
+    padding: 0;
+    border: none;
+    outline: none;
+}
+
+.input-group-addon button i {
+    margin: 0;
+    width: 15px;
+}
+
+/*
+ * desktop styles
+ */
+
+@media screen and (min-width: 600px) {
+  .paging {
+    width: 50%;
+    float: left;
+  }
+}
+
+/*
+ * mobile styles
+ */
+
 @media(max-width: 600px) {
   .row {
     display: block;

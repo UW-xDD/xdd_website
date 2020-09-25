@@ -42,12 +42,12 @@
 	<label>Publication Date</label>
 
 	<div class="after input-group">
-		<div class="input-group-addon">
+		<div class="input-group-addon hidden-xs">
 			<i class="fa fa-calendar"></i> After
 		</div>
 		<input type="date" class="form-control" />
 
-		<div class="before input-group-addon">
+		<div class="before input-group-addon hidden-xs">
 			<i class="fa fa-calendar"></i> Before
 		</div>
 		<input type="date" class="form-control" />  
@@ -58,12 +58,12 @@
 	<label>Acquisition Date</label>
 
 	<div class="after input-group">
-		<div class="input-group-addon">
+		<div class="input-group-addon hidden-xs">
 			<i class="fa fa-calendar"></i> After
 		</div>
 		<input type="date" class="form-control" />
 
-		<div class="before input-group-addon">
+		<div class="before input-group-addon hidden-xs">
 			<i class="fa fa-calendar"></i> Before
 		</div>
 		<input type="date" class="form-control" />  
