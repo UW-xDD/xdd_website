@@ -90,6 +90,13 @@ define([
 		// querying methods
 		//
 
+		getSearchDescription: function(params) {
+			var items = _.extend({}, params);
+			delete items.max;
+			delete items.max_per_page;
+			return JSON.stringify(items).replace('{', '').replace('}', '').replace(/"/g, '').replace(/,/g, ', ');
+		},
+
 		getItems: function(data, pageNumber, maxPerPage) {
 			var items = [];
 			var first = (pageNumber - 1) * maxPerPage;
@@ -318,6 +325,10 @@ define([
 		//
 
 		onRender: function() {
+			var params = QueryString.decode(QueryString.get());
+			var description = this.getSearchDescription(params);
+			this.showDescription(description);
+
 			switch (this.category) {
 				case 'articles':
 					this.searchArticles(this.options);
@@ -329,6 +340,10 @@ define([
 					this.searchPublishers(this.options);
 					break;
 			}
+		},
+
+		showDescription: function(description) {
+			this.$el.find('.search-terms').text(description);
 		},
 
 		showResults: function() {

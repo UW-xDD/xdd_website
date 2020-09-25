@@ -1,6 +1,10 @@
+<h3>
+	<label style="margin-right:10px">Search:</label>
+	<span class="search-terms"></span>
+</h3>
+
 <div class="status form-group">
-	<div class="input-group-addon">
-	</div>
+	<div class="input-group-addon"></div>
 	<div class="input-group-addon" style="border-left:none; border-right:none">
 
 		<div class="search-status">
@@ -17,8 +21,7 @@
 			<span class="count">0</span> results
 		</div>
 	</div>
-	<div class="input-group-addon">
-	</div>
+	<div class="input-group-addon"></div>
 </div>
 
 <div class="results"></div>
