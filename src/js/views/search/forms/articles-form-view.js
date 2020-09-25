@@ -32,21 +32,21 @@ define([
 		getValue: function(key) {
 			switch (key) {
 				case 'title':
-					return this.$el.find('.article-title input').val();
+					return this.$el.find('.article-title input').val() || undefined;
 				case 'author':
-					return this.$el.find('.author-name input').val();
+					return this.$el.find('.author-name input').val() || undefined;
 				case 'publication':
-					return this.$el.find('.publication-name input').val();
+					return this.$el.find('.publication-name input').val() || undefined;
 				case 'publisher':
-					return this.$el.find('.publisher-name input').val();
+					return this.$el.find('.publisher-name input').val() || undefined;
 				case 'published_after':
-					return this.$el.find('.publication-date .after input').val();
+					return this.$el.find('.publication-date input.after').val() || undefined;
 				case 'published_before':
-					return this.$el.find('.publication-date .before input').val();
+					return this.$el.find('.publication-date input.before').val() || undefined;
 				case 'acquired_after':
-					return this.$el.find('.acquisition-date .after input').val();
+					return this.$el.find('.acquisition-date input.after').val() || undefined;
 				case 'acquired_before':
-					return this.$el.find('.acquisition-date .before input').val();
+					return this.$el.find('.acquisition-date input.before').val() || undefined;
 			}
 		},
 

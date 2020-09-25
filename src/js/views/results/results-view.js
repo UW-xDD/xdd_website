@@ -274,9 +274,11 @@ define([
 				} else {
 					params.journal_like = options.journal;
 				}
+			} else {
+				params.all = '';
 			}
 
-			if (options.publisher) {
+			if (options.publisher && options.publisher != 'undefined') {
 				params.publisher = options.publisher;
 			}
 
@@ -294,6 +296,8 @@ define([
 
 			if (options.publisher) {
 				params.publisher = options.publisher;
+			} else {
+				params.all = '';
 			}
 
 			// perform search

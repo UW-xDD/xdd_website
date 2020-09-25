@@ -172,11 +172,15 @@ define([
 			let queryString = '';
 			for (let key in data) {
 				let value = data[key];
-				if (value) {
+				if (value !== undefined) {
 					if (typeof value != 'string') {
 						value = value.toString();
 					}
-					queryString = this.concat(queryString, key + '=' + Url.encode(value));
+					if (value != '') {
+						queryString = this.concat(queryString, key + '=' + Url.encode(value));
+					} else {
+						queryString = this.concat(key);
+					}
 				}
 			}
 			return queryString;

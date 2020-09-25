@@ -32,9 +32,9 @@ define([
 		getValue: function(key) {
 			switch (key) {
 				case 'journal':
-					return this.$el.find('.journal-name input').val();
+					return this.$el.find('.journal-name input').val() || undefined;
 				case 'publisher':
-					return this.$el.find('.publisher-name input').val();
+					return this.$el.find('.publisher-name input').val() || undefined;
 			}
 		},
 
