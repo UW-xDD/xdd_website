@@ -149,6 +149,7 @@ define([
 		//
 
 		searchApi(category, params) {
+			this.showSpinner();
 
 			// make request
 			//
@@ -157,12 +158,22 @@ define([
 				// callbacks
 				//
 				success: (data) => {
-					if (data.success) {
+					this.hideSpinner();
+
+					if (data.success && data.success.data) {
 						this.data = data.success.data;
 
 						// compute number of pages
 						//
 						this.numPages = Math.ceil(this.data.length / this.options.max_per_page);
+
+						// show / hide pager
+						//
+						if (this.numPages > 1) {
+							this.$el.find('.page-controls').show();
+						} else {
+							this.$el.find('.page-controls').hide();
+						}
 
 						// update pager
 						//
@@ -175,12 +186,23 @@ define([
 
 						// display error message
 						//
+						this.hideStatus();
 						this.showMessage(data.error.message);
+					} else {
+
+						// display error message
+						//
+						this.hideStatus();
+						this.showMessage('No search results.');	
 					}
 				},
 
 				error: function() {
-					alert("Could not get search results.");
+
+					// display error message
+					//
+					this.hideStatus();
+					this.showMessage('No search results.');
 				}
 			}); 
 		},
@@ -325,10 +347,33 @@ define([
 			if (finish > this.data.length) {
 				finish = this.data.length;
 			}
-			this.showHeader(start, finish, this.data.length);
+			this.showResultsStatus(start, finish, this.data.length);
 		},
 
-		showHeader: function(start, finish, count) {
+		showStatus: function() {
+			this.$el.find('.status').show();
+		},
+
+		hideStatus: function() {
+			this.$el.find('.status').hide();
+		},
+
+		showSpinner: function() {
+			this.showStatus();
+			this.$el.find('.search-status').show();
+		},
+
+		hideSpinner: function() {
+			this.$el.find('.search-status').hide();
+		},
+
+		showResultsStatus: function(start, finish, count) {
+			this.showStatus();
+			this.hideSpinner();
+			this.$el.find('.results-status').show();
+
+			// show results index
+			//
 			this.$el.find('.start').text(start);
 
 			// hide / show range

@@ -1,13 +1,21 @@
-<div class="form-group">
+<div class="status form-group">
 	<div class="input-group-addon">
 	</div>
 	<div class="input-group-addon" style="border-left:none; border-right:none">
-		Showing 
-		<span class="range">
-			<span class="start">0</span>
-			<span class="range-end"> to <span class="finish">0</span></span> of 
-		</span>
-		<span class="count">0</span> results
+
+		<div class="search-status">
+			Searching
+			<i class="fa fa-spinner fa-spin" style="margin-left:10px"></i>
+		</div>
+
+		<div class="results-status" style="display:none">
+			Showing 
+			<span class="range">
+				<span class="start">0</span>
+				<span class="range-end"> to <span class="finish">0</span></span> of 
+			</span>
+			<span class="count">0</span> results
+		</div>
 	</div>
 	<div class="input-group-addon">
 	</div>
