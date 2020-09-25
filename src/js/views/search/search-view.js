@@ -60,9 +60,10 @@ define([
 			//
 			return _.extend({
 				category: category,
+			}, this.getChildView('form').getValues(), {
 				max: this.getMaxResults(),
-				max_per_page: this.getMaxResultsPerPage()
-			}, this.getChildView('form').getValues());
+				max_per_page: this.getMaxResultsPerPage()		
+			});
 		},
 
 		//
