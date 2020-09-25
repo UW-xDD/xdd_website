@@ -128,7 +128,11 @@ define([
 			// update url
 			//
 			var params = QueryString.decode(QueryString.get());
-			params.page_number = pageNumber;
+			if (pageNumber != 1) {
+				params.page_number = pageNumber;
+			} else {
+				delete params.page_number;
+			}
 			var queryString = QueryString.encode(params);
 			var state = window.history.state;
 			var url = AddressBar.get('base') + '?' + queryString;
@@ -219,7 +223,11 @@ define([
 			}
 
 			if (options.title) {
-				params.title = options.title;
+				if (isQuotated(options.title)) {
+					params.title = unQuotated(options.title);
+				} else {
+					params.title_like = options.title;
+				}
 			}
 
 			if (options.author) {
