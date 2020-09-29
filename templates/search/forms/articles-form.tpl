@@ -4,7 +4,7 @@
 		<div class="input-group-addon">
 			<i class="fa fa-font"></i></i>
 		</div>
-		<input type="text" class="form-control" placeholder="Title" />
+		<input type="text" class="form-control" placeholder="Article Title" />
 	</div>
 </div>
 
@@ -14,7 +14,7 @@
 		<div class="input-group-addon">
 			<i class="fa fa-user"></i></i>
 		</div>
-		<input type="text" class="form-control" placeholder="Name" />
+		<input type="text" class="form-control" placeholder="Author Name" />
 	</div>
 </div>
 
@@ -42,13 +42,13 @@
 	<label>Publication Date</label>
 
 	<div class="input-group">
-		<div class="input-group-addon hidden-xs">
-			<i class="fa fa-calendar"></i> After
+		<div class="input-group-addon">
+			<i class="fa fa-calendar"></i><span class="hidden-xs"> After</span>
 		</div>
 		<input type="date" class="after form-control" />
 
-		<div class="input-group-addon hidden-xs">
-			<i class="fa fa-calendar"></i> Before
+		<div class="input-group-addon">
+			<i class="fa fa-calendar"></i><span class="hidden-xs"> Before</span>
 		</div>
 		<input type="date" class="before form-control" />  
 	</div>
@@ -58,13 +58,13 @@
 	<label>Acquisition Date</label>
 
 	<div class="input-group">
-		<div class="input-group-addon hidden-xs">
-			<i class="fa fa-calendar"></i> After
+		<div class="input-group-addon">
+			<i class="fa fa-calendar"></i><span class="hidden-xs"> After</span>
 		</div>
 		<input type="date" class="after form-control" />
 
-		<div class="input-group-addon hidden-xs">
-			<i class="fa fa-calendar"></i> Before
+		<div class="input-group-addon">
+			<i class="fa fa-calendar"></i><span class="hidden-xs"> Before</span>
 		</div>
 		<input type="date" class="before form-control" />  
 	</div>

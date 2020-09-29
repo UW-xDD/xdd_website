@@ -14,16 +14,16 @@
 <div class="search-form"></div>
 
 <div class="num-results form-group">
-	<label>Num Results</label>
+	<label>Number of Results</label>
 	<div class="search input-group">
 		<div class="input-group-addon">
-			<i class="fa fa-hash"></i></i>
-			Max
+			<i class="fa fa-hashtag"></i></i>
+			<span class="hidden-xs">Max</span>
 		</div>
 		<input class="max-results form-control" type="number" value="1000" />
 		<div class="input-group-addon">
-			<i class="fa fa-hash"></i></i>
-			Max Per Page
+			<i class="fa fa-file-text"></i></i>
+			<span class="hidden-xs">Max Per Page</span>
 		</div>
 		<input class="max-per-page form-control" type="number" value="10" />
 	</div>
