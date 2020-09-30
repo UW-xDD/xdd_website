@@ -68,6 +68,14 @@ define([
 		},
 
 		//
+		// searching methods
+		//
+
+		search: function() {
+			window.location = 'results.html?' + QueryString.encode(this.getValues());
+		},
+
+		//
 		// rendering methods
 		//
 
@@ -94,6 +102,16 @@ define([
 			// set initial category
 			//
 			this.$el.find('.categories li.' + category).addClass('active');
+
+			// listen for key events 
+			//
+			$(window).on('keydown', (event) => {
+				if (event.keyCode == 13) {
+					this.$el.find('.btn-primary').trigger('click');
+					event.stopPropagation();
+					event.preventDefault();
+				}
+			});
 		},
 
 		//
@@ -101,7 +119,15 @@ define([
 		//
 
 		onClickSearch: function() {
-        	window.location = 'results.html?' + QueryString.encode(this.getValues());
+			this.search();
+		},
+
+		//
+		// cleanup methods
+		//
+
+		onBeforeDestroy: function() {
+			$(window).off('keydown');
 		}
 	});
 });

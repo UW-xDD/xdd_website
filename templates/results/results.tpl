@@ -1,3 +1,7 @@
+<h1>Results</h1>
+<button style="float:right;margin-top:-50px" class="search-again btn btn-lg btn-primary"><i class="fa fa-search"></i>Search Again</button>
+<hr />
+
 <h3>
 	<label style="margin-right:10px">Search:</label>
 	<span class="search-terms"></span>

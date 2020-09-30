@@ -49,6 +49,7 @@ define([
 		},
 
 		events: {
+			'click .search-again': 'onClickSearchAgain',
 			'click .first': 'onClickFirst',
 			'click .prev': 'onClickPrev',
 			'change .page-number': 'onChangePageNumber',
@@ -362,6 +363,16 @@ define([
 					this.searchPublishers(this.options);
 					break;
 			}
+
+			// listen for key events 
+			//
+			$(window).on('keydown', (event) => {
+				if (event.keyCode == 13) {
+					this.$el.find('.btn-primary').trigger('click');
+					event.stopPropagation();
+					event.preventDefault();
+				}
+			});
 		},
 
 		showDescription: function(description) {
@@ -491,6 +502,10 @@ define([
 		//
 		// mouse event handling methods
 		//
+
+		onClickSearchAgain: function() {
+			window.location = '/search.html';
+		},
 
 		onClickFirst: function() {
 			this.setPageNumber(1);

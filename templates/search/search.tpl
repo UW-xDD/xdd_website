@@ -1,4 +1,4 @@
-<form class="form-horizontal">
+<div class="form-horizontal">
 	<div class="form-group">
 		<label class="col-sm-2 control-label">Search</label>
 		<div class="col-sm-10">
@@ -10,7 +10,7 @@
 			</ul>
 		</div>
 	</div>
-</form>
+</div>
 
 <div class="search-form"></div>
 
@@ -32,4 +32,4 @@
 
 <br />
 
-<button class="search btn btn-lg btn-primary pull-right" type="button"><i class="fa fa-search"></i>Search</button>
+<button class="search btn btn-lg btn-primary pull-right" type="submit"><i class="fa fa-search"></i>Search</button>
