@@ -22,6 +22,17 @@ define([
 		// attributes
 		//
 
-		tagName: 'form'
+		tagName: 'form',
+
+		//
+		// rendering methods
+		//
+
+		onAttach: function() {
+
+			// focus / highlight first input element
+			//
+			this.$el.find('.form-group:first-child input').focus();
+		}
 	});
 });

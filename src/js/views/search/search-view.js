@@ -114,6 +114,10 @@ define([
 			});
 		},
 
+		onAttach: function() {
+			this.getChildView('form').onAttach();
+		},
+
 		//
 		// mouse event handling methods
 		//

@@ -86,7 +86,9 @@
 
       // render search view
       //
-      $('#search').append(new SearchView().render().$el);
+      var searchView = new SearchView();
+      $('#search').append(searchView.render().$el);
+      searchView.onAttach();
     });      
   </script>
 
