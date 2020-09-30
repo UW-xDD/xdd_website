@@ -259,16 +259,20 @@ a:hover {
 }
 
 .results li {
-  padding: 20px;
+    padding: 15px;
+    padding-left: 50px;
+}
+
+.results li .heading {
+    font-size: 125%;
+}
+
+.results li i {
+    margin: 0 5px;
 }
 
 .results li:not(:last-child) {
-  margin-bottom: 20px;
   border-bottom: 1px dashed lightgrey;
-}
-
-.result .form-group {
-  margin-bottom: 0;
 }
 
 button i {

@@ -25,7 +25,7 @@
 			<i class="fa fa-file-text"></i></i>
 			<span class="hidden-xs">Max Per Page</span>
 		</div>
-		<input class="max-per-page form-control" type="number" value="10" />
+		<input class="max-per-page form-control" type="number" value="20" />
 	</div>
 </div>
 
