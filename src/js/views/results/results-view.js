@@ -14,10 +14,7 @@ define([
 	'jquery',
 	'underscore',
 	'text!templates/results/results.tpl',
-	'collections/snippets',
-	'collections/articles',
-	'collections/journals',
-	'collections/publishers',
+	'collections/results',
 	'views/base-view',
 	'views/results/snippets/snippets-list-view',
 	'views/results/articles/articles-list-view',
@@ -25,7 +22,7 @@ define([
 	'views/results/publishers/publishers-list-view',
 	'utilities/web/query-string',
 	'utilities/web/address-bar'
-], function($, _, Template, Snippets, Articles, Journals, Publishers, BaseView, SnippetsListView, ArticlesListView, JournalsListView, PublishersListView, QueryString, AddressBar) {
+], function($, _, Template, Results, BaseView, SnippetsListView, ArticlesListView, JournalsListView, PublishersListView, QueryString, AddressBar) {
 	
 	//
 	// querying methods
@@ -378,16 +375,16 @@ define([
 			//
 			switch (this.category) {
 				case 'snippets':
-					this.showSnippets(new Snippets(items));
+					this.showSnippets(new Results(items));
 					break;
 				case 'articles':
-					this.showArticles(new Articles(items));
+					this.showArticles(new Results(items));
 					break;
 				case 'journals':
-					this.showJournals(new Journals(items));
+					this.showJournals(new Results(items));
 					break;
 				case 'publishers':
-					this.showPublishers(new Publishers(items));
+					this.showPublishers(new Results(items));
 					break;
 			}
 
