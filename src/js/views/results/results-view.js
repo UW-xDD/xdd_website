@@ -14,16 +14,18 @@ define([
 	'jquery',
 	'underscore',
 	'text!templates/results/results.tpl',
+	'collections/snippets',
 	'collections/articles',
 	'collections/journals',
 	'collections/publishers',
 	'views/base-view',
+	'views/results/snippets/snippets-list-view',
 	'views/results/articles/articles-list-view',
 	'views/results/journals/journals-list-view',
 	'views/results/publishers/publishers-list-view',
 	'utilities/web/query-string',
 	'utilities/web/address-bar'
-], function($, _, Template, Articles, Journals, Publishers, BaseView, ArticlesListView, JournalsListView, PublishersListView, QueryString, AddressBar) {
+], function($, _, Template, Snippets, Articles, Journals, Publishers, BaseView, SnippetsListView, ArticlesListView, JournalsListView, PublishersListView, QueryString, AddressBar) {
 	
 	//
 	// querying methods
@@ -218,6 +220,26 @@ define([
 			}); 
 		},
 
+		searchSnippets: function(options) {
+			var params = {};
+
+			//
+			// set API params
+			//
+
+ 			if (options.max) {
+				params.max = options.max;
+			}
+
+			if (options.terms) {
+				params.term = options.terms;
+			}
+
+			// perform search
+			//
+			this.searchApi('snippets', params);
+		},
+
 		searchArticles: function(options) {
 			var params = {};
 
@@ -330,6 +352,9 @@ define([
 			this.showDescription(description);
 
 			switch (this.category) {
+				case 'snippets':
+					this.searchSnippets(this.options);
+					break;
 				case 'articles':
 					this.searchArticles(this.options);
 					break;
@@ -352,6 +377,9 @@ define([
 			// display results
 			//
 			switch (this.category) {
+				case 'snippets':
+					this.showSnippets(new Snippets(items));
+					break;
 				case 'articles':
 					this.showArticles(new Articles(items));
 					break;
@@ -431,6 +459,20 @@ define([
 			this.$el.find('.num-pages').val(numPages);
 		},
 
+		showMessage(message) {
+			$('.message').html(message);
+		},
+
+		//
+		// results list rendering methods
+		//
+
+		showSnippets(snippets) {
+			this.showChildView('results', new SnippetsListView({
+				collection: snippets
+			}));
+		},
+
 		showArticles(articles) {
 			this.showChildView('results', new ArticlesListView({
 				collection: articles
@@ -447,10 +489,6 @@ define([
 			this.showChildView('results', new PublishersListView({
 				collection: publishers
 			}));
-		},
-
-		showMessage(message) {
-			$('.message').html(message);
 		},
 
 		//

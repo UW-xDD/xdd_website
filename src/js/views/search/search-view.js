@@ -15,11 +15,12 @@ define([
 	'underscore',
 	'text!templates/search/search.tpl',
 	'views/base-view',
+	'views/search/forms/snippets-form-view',
 	'views/search/forms/articles-form-view',
 	'views/search/forms/journals-form-view',
 	'views/search/forms/publishers-form-view',
 	'utilities/web/query-string'
-], function($, _, Template, BaseView, ArticlesFormView, JournalsFormView, PublishersFormView, QueryString) {
+], function($, _, Template, BaseView, SnippetsFormView, ArticlesFormView, JournalsFormView, PublishersFormView, QueryString) {
 
 	return BaseView.extend({
 
@@ -71,11 +72,14 @@ define([
 		//
 
 		onRender: function() {
-			var category = QueryString.getParam('category') || 'articles';
+			var category = QueryString.getParam('category') || 'snippets';
 
 			// show child views
 			//
 			switch (category) {
+				case 'snippets':
+					this.showChildView('form', new SnippetsFormView());
+					break;
 				case 'articles':
 					this.showChildView('form', new ArticlesFormView());
 					break;

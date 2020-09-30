@@ -2,7 +2,7 @@
 <div class="article-title">
 	<span class="heading form-control-plaintext">
 	<% if (link && link.length > 0) { %>
-	<a href="<%= link[0].url %>"><%= title %></a>
+	<a href="<%= link[0].url %>" target="_blank"><%= title %></a>
 	<% } else { %>
 	<%= title %>
 	<% } %>

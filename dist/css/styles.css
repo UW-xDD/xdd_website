@@ -244,12 +244,10 @@ div[id*="-fetched"] > span {
 }
 
 a {
-  color: #333;
   font-weight: 500;
 }
 a:hover {
   text-decoration: none;
-  color: #F15A5A;
 }
 
 .nav > li > a:hover, 
@@ -273,6 +271,10 @@ a:hover {
 
 .results li:not(:last-child) {
   border-bottom: 1px dashed lightgrey;
+}
+
+.results .well {
+    margin-top: 10px;
 }
 
 button i {
