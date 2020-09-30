@@ -112,6 +112,20 @@ define([
 					event.preventDefault();
 				}
 			});
+
+			// clamp number input fields to min, max
+			//
+			this.$el.find('input[type="number"]').on('blur', function() {
+				value = parseInt($(this).val());
+				min = parseInt($(this).attr('min'));
+				max = parseInt($(this).attr('max'));
+
+				if (value < min) {
+					$(this).val(min);
+				} else if (value > max) {
+					$(this).val(max);
+				}
+			});
 		},
 
 		onAttach: function() {
@@ -123,6 +137,7 @@ define([
 		//
 
 		onClickSearch: function() {
+			this.$el.find('input[type="number"]').trigger('blur');
 			this.search();
 		},
 
