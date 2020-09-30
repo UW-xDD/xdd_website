@@ -1,5 +1,5 @@
 <div id="search">
-	<h1>GeoDeepDive Search</h1>
+	<h1>xDD Search</h1>
 
 	<div class="input-group">
 		<div class="input-group-prepend">
