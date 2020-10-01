@@ -92,8 +92,13 @@ define([
 
 		getSearchDescription: function(params) {
 			var items = _.extend({}, params);
+
+			// remove items that are not displayed
+			//
+			delete items.dataset;
 			delete items.max;
 			delete items.max_per_page;
+
 			return JSON.stringify(items).replace(/:/g, ': ').replace('{', '').replace('}', '').replace(/"/g, '').replace(/,/g, ', ').replace(/_/g, ' ');
 		},
 
@@ -208,7 +213,7 @@ define([
 					}
 				},
 
-				error: function() {
+				error: () => {
 
 					// display error message
 					//
@@ -504,7 +509,7 @@ define([
 		//
 
 		onClickSearchAgain: function() {
-			window.location = '/search.html';
+			window.location = '/search.html?' + QueryString.get();
 		},
 
 		onClickFirst: function() {

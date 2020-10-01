@@ -4,7 +4,7 @@
 		<div class="input-group-addon">
 			<i class="fa fa-font"></i></i>
 		</div>
-		<input type="text" class="form-control" placeholder="Journal Name" />
+		<input type="text" class="form-control" placeholder="Journal Name"<% if (typeof journal != 'undefined') { %> value="<%= journal %>"<% } %>/>
 	</div>
 </div>
 
@@ -14,6 +14,6 @@
 		<div class="input-group-addon">
 			<i class="fa fa-newspaper-o"></i></i>
 		</div>
-		<input type="text" class="form-control" placeholder="Publisher / Company Name" />
+		<input type="text" class="form-control" placeholder="Publisher / Company Name"<% if (typeof publisher != 'undefined') { %> value="<%= publisher %>"<% } %>/>
 	</div>
 </div>

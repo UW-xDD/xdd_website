@@ -31,11 +31,11 @@
 	<div class="search input-group">
 
 		<div class="input-group-addon">
-			<button class="first"><i class="fa fa-fast-backward"></i></button>
+			<button class="first btn-sm"><i class="fa fa-fast-backward"></i></button>
 		</div>
 
 		<div class="input-group-addon">
-			<button class="prev"><i class="fa fa-backward"></i></button>
+			<button class="prev btn-sm"><i class="fa fa-backward"></i></button>
 		</div>
 
 		<input class="page-number form-control" type="number" value="1" />
@@ -45,11 +45,11 @@
 		<input class="num-pages form-control" type="number" readonly />
 
 		<div class="input-group-addon">
-			<button class="next"><i class="fa fa-forward"></i></button>
+			<button class="next btn-sm"><i class="fa fa-forward"></i></button>
 		</div>
 
 		<div class="input-group-addon">
-			<button class="last"><i class="fa fa-fast-forward"></i></button>
+			<button class="last btn-sm"><i class="fa fa-fast-forward"></i></button>
 		</div>
 	</div>
 </div>

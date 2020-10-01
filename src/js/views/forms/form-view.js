@@ -28,6 +28,10 @@ define([
 		// rendering methods
 		//
 
+		templateContext: function() {
+			return this.options || {};
+		},
+		
 		onAttach: function() {
 
 			// focus / highlight first input element

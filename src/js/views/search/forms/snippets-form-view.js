@@ -40,6 +40,16 @@ define([
 			return {
 				terms: this.getValue('terms')
 			};
+		},
+
+		//
+		// rendering methods
+		//
+
+		templateContext: function() {
+			return {
+				terms: this.options.terms
+			}
 		}
 	});
 });

@@ -15,13 +15,14 @@ define([
 	'underscore',
 	'bootstrap',
 	'text!templates/search/search.tpl',
+	'models/base-model',
 	'views/base-view',
 	'views/search/forms/snippets-form-view',
 	'views/search/forms/articles-form-view',
 	'views/search/forms/journals-form-view',
 	'views/search/forms/publishers-form-view',
 	'utilities/web/query-string'
-], function($, _, Bootstrap, Template, BaseView, SnippetsFormView, ArticlesFormView, JournalsFormView, PublishersFormView, QueryString) {
+], function($, _, Bootstrap, Template, BaseModel, BaseView, SnippetsFormView, ArticlesFormView, JournalsFormView, PublishersFormView, QueryString) {
 
 	return BaseView.extend({
 
@@ -36,6 +37,7 @@ define([
 		},
 
 		events: {
+			'click .categories li a': 'onClickCategory',
 			'click .publishing.expander': 'onClickPublishingExpander',
 			'click .dates.expander': 'onClickDatesExpander',
 			'click .limits.expander': 'onClickLimitsExpander',
@@ -43,8 +45,29 @@ define([
 		},
 
 		//
+		// constructor
+		//
+
+		initialize: function() {
+
+			// parse options from query string
+			//
+			this.options = QueryString.decode(QueryString.get());
+
+			// set defaults
+			//
+			if (!this.options.category) {
+				this.options.category = 'snippets';
+			}
+		},
+
+		//
 		// getting methods
 		//
+
+		getDataset: function() {
+			return $('.dataset li.active').attr('class').replace('active', '').trim();
+		},
 
 		getCategory: function() {
 			return this.$el.find('.categories li.active').attr('class').replace('active', '').trim();
@@ -59,11 +82,13 @@ define([
 		},
 
 		getValues: function() {
+			var dataset = this.getDataset();
 			var category = this.getCategory();
 
 			// concat category and form values for that category
 			//
 			return _.extend({
+				dataset: dataset,
 				category: category,
 			}, this.getChildView('form').getValues(), {
 				max: this.getMaxResults(),
@@ -83,29 +108,35 @@ define([
 		// rendering methods
 		//
 
+		templateContext: function() {
+			return {
+				max: this.options.max || 1000,
+				max_per_page: this.options.max_per_page || 50
+			};
+		},
+
 		onRender: function() {
-			var category = QueryString.getParam('category') || 'snippets';
 
 			// show child views
 			//
-			switch (category) {
+			switch (this.options.category) {
 				case 'snippets':
-					this.showChildView('form', new SnippetsFormView());
+					this.showChildView('form', new SnippetsFormView(this.options));
 					break;
 				case 'articles':
-					this.showChildView('form', new ArticlesFormView());
+					this.showChildView('form', new ArticlesFormView(this.options));
 					break;
 				case 'journals':
-					this.showChildView('form', new JournalsFormView());
+					this.showChildView('form', new JournalsFormView(this.options));
 					break;
 				case 'publishers':
-					this.showChildView('form', new PublishersFormView());
+					this.showChildView('form', new PublishersFormView(this.options));
 					break;
 			}
 
 			// set initial category
 			//
-			this.$el.find('.categories li.' + category).addClass('active');
+			this.$el.find('.categories li.' + this.options.category).addClass('active');
 
 			// listen for key events 
 			//
@@ -159,6 +190,21 @@ define([
 		//
 		// mouse event handling methods
 		//
+
+		onClickCategory: function(event) {
+			var options = {};
+			var dataset = this.getDataset();
+			var category = $(event.target).closest('li').attr('class').replace('active', '').trim();
+			
+			if (dataset != 'xdd') {
+				options.dataset = dataset;
+			}
+			if (category != 'snippets') {
+				options.category = category;
+			}
+
+			window.location = '/search.html?' + QueryString.encode(options);
+		},
 
 		onClickPublishingExpander: function() {
 			if (!this.publishing_expanded) {

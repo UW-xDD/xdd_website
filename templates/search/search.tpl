@@ -1,12 +1,13 @@
 <div class="form-horizontal">
-	<div class="form-group">
+
+	<div class="categories form-group">
 		<label class="col-sm-2 control-label">Search</label>
 		<div class="col-sm-10">
 			<ul class="categories nav nav-pills">
-				<li class="snippets" role="presentation"><a href="../search.html?category=snippets">Snippets</a></li>
-				<li class="articles" role="presentation"><a href="../search.html?category=articles">Articles</a></li>
-				<li class="journals" role="presentation"><a href="../search.html?category=journals">Journals</a></li>
-				<li class="publishers" role="presentation"><a href="../search.html?category=publishers">Publishers</a></li>
+				<li class="snippets" role="presentation"><a>Snippets</a></li>
+				<li class="articles" role="presentation"><a>Articles</a></li>
+				<li class="journals" role="presentation"><a>Journals</a></li>
+				<li class="publishers" role="presentation"><a>Publishers</a></li>
 			</ul>
 		</div>
 	</div>
@@ -23,12 +24,13 @@
 					<i class="fa fa-hashtag"></i></i>
 					<span class="hidden-xs">Max</span>
 				</div>
-				<input class="max-results form-control" type="number" min="1" max="1000" value="1000" style="width:5em" />
+				<input class="max-results form-control" type="number" min="1" max="1000"<% if (typeof max != 'undefined') { %> value="<%= max %>"<% } %> style="width:5em" />
+
 				<div class="input-group-addon">
 					<i class="fa fa-file-text"></i></i>
 					<span class="hidden-xs">Max / Page</span>
 				</div>
-				<input class="max-per-page form-control" type="number" min="1" max="100" value="50" style="width:4em" />
+				<input class="max-per-page form-control" type="number" min="1" max="100"<% if (typeof max_per_page != 'undefined') { %> value="<%= max_per_page %>"<% } %> style="width:4em" />
 			</div>
 		</div>
 	</div>
