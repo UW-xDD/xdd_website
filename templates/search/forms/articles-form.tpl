@@ -43,12 +43,12 @@
 
 	<div class="input-group">
 		<div class="input-group-addon">
-			<i class="fa fa-calendar"></i><span class="hidden-xs"> After</span>
+			<i class="fa fa-calendar"></i>After
 		</div>
 		<input type="date" class="after form-control" />
 
 		<div class="input-group-addon">
-			<i class="fa fa-calendar"></i><span class="hidden-xs"> Before</span>
+			<i class="fa fa-calendar"></i>Before
 		</div>
 		<input type="date" class="before form-control" />  
 	</div>
@@ -59,12 +59,12 @@
 
 	<div class="input-group">
 		<div class="input-group-addon">
-			<i class="fa fa-calendar"></i><span class="hidden-xs"> After</span>
+			<i class="fa fa-calendar"></i>After
 		</div>
 		<input type="date" class="after form-control" />
 
 		<div class="input-group-addon">
-			<i class="fa fa-calendar"></i><span class="hidden-xs"> Before</span>
+			<i class="fa fa-calendar"></i>Before
 		</div>
 		<input type="date" class="before form-control" />  
 	</div>

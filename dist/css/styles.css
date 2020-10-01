@@ -317,9 +317,10 @@ button:not(.btn-sm) i {
     background: none;
 }
 
-.input-group-addon button i {
+.input-group-addon i {
     margin: 0;
     width: 15px;
+    margin-right: 5px;
 }
 
 /*
@@ -331,6 +332,11 @@ button:not(.btn-sm) i {
     width: 50%;
     float: left;
   }
+
+  .input-group-addon:not(:first-child):not(:last-child) {
+    border-right: none;
+    border-left: none;
+  }
 }
 
 /*
@@ -338,6 +344,29 @@ button:not(.btn-sm) i {
  */
 
 @media(max-width: 600px) {
+  .date.form-group .input-group {
+    display: inline-block;
+  }
+
+  .date.form-group .input-group-addon {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom: none;
+    border-right-width: 1px;
+    border-right-style: solid;
+    border-right-color: lightgrey;
+  }
+
+  .date.form-group input {
+    margin-bottom: 15px;
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+    border-bottom-left-radius: 5px !important;
+    border-bottom-right-radius: 5px !important;
+  }
+
   .row {
     display: block;
   }
