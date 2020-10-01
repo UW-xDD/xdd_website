@@ -94,7 +94,7 @@ define([
 			var items = _.extend({}, params);
 			delete items.max;
 			delete items.max_per_page;
-			return JSON.stringify(items).replace('{', '').replace('}', '').replace(/"/g, '').replace(/,/g, ', ').replace(/_/g, ' ');
+			return JSON.stringify(items).replace(/:/g, ': ').replace('{', '').replace('}', '').replace(/"/g, '').replace(/,/g, ', ').replace(/_/g, ' ');
 		},
 
 		getItems: function(data, pageNumber, maxPerPage) {

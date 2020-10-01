@@ -264,7 +264,6 @@ a:hover {
 
 .results li {
     padding: 15px;
-    padding-left: 50px;
 }
 
 .results li .heading {
@@ -308,6 +307,10 @@ button:not(.btn-sm) i {
   margin: auto;
 }
 
+.page-controls .input-group-addon {
+  padding: 5px;
+}
+
 .input-group-addon button {
     width: 20px;
     text-align: center;
@@ -323,6 +326,21 @@ button:not(.btn-sm) i {
     margin-right: 5px;
 }
 
+.status.well {
+  padding: 5px;
+  margin: 20px 0;
+  text-align: center;
+}
+
+button.search-again {
+  float: right;
+  margin: 20px;
+}
+
+h1 {
+  display: inline-block;
+}
+
 /*
  * desktop styles
  */
@@ -331,6 +349,10 @@ button:not(.btn-sm) i {
   .num-results {
     width: 50%;
     float: left;
+  }
+
+  .results li {
+      padding-left: 50px;
   }
 
   .input-group-addon:not(:first-child):not(:last-child) {
@@ -344,6 +366,11 @@ button:not(.btn-sm) i {
  */
 
 @media(max-width: 600px) {
+
+  button.search-again i {
+    margin-right: 0;
+  }
+  
   .date.form-group .input-group {
     display: inline-block;
   }

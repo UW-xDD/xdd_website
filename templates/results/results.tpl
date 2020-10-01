@@ -1,5 +1,5 @@
 <h1>Results</h1>
-<button style="float:right;margin-top:-50px" class="search-again btn btn-lg btn-primary"><i class="fa fa-search"></i>Search Again</button>
+<button class="search-again btn btn-lg btn-primary"><i class="fa fa-search"></i><span class="hidden-xs">Search Again</span></button>
 <hr />
 
 <h3>
@@ -7,25 +7,20 @@
 	<span class="search-terms"></span>
 </h3>
 
-<div class="status form-group">
-	<div class="input-group-addon"></div>
-	<div class="input-group-addon" style="border-left:none; border-right:none">
-
-		<div class="search-status">
-			Searching
-			<i class="fa fa-spinner fa-spin" style="margin-left:10px"></i>
-		</div>
-
-		<div class="results-status" style="display:none">
-			Showing 
-			<span class="range">
-				<span class="start">0</span>
-				<span class="range-end"> to <span class="finish">0</span></span> of 
-			</span>
-			<span class="count">0</span> results
-		</div>
+<div class="status well">
+	<div class="search-status">
+		Searching
+		<i class="fa fa-spinner fa-spin" style="margin-left:10px"></i>
 	</div>
-	<div class="input-group-addon"></div>
+
+	<div class="results-status" style="display:none">
+		Showing 
+		<span class="range">
+			<span class="start">0</span>
+			<span class="range-end"> to <span class="finish">0</span></span> of 
+		</span>
+		<span class="count">0</span> results
+	</div>
 </div>
 
 <div class="results"></div>
