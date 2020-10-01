@@ -18,7 +18,7 @@
 	</div>
 </div>
 
-<div class="publication-name form-group">
+<div class="publication-name form-group publishing collapsible collapse">
 	<label>Publication</label>
 	<div class="search input-group">
 		<div class="input-group-addon">
@@ -28,7 +28,7 @@
 	</div>
 </div>
 
-<div class="publisher-name form-group">
+<div class="publisher-name form-group publishing collapsible collapse">
 	<label>Publisher</label>
 	<div class="search input-group">
 		<div class="input-group-addon">
@@ -38,7 +38,7 @@
 	</div>
 </div>
 
-<div class="publication-date form-group">
+<div class="publication-date form-group date collapsible collapse">
 	<label>Publication Date</label>
 
 	<div class="input-group">
@@ -54,7 +54,7 @@
 	</div>
 </div>
 
-<div class="acquisition-date form-group">
+<div class="acquisition-date form-group date collapsible collapse">
 	<label>Acquisition Date</label>
 
 	<div class="input-group">

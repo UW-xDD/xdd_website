@@ -14,19 +14,40 @@
 
 <div class="search-form"></div>
 
-<div class="num-results form-group">
-	<label style="width:100%">Number of Results</label>
-	<div class="search input-group" style="width:1px">
-		<div class="input-group-addon">
-			<i class="fa fa-hashtag"></i></i>
-			<span class="hidden-xs">Max</span>
+<div class="num-results collapsible collapse form-group">
+	<label>Number of Results</label>
+	<div>
+		<div style="display:inline-block">
+			<div class="search input-group" style="width:1px">
+				<div class="input-group-addon">
+					<i class="fa fa-hashtag"></i></i>
+					<span class="hidden-xs">Max</span>
+				</div>
+				<input class="max-results form-control" type="number" min="1" max="1000" value="1000" style="width:5em" />
+				<div class="input-group-addon">
+					<i class="fa fa-file-text"></i></i>
+					<span class="hidden-xs">Max / Page</span>
+				</div>
+				<input class="max-per-page form-control" type="number" min="1" max="100" value="50" style="width:4em" />
+			</div>
 		</div>
-		<input class="max-results form-control" type="number" min="1" max="1000" value="1000" style="width:5em" />
-		<div class="input-group-addon">
-			<i class="fa fa-file-text"></i></i>
-			<span class="hidden-xs">Max Per Page</span>
-		</div>
-		<input class="max-per-page form-control" type="number" min="1" max="100" value="20" style="width:4em" />
+	</div>
+</div>
+
+<div class="options" style="float:left; padding:2px">
+	<label>Options</label>
+	<div class="buttons">
+		<button class="publishing expander btn btn-sm" data-toggle="tooltip" aria-expanded="false" aria-controls="collapse" data-toggle="tooltip" title="Publishing">
+		  <i class="fa fa-newspaper-o"></i>
+		</button>
+
+		<button class="dates expander btn btn-sm" data-toggle="tooltip" aria-expanded="false" aria-controls="collapse" data-toggle="tooltip" title="Dates">
+		  <i class="fa fa-calendar"></i>
+		</button>
+
+		<button class="limits expander btn btn-sm" data-toggle="tooltip" aria-expanded="false" aria-controls="collapse" data-toggle="tooltip" title="Number of Results">
+		  <i class="fa fa-hashtag"></i>
+		</button>
 	</div>
 </div>
 

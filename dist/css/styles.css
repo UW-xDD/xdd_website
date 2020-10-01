@@ -283,8 +283,23 @@ a:hover {
     margin-top: 10px;
 }
 
-button i {
+button:not(.btn-sm) i {
   margin-right: 10px;
+}
+
+.btn {
+  border: 1px solid lightgrey;
+}
+
+.btn, .btn:active, .btn:focus, .btn:active:focus {
+  outline: none;
+}
+
+.btn.active, .btn.active:focus {
+  color: white;
+  background-color: grey;
+  border-color: grey;
+  outline: none;
 }
 
 .page-controls {
@@ -314,13 +329,6 @@ button i {
 @media screen and (min-width: 600px) {
   .num-results {
     width: 50%;
-    float: left;
-  }
-}
-
-@media screen and (min-width:480px) {
-  .num-results {
-    width: 66%;
     float: left;
   }
 }

@@ -13,6 +13,7 @@
 define([
 	'jquery',
 	'underscore',
+	'bootstrap',
 	'text!templates/search/search.tpl',
 	'views/base-view',
 	'views/search/forms/snippets-form-view',
@@ -20,7 +21,7 @@ define([
 	'views/search/forms/journals-form-view',
 	'views/search/forms/publishers-form-view',
 	'utilities/web/query-string'
-], function($, _, Template, BaseView, SnippetsFormView, ArticlesFormView, JournalsFormView, PublishersFormView, QueryString) {
+], function($, _, Bootstrap, Template, BaseView, SnippetsFormView, ArticlesFormView, JournalsFormView, PublishersFormView, QueryString) {
 
 	return BaseView.extend({
 
@@ -35,6 +36,9 @@ define([
 		},
 
 		events: {
+			'click .publishing.expander': 'onClickPublishingExpander',
+			'click .dates.expander': 'onClickDatesExpander',
+			'click .limits.expander': 'onClickLimitsExpander',
 			'click button.search': 'onClickSearch'
 		},
 
@@ -126,15 +130,74 @@ define([
 					$(this).val(max);
 				}
 			});
+
+			// hide / show publishing expander
+			//
+			if (this.$el.find('.publishing.collapsible').length > 0) {
+				this.$el.find('.publishing.expander').show();
+			} else {
+				this.$el.find('.publishing.expander').hide();
+			}
+
+			// hide / show dates expander
+			//
+			if (this.$el.find('.date.collapsible').length > 0) {
+				this.$el.find('.dates.expander').show();
+			} else {
+				this.$el.find('.dates.expander').hide();
+			}
 		},
 
 		onAttach: function() {
 			this.getChildView('form').onAttach();
+
+			// add expander button tooltips
+			//
+			this.addTooltips();
 		},
 
 		//
 		// mouse event handling methods
 		//
+
+		onClickPublishingExpander: function() {
+			if (!this.publishing_expanded) {
+				this.$el.find('.publishing.collapsible').collapse('show');
+				this.$el.find('.publishing.expander').addClass('active');
+				this.publishing_expanded = true;
+			} else {
+				this.$el.find('.publishing.collapsible').collapse('hide');
+				this.$el.find('.publishing.expander').removeClass('active');
+				this.publishing_expanded = false;	
+			}
+			this.$el.find('.tooltip').remove();
+		},
+
+		onClickDatesExpander: function() {
+			if (!this.dates_expanded) {
+				this.$el.find('.date.collapsible').collapse('show');
+				this.$el.find('.dates.expander').addClass('active');
+				this.dates_expanded = true;
+			} else {
+				this.$el.find('.date.collapsible').collapse('hide');
+				this.$el.find('.dates.expander').removeClass('active');	
+				this.dates_expanded = false;	
+			}
+			this.$el.find('.tooltip').remove();
+		},
+
+		onClickLimitsExpander: function() {
+			if (!this.limits_expanded) {
+				this.$el.find('.num-results.collapsible').collapse('show');
+				this.$el.find('.limits.expander').addClass('active');
+				this.limits_expanded = true;
+			} else {
+				this.$el.find('.num-results.collapsible').collapse('hide');	
+				this.$el.find('.limits.expander').removeClass('active');	
+				this.limits_expanded = false;	
+			}
+			this.$el.find('.tooltip').remove();
+		},
 
 		onClickSearch: function() {
 			this.$el.find('input[type="number"]').trigger('blur');

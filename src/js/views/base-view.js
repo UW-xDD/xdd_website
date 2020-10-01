@@ -55,6 +55,20 @@ define([
 			} else if (this.parent && this.parent.getParentView) {
 				return this.parent.getParentView(className);
 			}
+		},
+
+		//
+		// tooltip methods
+		//
+
+		addTooltips: function(options) {
+
+			// show tooltips on trigger
+			//
+			this.$el.find('[data-toggle="tooltip"]').addClass('tooltip-trigger').tooltip(_.extend(options, {
+				trigger: 'hover',
+				placement: 'top'
+			}));
 		}
 	}));
 });

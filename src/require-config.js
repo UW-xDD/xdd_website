@@ -32,6 +32,7 @@ require.config({
 		backbone: '../library/backbone/backbone',
 		'backbone.radio': '../library/backbone/radio/backbone.radio',
 		marionette: '../library/backbone/marionette/backbone.marionette',
+		bootstrap: '../../vendor/bootstrap/js/bootstrap'
 	},
 
 	shim: {
@@ -60,6 +61,15 @@ require.config({
 		marionette : {
 			deps: ['jquery', 'underscore', 'backbone'],
 			exports : 'Marionette'
-		}
+		},
+
+		//
+		// bootstrap dependencies
+		//
+
+		bootstrap: { 
+			deps: ['jquery'], 
+			exports: 'bootstrap' 
+		},
 	}
 });
