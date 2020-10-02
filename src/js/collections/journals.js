@@ -28,7 +28,6 @@ define([
 
 		baseUrl: Results.prototype.baseUrl + '/journals',
 
-
 		//
 		// searching methods
 		//

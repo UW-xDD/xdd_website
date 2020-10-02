@@ -27,8 +27,7 @@ define([
 		//
 
 		baseUrl: Results.prototype.baseUrl + '/articles',
-
-
+		
 		//
 		// searching methods
 		//

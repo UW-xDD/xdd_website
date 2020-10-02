@@ -90,6 +90,12 @@
 			var dataset = QueryString.getParam('dataset') || 'xdd';
 			$('.dataset li.' + dataset).addClass('active');
 
+			// add dataset class to body
+			//
+			if (dataset != 'xdd') {
+				$('body').addClass(dataset);
+			}
+			
 			// render results view
 			//
 			$('#results').append(new ResultsView().render().$el);
