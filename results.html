@@ -95,10 +95,21 @@
 			if (dataset != 'xdd') {
 				$('body').addClass(dataset);
 			}
-			
+
 			// render results view
 			//
 			$('#results').append(new ResultsView().render().$el);
+
+			// set dataset text
+			//
+			switch (dataset) {
+				case 'xdd':
+					$('h1 .dataset').html('xDD');
+					break;
+				case 'covid':
+					$('h1 .dataset').html('Covid');
+					break;
+			}
 		});      
 	</script>
 

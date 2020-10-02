@@ -96,6 +96,17 @@
 				$('body').addClass(dataset);
 			}
 
+			// set dataset text
+			//
+			switch (dataset) {
+				case 'xdd':
+					$('h1 .dataset').html('xDD');
+					break;
+				case 'covid':
+					$('h1 .dataset').html('Covid');
+					break;
+			}
+
 			// render search view
 			//
 			var searchView = new SearchView();
@@ -130,7 +141,7 @@
 		</div>
 
 		<div class="container">
-			<h1>Explore</h1>
+			<h1>Explore <span class="dataset"></span></h1>
 			<hr />
 			<div id="search"></div>
 		</div>
