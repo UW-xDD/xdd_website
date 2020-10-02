@@ -15,6 +15,12 @@ define([
 	'underscore',
 	'text!templates/results/results.tpl',
 	'collections/results',
+	'collections/snippets',
+	'collections/articles',
+	'collections/journals',
+	'collections/publishers',
+	'collections/terms',
+	'collections/dictionaries',
 	'views/base-view',
 	'views/results/lists/snippets/snippets-list-view',
 	'views/results/lists/articles/articles-list-view',
@@ -24,20 +30,7 @@ define([
 	'views/results/lists/dictionaries/dictionaries-list-view',
 	'utilities/web/query-string',
 	'utilities/web/address-bar'
-], function($, _, Template, Results, BaseView, SnippetsListView, ArticlesListView, JournalsListView, PublishersListView, TermsListView, DictionariesListView, QueryString, AddressBar) {
-	
-	//
-	// querying methods
-	//
-
-	function isQuotated(string) {
-		return string.charAt(0) == "'" || string.charAt(0) == '"';
-	}
-
-	function unQuotated(string) {
-		return string.replace(/"/g, '').replace(/'/g, '');
-	}
-
+], function($, _, Template, Results, Snippets, Articles, Journals, Publishers, Terms, Dictionaries, BaseView, SnippetsListView, ArticlesListView, JournalsListView, PublishersListView, TermsListView, DictionariesListView, QueryString, AddressBar) {
 	return BaseView.extend({
 
 		//
@@ -104,27 +97,6 @@ define([
 			return JSON.stringify(items).replace(/:/g, ': ').replace('{', '').replace('}', '').replace(/"/g, '').replace(/,/g, ', ').replace(/_/g, ' ');
 		},
 
-		getItems: function(data, pageNumber, maxPerPage) {
-			var items = [];
-			var first = (pageNumber - 1) * maxPerPage;
-			var last = (pageNumber) * maxPerPage - 1;
-
-			// clamp to data
-			//
-			if (last > data.length - 1) {
-				last = data.length - 1;
-			}
-
-			// select items to display
-			//
-			var items = [];
-			for (var i = first; i <= last; i++) {
-				items.push(data[i]);
-			}
-
-			return items;
-		},
-
 		getPageNumber: function() {
 			return this.$el.find('.page-number').val();
 		},
@@ -166,24 +138,25 @@ define([
 		// searching methods
 		//
 
-		searchApi(category, params) {
+		searchFor: function(items, options) {
 			this.showSpinner();
 
-			// make request
+			// search for items by options
 			//
-			$.ajax(this.api + '/' + category + '?' + QueryString.encode(params), {
+			items.search({
+				data: options, 
 
 				// callbacks
 				//
-				success: (data) => {
+				success: (collection) => {
 					this.hideSpinner();
 
-					if (data.success && data.success.data) {
-						this.data = data.success.data;
+					if (collection.length > 0) {
+						this.results = collection;
 
 						// compute number of pages
 						//
-						this.numPages = Math.ceil(this.data.length / this.options.max_per_page);
+						this.numPages = Math.ceil(collection.length / this.options.max_per_page);
 
 						// show / hide pager
 						//
@@ -200,12 +173,6 @@ define([
 						// show results list
 						//
 						this.setPageNumber(this.options.page_number);
-					} else if (data.error) {
-
-						// display error message
-						//
-						this.hideStatus();
-						this.showMessage(data.error.message);
 					} else {
 
 						// display error message
@@ -215,182 +182,18 @@ define([
 					}
 				},
 
-				error: () => {
+				error: (response) => {
+
+					if (response && response.message) {
+						this.showMessage(response.message);
+					}
 
 					// display error message
 					//
 					this.hideStatus();
 					this.showMessage('No search results.');
 				}
-			}); 
-		},
-
-		searchSnippets: function(options) {
-			var params = {};
-
-			//
-			// set API params
-			//
-
- 			if (options.max) {
-				params.article_limit = options.max;
-			}
-			if (options.terms) {
-				params.term = options.terms;
-			}
- 			if (options.publisher) {
-				params.publisher = options.publisher;
-			}
- 			if (options.published_after) {
-				params.min_published = options.published_after;
-			}
- 			if (options.published_before) {
-				params.max_published = options.published_before;
-			}
- 			if (options.acquired_after) {
-				params.min_acquired = options.acquired_after;
-			}
- 			if (options.acquired_before) {
-				params.max_acquired = options.acquired_before;
-			}
-			
-			// perform search
-			//
-			this.searchApi('snippets', params);
-		},
-
-		searchArticles: function(options) {
-			var params = {};
-
-			//
-			// set API params
-			//
-
- 			if (options.max) {
-				params.max = options.max;
-			}
-			if (options.title) {
-				if (isQuotated(options.title)) {
-					params.title = unQuotated(options.title);
-				} else {
-					params.title_like = options.title;
-				}
-			}
-			if (options.author) {
-				var names = options.author.split(' ');
-				if (names.length > 1) {
-        			params.firstname = names[0];
-        			params.lastname = names[names.length - 1];
-        		} else {
-        			params.lastname = options.author;
-        		}
-        	}
- 			if (options.publication) {
-				params.pubname = options.publication;
-			}
- 			if (options.publisher) {
-				params.publisher = options.publisher;
-			}
- 			if (options.published_after) {
-				params.min_published = options.published_after;
-			}
- 			if (options.published_before) {
-				params.max_published = options.published_before;
-			}
- 			if (options.acquired_after) {
-				params.min_acquired = options.acquired_after;
-			}
- 			if (options.acquired_before) {
-				params.max_acquired = options.acquired_before;
-			}
-
-			// perform search
-			//
-			this.searchApi('articles', params);
-		},
-
-		searchJournals: function(options) {
-			var params = {};
-
-			//
-			// set API params
-			//
-
-			if (options.journal) {
-				if (isQuotated(options.journal)) {
-					params.journal = unQuotated(options.journal);
-				} else {
-					params.journal_like = options.journal;
-				}
-			} else {
-				params.all = true;
-			}
-
-			if (options.publisher && options.publisher != 'undefined') {
-				params.publisher = options.publisher;
-			}
-
-			// perform search
-			//
-			this.searchApi('journals', params);		
-		},
-
-		searchPublishers: function(options) {
-			var params = {};
-
-			//
-			// set API params
-			//
-
-			if (options.publisher) {
-				params.publisher = options.publisher;
-			} else {
-				params.all = true;
-			}
-
-			// perform search
-			//
-			this.searchApi('publishers', params);		
-		},
-
-		searchTerms: function(options) {
-			var params = {};
-
-			//
-			// set API params
-			//
-
-			if (options.term) {
-				params.term = options.term;
-			}
-			if (options.dictionary) {
-				params.dictionary = options.dictionary;
-			}
-			if (options.publisher) {
-				params.publisher = options.publisher;
-			}
-
-			// perform search
-			//
-			this.searchApi('terms', params);		
-		},
-
-		searchDictionaries: function(options) {
-			var params = {};
-
-			//
-			// set API params
-			//
-
-			if (options.dictionary) {
-				params.dictionary = options.dictionary;
-			} else {
-				params.all = true;
-			}
-
-			// perform search
-			//
-			this.searchApi('dictionaries', params);		
+			});
 		},
 
 		//
@@ -402,24 +205,26 @@ define([
 			var description = this.getSearchDescription(params);
 			this.showDescription(description);
 
+			// search for items
+			//
 			switch (this.category) {
 				case 'snippets':
-					this.searchSnippets(this.options);
+					this.searchFor(new Snippets(), params);
 					break;
 				case 'articles':
-					this.searchArticles(this.options);
+					this.searchFor(new Articles(), params);
 					break;
 				case 'journals':
-					this.searchJournals(this.options);
+					this.searchFor(new Journals(), params);
 					break;
 				case 'publishers':
-					this.searchPublishers(this.options);
+					this.searchFor(new Publishers(), params);
 					break;
 				case 'terms':
-					this.searchTerms(this.options);
+					this.searchFor(new Terms(), params);
 					break;
 				case 'dictionaries':
-					this.searchDictionaries(this.options);
+					this.searchFor(new Dictionaries(), params);
 					break;
 			}
 
@@ -439,29 +244,32 @@ define([
 		},
 
 		showResults: function() {
-			var items = this.getItems(this.data, this.pageNumber, this.options.max_per_page);
 
-			// display results
+			// get a single page of results
+			//
+			var items = this.results.slice(this.pageNumber, this.options.max_per_page);
+
+			// render results list
 			//
 			switch (this.category) {
 				case 'snippets':
-					this.showSnippets(new Results(items));
+					this.showSnippets(items);
 					break;
 				case 'articles':
-					this.showArticles(new Results(items));
+					this.showArticles(items);
 					break;
 				case 'journals':
-					this.showJournals(new Results(items));
+					this.showJournals(items);
 					break;
 				case 'publishers':
-					this.showPublishers(new Results(items));
+					this.showPublishers(items);
 					break;
 				case 'terms':
-					this.showTerms(new Results(items));
+					this.showTerms(items);
 					break;
 				case 'dictionaries':
-					this.showDictionaries(new Results(items));
-					break;
+					this.showDictionaries(items);
+					break;	
 			}
 
 			// set starting line number
@@ -472,10 +280,10 @@ define([
 			// show header
 			//
 			var finish = start + (this.options.max_per_page - 1);
-			if (finish > this.data.length) {
-				finish = this.data.length;
+			if (finish > this.results.length) {
+				finish = this.results.length;
 			}
-			this.showResultsStatus(start, finish, this.data.length);
+			this.showResultsStatus(start, finish, this.results.length);
 		},
 
 		showStatus: function() {
