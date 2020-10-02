@@ -36,6 +36,10 @@
   display: block;
 }
 
+h1 {
+  display: inline-block;
+}
+
 .footer {
   bottom: 0;
   width: 100%;
@@ -257,7 +261,7 @@ div[id*="-fetched"] > span {
 }
 
 .covid .nav-pills > li:hover > a {
-  background-color: #f0a0a0;
+  background-color: #f07070;
 }
 
 .nav-pills > li > a {
@@ -402,13 +406,32 @@ button:not(.btn-sm) i {
   text-align: center;
 }
 
+.btn-primary, .btn-primary:focus {
+  color: white;
+  background: grey;
+  border-color: grey;
+}
+
+.btn-primary:hover, .btn-primary:active,
+.btn-primary:hover:focus, .btn-primary:active:focus {
+  background: darkgrey;
+  border-color: darkgrey;
+}
+
+.covid .btn-primary, .covid .btn-primary:focus {
+  background: #770000;
+  border-color: #770000;
+}
+
+.covid .btn-primary:hover, .covid .btn-primary:active,
+.covid .btn-primary:hover:focus, .covid .btn-primary:active:focus {
+  background: #f07070;
+  border-color: #f07070;
+}
+
 button.search-again {
   float: right;
   margin: 20px;
-}
-
-h1 {
-  display: inline-block;
 }
 
 /*
