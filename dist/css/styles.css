@@ -320,7 +320,21 @@ a:hover {
 }
 
 .results .well {
-    margin-top: 10px;
+  margin-top: 20px;
+  position: relative;
+}
+
+.results .well em {
+  font-weight: bold;
+}
+
+.results .well .badge {
+  position: absolute;
+  right: -10px;
+  top: -10px;
+  margin-left: -20px;
+  border: 2px solid white;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
 }
 
 button:not(.btn-sm) i {

@@ -173,11 +173,8 @@ define([
 			for (let key in data) {
 				let value = data[key];
 				if (value !== undefined) {
-					if (typeof value != 'string') {
-						value = value.toString();
-					}
-					if (value != '') {
-						queryString = this.concat(queryString, key + '=' + Url.encode(value));
+					if (value !== true) {
+						queryString = this.concat(queryString, key + '=' + Url.encode(value.toString()));
 					} else {
 						queryString = this.concat(key);
 					}

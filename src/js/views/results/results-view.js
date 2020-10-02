@@ -231,13 +231,33 @@ define([
 			//
 
  			if (options.max) {
-				params.max = options.max;
+				params.article_limit = options.max;
 			}
 
 			if (options.terms) {
 				params.term = options.terms;
 			}
 
+ 			if (options.publisher) {
+				params.publisher = options.publisher;
+			}
+
+ 			if (options.published_after) {
+				params.min_published = options.published_after;
+			}
+
+ 			if (options.published_before) {
+				params.max_published = options.published_before;
+			}
+
+ 			if (options.acquired_after) {
+				params.min_acquired = options.acquired_after;
+			}
+
+ 			if (options.acquired_before) {
+				params.max_acquired = options.acquired_before;
+			}
+			
 			// perform search
 			//
 			this.searchApi('snippets', params);
@@ -315,7 +335,7 @@ define([
 					params.journal_like = options.journal;
 				}
 			} else {
-				params.all = '';
+				params.all = true;
 			}
 
 			if (options.publisher && options.publisher != 'undefined') {
@@ -337,7 +357,7 @@ define([
 			if (options.publisher) {
 				params.publisher = options.publisher;
 			} else {
-				params.all = '';
+				params.all = true;
 			}
 
 			// perform search

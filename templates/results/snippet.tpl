@@ -23,6 +23,7 @@
 
 <% if (typeof highlight != 'undefined') { %>
 <div class="well">
+	<div class="badge"><%= hits %></div>
 	<%= highlight %>
 </div>
 <% } %>

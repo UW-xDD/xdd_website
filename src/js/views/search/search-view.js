@@ -110,7 +110,7 @@ define([
 
 		templateContext: function() {
 			return {
-				max: this.options.max || 1000,
+				max: this.options.max || 500,
 				max_per_page: this.options.max_per_page || 50
 			};
 		},
