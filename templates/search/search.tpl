@@ -8,6 +8,8 @@
 				<li class="articles" role="presentation"><a>Articles</a></li>
 				<li class="journals" role="presentation"><a>Journals</a></li>
 				<li class="publishers" role="presentation"><a>Publishers</a></li>
+				<li class="terms" role="presentation"><a>Terms</a></li>
+				<li class="dictionaries" role="presentation"><a>Dictionaries</a></li>
 			</ul>
 		</div>
 	</div>

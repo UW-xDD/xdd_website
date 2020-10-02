@@ -16,13 +16,15 @@ define([
 	'text!templates/results/results.tpl',
 	'collections/results',
 	'views/base-view',
-	'views/results/snippets/snippets-list-view',
-	'views/results/articles/articles-list-view',
-	'views/results/journals/journals-list-view',
-	'views/results/publishers/publishers-list-view',
+	'views/results/lists/snippets/snippets-list-view',
+	'views/results/lists/articles/articles-list-view',
+	'views/results/lists/journals/journals-list-view',
+	'views/results/lists/publishers/publishers-list-view',
+	'views/results/lists/terms/terms-list-view',
+	'views/results/lists/dictionaries/dictionaries-list-view',
 	'utilities/web/query-string',
 	'utilities/web/address-bar'
-], function($, _, Template, Results, BaseView, SnippetsListView, ArticlesListView, JournalsListView, PublishersListView, QueryString, AddressBar) {
+], function($, _, Template, Results, BaseView, SnippetsListView, ArticlesListView, JournalsListView, PublishersListView, TermsListView, DictionariesListView, QueryString, AddressBar) {
 	
 	//
 	// querying methods
@@ -233,27 +235,21 @@ define([
  			if (options.max) {
 				params.article_limit = options.max;
 			}
-
 			if (options.terms) {
 				params.term = options.terms;
 			}
-
  			if (options.publisher) {
 				params.publisher = options.publisher;
 			}
-
  			if (options.published_after) {
 				params.min_published = options.published_after;
 			}
-
  			if (options.published_before) {
 				params.max_published = options.published_before;
 			}
-
  			if (options.acquired_after) {
 				params.min_acquired = options.acquired_after;
 			}
-
  			if (options.acquired_before) {
 				params.max_acquired = options.acquired_before;
 			}
@@ -273,7 +269,6 @@ define([
  			if (options.max) {
 				params.max = options.max;
 			}
-
 			if (options.title) {
 				if (isQuotated(options.title)) {
 					params.title = unQuotated(options.title);
@@ -281,7 +276,6 @@ define([
 					params.title_like = options.title;
 				}
 			}
-
 			if (options.author) {
 				var names = options.author.split(' ');
 				if (names.length > 1) {
@@ -291,27 +285,21 @@ define([
         			params.lastname = options.author;
         		}
         	}
-
  			if (options.publication) {
 				params.pubname = options.publication;
 			}
-
  			if (options.publisher) {
 				params.publisher = options.publisher;
 			}
-
  			if (options.published_after) {
 				params.min_published = options.published_after;
 			}
-
  			if (options.published_before) {
 				params.max_published = options.published_before;
 			}
-
  			if (options.acquired_after) {
 				params.min_acquired = options.acquired_after;
 			}
-
  			if (options.acquired_before) {
 				params.max_acquired = options.acquired_before;
 			}
@@ -365,6 +353,46 @@ define([
 			this.searchApi('publishers', params);		
 		},
 
+		searchTerms: function(options) {
+			var params = {};
+
+			//
+			// set API params
+			//
+
+			if (options.term) {
+				params.term = options.term;
+			}
+			if (options.dictionary) {
+				params.dictionary = options.dictionary;
+			}
+			if (options.publisher) {
+				params.publisher = options.publisher;
+			}
+
+			// perform search
+			//
+			this.searchApi('terms', params);		
+		},
+
+		searchDictionaries: function(options) {
+			var params = {};
+
+			//
+			// set API params
+			//
+
+			if (options.dictionary) {
+				params.dictionary = options.dictionary;
+			} else {
+				params.all = true;
+			}
+
+			// perform search
+			//
+			this.searchApi('dictionaries', params);		
+		},
+
 		//
 		// rendering methods
 		//
@@ -386,6 +414,12 @@ define([
 					break;
 				case 'publishers':
 					this.searchPublishers(this.options);
+					break;
+				case 'terms':
+					this.searchTerms(this.options);
+					break;
+				case 'dictionaries':
+					this.searchDictionaries(this.options);
 					break;
 			}
 
@@ -421,6 +455,12 @@ define([
 					break;
 				case 'publishers':
 					this.showPublishers(new Results(items));
+					break;
+				case 'terms':
+					this.showTerms(new Results(items));
+					break;
+				case 'dictionaries':
+					this.showDictionaries(new Results(items));
 					break;
 			}
 
@@ -521,6 +561,18 @@ define([
 		showPublishers(publishers) {
 			this.showChildView('results', new PublishersListView({
 				collection: publishers
+			}));
+		},
+
+		showTerms(terms) {
+			this.showChildView('results', new TermsListView({
+				collection: terms
+			}));
+		},
+
+		showDictionaries(dictionaries) {
+			this.showChildView('results', new DictionariesListView({
+				collection: dictionaries
 			}));
 		},
 

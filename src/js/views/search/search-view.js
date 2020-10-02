@@ -21,8 +21,10 @@ define([
 	'views/search/forms/articles-form-view',
 	'views/search/forms/journals-form-view',
 	'views/search/forms/publishers-form-view',
+	'views/search/forms/terms-form-view',
+	'views/search/forms/dictionaries-form-view',
 	'utilities/web/query-string'
-], function($, _, Bootstrap, Template, BaseModel, BaseView, SnippetsFormView, ArticlesFormView, JournalsFormView, PublishersFormView, QueryString) {
+], function($, _, Bootstrap, Template, BaseModel, BaseView, SnippetsFormView, ArticlesFormView, JournalsFormView, PublishersFormView, TermsFormView, DictionariesFormView, QueryString) {
 
 	return BaseView.extend({
 
@@ -131,6 +133,12 @@ define([
 					break;
 				case 'publishers':
 					this.showChildView('form', new PublishersFormView(this.options));
+					break;
+				case 'terms':
+					this.showChildView('form', new TermsFormView(this.options));
+					break;
+				case 'dictionaries':
+					this.showChildView('form', new DictionariesFormView(this.options));
 					break;
 			}
 

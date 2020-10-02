@@ -1,10 +1,10 @@
 /******************************************************************************\
 |                                                                              |
-|                             snippets-list-view.js                            |
+|                            publishers-list-view.js                           |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines a view for displaying a list of snippets.                |
+|        This defines a view for displaying a list of publishers.              |
 |                                                                              |
 |******************************************************************************|
 |        Copyright (C) 2012-2020 Morgridge Institute for Research (MIR)        |
@@ -15,8 +15,8 @@ define([
 	'underscore',
 	'views/base-view',
 	'views/collections/collection-view',
-	'views/results/snippets/snippet-view'
-], function($, _, BaseView, CollectionView, SnippetView) {
+	'views/results/lists/publishers/publisher-item-view'
+], function($, _, BaseView, CollectionView, PublisherItemView) {
 	return CollectionView.extend({
 
 		//
@@ -25,10 +25,10 @@ define([
 
 		tagName: 'ol',
 
-		childView: SnippetView,
+		childView: PublisherItemView,
 
 		emptyView: BaseView.extend({
-			template: _.template("No snippets.")
+			template: _.template("No publishers.")
 		})
 	});
 });

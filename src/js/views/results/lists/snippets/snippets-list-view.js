@@ -1,10 +1,10 @@
 /******************************************************************************\
 |                                                                              |
-|                             articles-list-view.js                            |
+|                             snippets-list-view.js                            |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines a view for displaying a list of articles.                |
+|        This defines a view for displaying a list of snippets.                |
 |                                                                              |
 |******************************************************************************|
 |        Copyright (C) 2012-2020 Morgridge Institute for Research (MIR)        |
@@ -15,8 +15,8 @@ define([
 	'underscore',
 	'views/base-view',
 	'views/collections/collection-view',
-	'views/results/articles/article-view'
-], function($, _, BaseView, CollectionView, ArticleView) {
+	'views/results/lists/snippets/snippet-item-view'
+], function($, _, BaseView, CollectionView, SnippetItemView) {
 	return CollectionView.extend({
 
 		//
@@ -25,10 +25,10 @@ define([
 
 		tagName: 'ol',
 
-		childView: ArticleView,
+		childView: SnippetItemView,
 
 		emptyView: BaseView.extend({
-			template: _.template("No articles.")
+			template: _.template("No snippets.")
 		})
 	});
 });

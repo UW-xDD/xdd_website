@@ -1,10 +1,10 @@
 /******************************************************************************\
 |                                                                              |
-|                                publisher-view.js                             |
+|                           dictionaries-list-view.js                          |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines a view for displaying a single publisher item.           |
+|        This defines a view for displaying a list of terms.                   |
 |                                                                              |
 |******************************************************************************|
 |        Copyright (C) 2012-2020 Morgridge Institute for Research (MIR)        |
@@ -13,17 +13,22 @@
 define([
 	'jquery',
 	'underscore',
-	'text!templates/results/publisher.tpl',
-	'views/base-view'
-], function($, _, Template, BaseView) {
-
-	return BaseView.extend({
+	'views/base-view',
+	'views/collections/collection-view',
+	'views/results/lists/dictionaries/dictionary-item-view'
+], function($, _, BaseView, CollectionView, DictionaryItemView) {
+	return CollectionView.extend({
 
 		//
 		// attributes
 		//
 
-		tagName: 'li',
-		template: _.template(Template)
+		tagName: 'ol',
+
+		childView: DictionaryItemView,
+
+		emptyView: BaseView.extend({
+			template: _.template("No dictionaries.")
+		})
 	});
 });
