@@ -92,8 +92,8 @@
 
 			// add dataset class to body
 			//
-			if (dataset != 'xdd') {
-				$('body').addClass(dataset);
+			if (dataset == 'covid-19' || dataset == 'cord-19') {
+				$('body').addClass('covid');
 			}
 
 			// set dataset text
@@ -102,8 +102,11 @@
 				case 'xdd':
 					$('h1 .dataset').html('xDD');
 					break;
-				case 'covid':
-					$('h1 .dataset').html('Covid');
+				case 'covid-19':
+					$('h1 .dataset').html('Covid-19');
+					break;
+				case 'cord-19':
+					$('h1 .dataset').html('Cord-19');
 					break;
 			}
 
