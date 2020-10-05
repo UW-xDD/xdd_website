@@ -85,8 +85,12 @@
 		color: black;
 	}
 
-	.panel .description {
+	.panel .info {
 		padding: 20px;
+	}
+
+	.panel + .description {
+		min-height: 100px;
 	}
 
 	.panel:hover::after {
@@ -113,6 +117,27 @@
 	</script>
 	<script type="text/javascript" src="src/library/require/require-min.js"></script>
 	<script type="text/javascript" src="src/require-config.js"></script>
+	<script>
+		require([
+			'jquery',
+			'utilities/web/query-string'
+		], function ($, QueryString) {
+			$.ajax('https://xdd.wisc.edu/api/sets?all', {
+				success: (data) => {
+					var results = data.success.data;
+					for (var i = 0; i < results.length; i++) {
+						var info = results[i];
+						var selector = '.' + info.name.toLowerCase() + '.panel';
+						$(selector + ' + .description').html(info.description);
+						$(selector + ' .total-docs').html(info.data.total);
+						$(selector + ' .daily-docs').html(info.data.lastDay);
+						$(selector + ' .weekly-docs').html(info.data.lastWeek);
+						$(selector + ' .monthly-docs').html(info.data.lastMonth);
+					}
+				}
+			})
+		});
+	</script>
 </head>
 <body>
 	<div class="wrapper container-fluid">
@@ -136,13 +161,13 @@
 				<div class="col-sm-6">
 					<div class="xdd content panel">
 						<a href="/search.html">
-							<div class="description">
+							<div class="info">
 								<h1>xDD</h1>
 								<h3>
-								  <p class='count'><span id="totalDocs">>12,500,000</span> <span class='count-label'>documents</span></p>
-								  <p class='count-sub'><span id="monthlyDocs">~200,000</span> ingested this month</p>
-								  <p class='count-sub'><span id="weeklyDocs">~50,000</span> ingested this week</p>
-								  <p class='count-sub'><span id="dailyDocs">~8,000</span> ingested in the last 24 hours</p>
+									<p class='count'><span class="total-docs"></span> <span class='count-label'>documents</span></p>
+									<p class='count-sub'><span class="monthly-docs"></span> ingested this month</p>
+									<p class='count-sub'><span class="weekly-docs"></span> ingested this week</p>
+									<p class='count-sub'><span class="daily-docs"></span> ingested in the last 24 hours</p>
 								</h3>
 								<button class="btn btn-large">
 									<i class="fa fa-search"></i>Search
@@ -150,17 +175,18 @@
 							</div>
 						</a>
 					</div>
+					<p class="description"></p>
 				</div>
 				<div class="col-sm-6">
-					<div class="covid content panel">
+					<div class="covid xdd-covid-19 content panel">
 						<a href="search.html?dataset=covid">
-							<div class="description">
+							<div class="info">
 								<h1>Covid</h1>
 								<h3>
-								  <p class='count'><span id="totalDocs">>12,500,000</span> <span class='count-label'>documents</span></p>
-								  <p class='count-sub'><span id="monthlyDocs">~200,000</span> ingested this month</p>
-								  <p class='count-sub'><span id="weeklyDocs">~50,000</span> ingested this week</p>
-								  <p class='count-sub'><span id="dailyDocs">~8,000</span> ingested in the last 24 hours</p>
+									<p class='count'><span class="total-docs"></span> <span class='count-label'>documents</span></p>
+									<p class='count-sub'><span class="monthly-docs"></span> ingested this month</p>
+									<p class='count-sub'><span class="weekly-docs"></span> ingested this week</p>
+									<p class='count-sub'><span class="daily-docs"></span> ingested in the last 24 hours</p>
 								</h3>
 								<button class="btn btn-large">
 									<i class="fa fa-search"></i>Search
@@ -168,6 +194,7 @@
 							</div>
 						</a>
 					</div>
+					<p class="description"></p>
 				</div>
 			</div>
 		</div>
