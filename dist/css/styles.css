@@ -250,20 +250,6 @@ div[id*="-fetched"] > span {
   background-color: #777;
 }
 
-.covid .nav-pills a {
-  color: #770000;
-}
-
-.covid .nav-pills > li.active > a, 
-.covid .nav-pills > li.active > a:hover, 
-.covid .nav-pills > li.active > a:focus {
-  background-color: #770000;
-}
-
-.covid .nav-pills > li:hover > a {
-  background-color: #f07070;
-}
-
 .nav-pills > li > a {
   cursor: default;
 }
@@ -418,15 +404,41 @@ button:not(.btn-sm) i {
   border-color: darkgrey;
 }
 
+/*
+ * covid dataset branding
+ */
+
+.covid .nav-pills a {
+  color: #800000;
+}
+
+.covid .nav-pills > li.active > a, 
+.covid .nav-pills > li.active > a:hover, 
+.covid .nav-pills > li.active > a:focus {
+  background-color: #800000;
+}
+
+.covid .nav-pills > li:hover > a {
+  background-color: #f04040;
+}
+
+.covid a {
+  color: #800000;
+}
+
+.covid a:hover {
+  color: #f04040;
+}
+
 .covid .btn-primary, .covid .btn-primary:focus {
-  background: #770000;
-  border-color: #770000;
+  background: #800000;
+  border-color: #800000;
 }
 
 .covid .btn-primary:hover, .covid .btn-primary:active,
 .covid .btn-primary:hover:focus, .covid .btn-primary:active:focus {
-  background: #f07070;
-  border-color: #f07070;
+  background: #f04040;
+  border-color: #f04040;
 }
 
 /*
