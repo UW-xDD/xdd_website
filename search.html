@@ -120,6 +120,7 @@
 		<div class="header clearfix">
 			<nav>
 				<ul class="nav nav-pills pull-right">
+					<li role="presentation"><a href="/explore.html">Explore</a></li>
 					<li role="presentation"><a href="/about.html">About</a></li>
 					<li role="presentation"><a href="/#the-team">Team</a></li>
 				</ul>
@@ -128,23 +129,25 @@
 				<a href="/">xDD</a>
 			</h3>
 
-			<div style="display:inline-block; padding:10px; float:left">
-				<label>Select a dataset to search: </label>
-			</div>
-			<div class="dataset form-group" style="float:left">
-				<ul class="nav nav-pills" style="float:left">
-					<li class="xdd" role="presentation">
-						<a href="/search.html">All</a>
-					</li>
-					<li class="covid" role="presentation">
-						 <a href="/search.html?dataset=covid">Covid</a>
-					</li>
-				</ul>
+			<div style="display:none">
+				<div style="display:inline-block; padding:10px; float:left">
+					<label>Select a dataset to search: </label>
+				</div>
+				<div class="dataset form-group" style="float:left">
+					<ul class="nav nav-pills" style="float:left">
+						<li class="xdd" role="presentation">
+							<a href="/search.html">All</a>
+						</li>
+						<li class="covid" role="presentation">
+							 <a href="/search.html?dataset=covid">Covid</a>
+						</li>
+					</ul>
+				</div>
 			</div>
 		</div>
 
 		<div class="container">
-			<h1>Explore <span class="dataset"></span></h1>
+			<h1>Search <span class="dataset"></span></h1>
 			<hr />
 			<div id="search"></div>
 		</div>
