@@ -17,6 +17,8 @@
 		display:         flex;
 		align-items: center;
 		justify-content: center;
+		align-items: start;
+		margin-bottom: 20px;
 	}
 	.first-row {
 		margin-top: 35px;
@@ -89,10 +91,6 @@
 		padding: 20px;
 	}
 
-	.panel + .description {
-		min-height: 100px;
-	}
-
 	.panel:hover::after {
 		position: absolute;
 		content: "";
@@ -103,6 +101,10 @@
 		background: rgba(255, 255, 255, 0.33);
 		cursor: pointer;
 		pointer-events: none;
+	}
+
+	.links a {
+		margin-right: 10px;
 	}
 
 	</style>
@@ -128,11 +130,28 @@
 					for (var i = 0; i < results.length; i++) {
 						var info = results[i];
 						var selector = '.' + info.name.toLowerCase() + '.panel';
+
+						// display dataset description
+						//
 						$(selector + ' + .description').html(info.description);
+
+						// display dataset stats
+						//
 						$(selector + ' .total-docs').html(info.data.total);
 						$(selector + ' .daily-docs').html(info.data.lastDay);
 						$(selector + ' .weekly-docs').html(info.data.lastWeek);
 						$(selector + ' .monthly-docs').html(info.data.lastMonth);
+
+						// show links
+						//
+						if (info.links.length > 0) {
+							$(selector + ' + .description + .links').show();
+							for (var j = 0; j < info.links.length; j++) {
+								var link = info.links[j];
+								$link = $('<li><a href="' + link.url + '">' + link.name + '</a>' + link.description + '</li>');
+								$(selector + ' + .description + .links ol').append($link);
+							}
+						}
 					}
 				}
 			})
@@ -176,6 +195,10 @@
 						</a>
 					</div>
 					<p class="description"></p>
+					<div class="links" style="display:none">
+						<label>Links</label>
+						<ol></ol>
+					</div>
 				</div>
 				<div class="col-sm-6">
 					<div class="covid xdd-covid-19 content panel">
@@ -195,6 +218,10 @@
 						</a>
 					</div>
 					<p class="description"></p>
+					<div class="links" style="display:none">
+						<label>Links</label>
+						<ol></ol>
+					</div>
 				</div>
 			</div>
 			<div class="row">
@@ -216,6 +243,10 @@
 						</a>
 					</div>
 					<p class="description"></p>
+					<div class="links" style="display:none">
+						<label>Links</label>
+						<ol></ol>
+					</div>
 				</div>
 			</div>
 		</div>
