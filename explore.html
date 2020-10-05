@@ -65,19 +65,26 @@
 		line-height: 26px;
 	}
 
-	.xdd.col-sm-6 {
+	.content.panel {
 		color: white;
+		text-align: center;
+	}
+
+	.xdd.panel {
 		background-image: url(dist/img/main_large.jpg);
 	}
-	.covid.col-sm-6 {
+
+	.covid.panel {
 		color: white;
 		background-image: url(dist/img/cdc-covid-cropped.jpg);
 	}
-	.col-sm-6 button {
+
+	.panel button {
 		margin: 20px;
 		color: black;
 	}
-	.col-sm-6 .description {
+
+	.panel .description {
 		padding: 20px;
 	}
 
@@ -113,32 +120,36 @@
 			<h1>Explore <span class="dataset"></span></h1>
 			<hr />
 			<div class="row">
-				<div class="xdd col-sm-6" style="text-align:center">
-					<div>
-						<button class="btn btn-lg" onclick="window.location='/search.html'"><i class="fa fa-search"></i>Search</button>
-					</div>
-					<h1>xDD</h1>
-					<div class="description">
-				        <h3>
-				          <p class='count'><span id="totalDocs">>12,500,000</span> <span class='count-label'>documents</span></p>
-				          <p class='count-sub'><span id="monthlyDocs">~200,000</span> ingested this month</p>
-				          <p class='count-sub'><span id="weeklyDocs">~50,000</span> ingested this week</p>
-				          <p class='count-sub'><span id="dailyDocs">~8,000</span> ingested in the last 24 hours</p>
-				        </h3>
+				<div class="col-sm-6">
+					<div class="xdd content panel">
+						<div>
+							<button class="btn btn-lg" onclick="window.location='/search.html'"><i class="fa fa-search"></i>Search</button>
+						</div>
+						<h1>xDD</h1>
+						<div class="description">
+							<h3>
+							  <p class='count'><span id="totalDocs">>12,500,000</span> <span class='count-label'>documents</span></p>
+							  <p class='count-sub'><span id="monthlyDocs">~200,000</span> ingested this month</p>
+							  <p class='count-sub'><span id="weeklyDocs">~50,000</span> ingested this week</p>
+							  <p class='count-sub'><span id="dailyDocs">~8,000</span> ingested in the last 24 hours</p>
+							</h3>
+						</div>
 					</div>
 				</div>
-				<div class="covid col-sm-6" style="text-align:center">
-					<div>
-						<button class="btn btn-lg" onclick="window.location='/search.html?dataset=covid'"><i class="fa fa-search"></i>Search</button>
-					</div>
-					<h1>Covid</h1>
-					<div class="description">
-				        <h3>
-				          <p class='count'><span id="totalDocs">>12,500,000</span> <span class='count-label'>documents</span></p>
-				          <p class='count-sub'><span id="monthlyDocs">~200,000</span> ingested this month</p>
-				          <p class='count-sub'><span id="weeklyDocs">~50,000</span> ingested this week</p>
-				          <p class='count-sub'><span id="dailyDocs">~8,000</span> ingested in the last 24 hours</p>
-				        </h2>
+				<div class="col-sm-6">
+					<div class="covid content panel">
+						<div class="buttons">
+							<button class="btn btn-lg" onclick="window.location='/search.html?dataset=covid'"><i class="fa fa-search"></i>Search</button>
+						</div>
+						<h1>Covid</h1>
+						<div class="description">
+							<h3>
+							  <p class='count'><span id="totalDocs">>12,500,000</span> <span class='count-label'>documents</span></p>
+							  <p class='count-sub'><span id="monthlyDocs">~200,000</span> ingested this month</p>
+							  <p class='count-sub'><span id="weeklyDocs">~50,000</span> ingested this week</p>
+							  <p class='count-sub'><span id="dailyDocs">~8,000</span> ingested in the last 24 hours</p>
+							</h3>
+						</div>
 					</div>
 				</div>
 			</div>
