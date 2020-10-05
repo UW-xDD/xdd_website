@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>xDD: Search</title>
+	<meta charset="utf-8" />
+	<meta http-equiv="Content-Language" content="en">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+	<link rel="stylesheet" type="text/css" href="./vendor/bootstrap/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="./fonts/font-awesome-4.7.0/css/font-awesome.min.css"/>
+	<link rel="stylesheet" type="text/css" href="./dist/css/styles.css"/>
+	<style>
+	.row {
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display:         flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.first-row {
+		margin-top: 35px;
+	}
+	.new-row {
+		margin-top: 35px;
+	}
+	.section-title h3 {
+		font-size: 30px;
+		letter-spacing: 1px;
+		font-weight: 300 !important;
+		color: #777;
+	}
+	@media(max-width: 600px) {
+		.row {
+			display: block;
+		}
+	}
+	.person-image {
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		height: 500px;
+	}
+	#gdd {
+		background-image: url('./dist/img/gdd.png');
+	}
+	.about-img {
+		width: 100%;
+		padding-top: 15px;
+		padding-bottom: 15px;
+	}
+
+	.partner {
+		width: 140px;
+		margin: 10px;
+		height: auto;
+	}
+	.tf {
+		width: 200px;
+	}
+	.partner-small {
+		width: 100px;
+	}
+	.about-p {
+		line-height: 26px;
+	}
+
+	.top.buttons {
+		float: right;
+		margin-left: 10px;
+		margin-top: -7px;
+	}
+
+	</style>
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-81221089-1', 'auto');
+		ga('send', 'pageview');
+	</script>
+	<script type="text/javascript" src="src/library/require/require-min.js"></script>
+	<script type="text/javascript" src="src/require-config.js"></script>
+
+	<script>
+		require([
+			'jquery',
+			'views/results/results-view',
+			'utilities/web/query-string'
+		], function ($, ResultsView, QueryString) {
+
+			// set active dataset
+			//
+			var dataset = QueryString.getParam('dataset') || 'xdd';
+			$('.dataset li.' + dataset).addClass('active');
+
+			// add dataset class to body
+			//
+			if (dataset == 'covid-19' || dataset == 'cord-19') {
+				$('body').addClass('covid');
+			}
+
+			// render results view
+			//
+			$('#results').append(new ResultsView().render().$el);
+
+			// set dataset text
+			//
+			switch (dataset) {
+				case 'xdd':
+					$('h1 .dataset').html('xDD');
+					break;
+				case 'covid':
+					$('h1 .dataset').html('Covid');
+					break;
+			}
+		});      
+	</script>
+
+</head>
+<body>
+	<div class="wrapper container-fluid">
+		<div class="header clearfix">
+			<nav>
+				<ul class="nav nav-pills pull-right">
+					<li role="presentation"><a href="/explore.html">Explore</a></li>
+					<li role="presentation"><a href="/about.html">About</a></li>
+					<li role="presentation"><a href="/#the-team">Team</a></li>
+				</ul>
+			</nav>
+
+			<h3 class="text-muted title-full" style="display:inline-block; float:left; margin-right:25px">
+				<a href="/">xDD</a>
+			</h3>
+		</div>
+
+		<div class="xdd page header">
+			<div class="container">
+				<h1><span class="dataset"></span> Search Results</h1>
+			</div>
+		</div>
+
+		<div class="container">	
+			<hr />	
+			<div id="results"></div>
+		</div>
+	</div>
+
+	<div class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-4 footer-title">
+					<h3><a href="/">xDD</a></h3>
+				</div>
+				<div class="col-sm-4 footer-links">
+					<p><a href="/about.html">About</a></p>
+					<p><a href="/#contact">Contact</a></p>
+					<p><a href="/#the-team">Team</a></p>
+				</div>
+				<div class="col-sm-4 footer-funding">
+					<a href="http://www.nsf.gov/"><img src="dist/img/nsf.jpg"></a>
+					<a href="http://earthcube.org/"><img src="dist/img/earthcube.jpg"></a>
+					<a href="http://chtc.cs.wisc.edu/"><img src="dist/img/chtc.jpg" class="chtc"></a>
+					<a href="http://geoscience.wisc.edu/geoscience/"><img src="dist/img/geobucky.jpg"></a>
+					<p>Funded by NSF ICER 1343760</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

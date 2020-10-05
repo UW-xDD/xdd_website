@@ -1,4 +1,4 @@
-# GeoDeepDive.org
+# xDD
 
 ## Setup
 If you do not have gulp installed globally, do that first with `npm install -g gulp`
