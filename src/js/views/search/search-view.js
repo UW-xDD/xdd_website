@@ -196,11 +196,10 @@ define([
 
 		onClickCategory: function(event) {
 			var options = {};
-			var dataset = this.getDataset();
 			var category = $(event.target).closest('li').attr('class').replace('active', '').trim();
 			
-			if (dataset != 'xdd') {
-				options.dataset = dataset;
+			if (this.options.dataset != 'xdd') {
+				options.dataset = this.options.dataset;
 			}
 			if (category != 'snippets') {
 				options.category = category;
