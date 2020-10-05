@@ -429,11 +429,6 @@ button:not(.btn-sm) i {
   border-color: #f07070;
 }
 
-button.search-again {
-  float: right;
-  margin: 20px;
-}
-
 /*
  * desktop styles
  */

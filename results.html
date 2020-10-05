@@ -65,6 +65,33 @@
 		line-height: 26px;
 	}
 
+	/*
+	 * page header styles
+	 */
+
+	.page.header {
+		width: 100%;
+		padding: 20px;
+	}
+
+	.page.header h1 {
+		color: white;
+	}
+
+	.page.header {
+		background-image: url(dist/img/main_large.jpg);
+	}
+
+	.covid .page.header {
+		background-image: url(dist/img/cdc-covid-cropped.jpg);
+	}
+
+	.top.buttons {
+		float: right;
+		margin-left: 10px;
+		margin-top: -5px;
+	}
+
 	</style>
 	<script>
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -119,6 +146,7 @@
 		<div class="header clearfix">
 			<nav>
 				<ul class="nav nav-pills pull-right">
+					<li role="presentation"><a href="/explore.html">Explore</a></li>
 					<li role="presentation"><a href="/about.html">About</a></li>
 					<li role="presentation"><a href="/#the-team">Team</a></li>
 				</ul>
@@ -127,23 +155,16 @@
 			<h3 class="text-muted title-full" style="display:inline-block; float:left; margin-right:25px">
 				<a href="/">xDD</a>
 			</h3>
+		</div>
 
-			<div style="display:inline-block; padding:10px; float:left">
-				<label>Select a dataset to search: </label>
-			</div>
-			<div class="dataset form-group" style="float:left">
-				<ul class="nav nav-pills" style="float:left">
-					<li class="xdd" role="presentation">
-						<a href="/search.html">All</a>
-					</li>
-					<li class="covid" role="presentation">
-						 <a href="/search.html?dataset=covid">Covid</a>
-					</li>
-				</ul>
+		<div class="xdd page header">
+			<div class="container">
+				<h1><span class="dataset"></span> Search Results</h1>
 			</div>
 		</div>
 
-		<div class="container">
+		<div class="container">	
+			<hr />	
 			<div id="results"></div>
 		</div>
 	</div>

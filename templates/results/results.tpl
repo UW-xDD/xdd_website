@@ -1,6 +1,6 @@
-<h1><span class="dataset"></span> Search Results</h1>
-<button class="search-again btn btn-lg btn-primary"><i class="fa fa-search"></i><span class="hidden-xs">Search Again</span></button>
-<hr />
+<div class="top buttons">
+	<button class="search-again btn btn-lg btn-primary"><i class="fa fa-search"></i><span class="hidden-xs">Search Again</span></button>
+</div>
 
 <h3>
 	<label style="margin-right:10px">Search:</label>

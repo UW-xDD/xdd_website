@@ -67,10 +67,6 @@ define([
 		// getting methods
 		//
 
-		getDataset: function() {
-			return $('.dataset li.active').attr('class').replace('active', '').trim();
-		},
-
 		getCategory: function() {
 			return this.$el.find('.categories li.active').attr('class').replace('active', '').trim();
 		},
@@ -84,13 +80,12 @@ define([
 		},
 
 		getValues: function() {
-			var dataset = this.getDataset();
 			var category = this.getCategory();
 
 			// concat category and form values for that category
 			//
 			return _.extend({
-				dataset: dataset,
+				dataset: this.options.dataset,
 				category: category,
 			}, this.getChildView('form').getValues(), {
 				max: this.getMaxResults(),
