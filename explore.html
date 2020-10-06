@@ -67,7 +67,23 @@
 		line-height: 26px;
 	}
 
-	.content.panel a {
+	#datasets {
+		text-align: center;
+	}
+
+	#datasets > div {
+		text-align: left;
+	}
+
+	#datasets .message {
+		margin: 40px;
+	}
+
+	/* 
+	 * panel styles
+	 */
+
+	.content.panel {
 		color: white;
 		text-align: center;
 		display: relative;
@@ -139,71 +155,34 @@
 	<script type="text/javascript" src="src/library/require/require-min.js"></script>
 	<script type="text/javascript" src="src/require-config.js"></script>
 	<script>
-
-		function toHTML(string) {
-			var terms = string.split(' ');
-			for (var i = 0; i < terms.length; i++) {
-				var term = terms[i];
-
-				// show urls as links
-				//
-				if (term.startsWith('http://') || term.startsWith('https://') || term.startsWith('www.')) {
-					terms[i] = '<a href="' + term + '" target="_blank">' + term + '</a>';
-				}
-			}
-			return terms.join(' ');
-		}
-
 		require([
 			'jquery',
-			'underscore',
-			'bootstrap',
-			'utilities/web/query-string'
-		], function ($, _, Bootstrap, QueryString) {
-			$.ajax('https://xdd.wisc.edu/api/sets?all', {
-				success: (data) => {
-					var results = data.success.data;
-					for (var i = 0; i < results.length; i++) {
-						var info = results[i];
-						var selector = '.' + info.name.toLowerCase() + '.col-sm-6';
+			'collections/datasets',
+			'views/explore/dataset-view'
+		], function ($, Datasets, DatasetView) {
 
-						// display dataset description
-						//
-						$(selector + ' .description').html(toHTML(info.description));
+			// fetch datasets
+			//
+			new Datasets().fetch({
 
-						// display dataset stats
-						//
-						$(selector + ' .total-docs').html(info.data.total.toLocaleString());
-						$(selector + ' .daily-docs').html(info.data.lastDay.toLocaleString());
-						$(selector + ' .weekly-docs').html(info.data.lastWeek.toLocaleString());
-						$(selector + ' .monthly-docs').html(info.data.lastMonth.toLocaleString());
+				// callbacks
+				//
+				success: function(collection) {
+					$('#datasets').empty();
 
-						// show details
-						//
-						if (info.details) {
-							$(selector + ' .details p').html(toHTML(info.details));
-							$(selector + ' .details-expander').show();
-							$(selector + ' .details-expander').on('click', function() {
-								$(this).closest('.col-sm-6').find('.details.collapsible').toggle();
-							});
+					// render datasets
+					//
+					for (var i = 0; i < collection.length; i++) {
+						if (i % 2 == 0) {
+							var $row = $('<div class="row"></div>');
+							$('#datasets').append($row);
 						}
-
-						// show links
-						//
-						if (info.links.length > 0) {
-							for (var j = 0; j < info.links.length; j++) {
-								var link = info.links[j];
-								$link = $('<li><a href="' + link.url + '">' + link.name + '</a>' + link.description + '</li>');
-								$(selector + ' .links ol').append($link);
-							}
-							$(selector + ' .links-expander').show();
-							$(selector + ' .links-expander').on('click', function() {
-								$(this).closest('.col-sm-6').find('.links.collapsible').toggle();
-							});
-						}
+						$row.append(new DatasetView({
+							model: collection.at(i)
+						}).render().$el);
 					}
 				}
-			})
+			});
 		});
 	</script>
 </head>
@@ -225,102 +204,9 @@
 		<div class="container">
 			<h1>Explore <span class="dataset"></span></h1>
 			<hr />
-			<div class="row">
-				<div class="xdd col-sm-6">
-					<div class="content panel">
-						<a href="/search.html">
-							<div class="info">
-								<h1>xDD</h1>
-								<h3>
-									<p class='count'><span class="total-docs"></span> <span class='count-label'>documents</span></p>
-									<p class='count-sub'><span class="monthly-docs"></span> added this month</p>
-									<p class='count-sub'><span class="weekly-docs"></span> added this week</p>
-									<p class='count-sub'><span class="daily-docs"></span> added in the last 24 hours</p>
-								</h3>
-								<button class="btn btn-large">
-									<i class="fa fa-search"></i>Search
-								</button>
-							</div>
-						</a>
-					</div>
-					<p class="description"></p>
-					<div class="details collapsible collapse">
-						<label>Details</label>
-						<p></p>
-					</div>
-					<div class="links collapsible collapse">
-						<label>Links</label>
-						<ol></ol>
-					</div>
-					<div class="buttons">
-						<button class="details-expander btn btn-sm" style="display:none"><i class="fa fa-list-ul"></i></button>
-						<button class="links-expander btn btn-sm" style="display:none"><i class="fa fa-link"></i></button>
-					</div>
-				</div>
-				<div class="xdd-covid-19 col-sm-6">
-					<div class="covid content panel">
-						<a href="search.html?dataset=covid-19">
-							<div class="info">
-								<h1>Covid-19</h1>
-								<h3>
-									<p class='count'><span class="total-docs"></span> <span class='count-label'>documents</span></p>
-									<p class='count-sub'><span class="monthly-docs"></span> added this month</p>
-									<p class='count-sub'><span class="weekly-docs"></span> added this week</p>
-									<p class='count-sub'><span class="daily-docs"></span> added in the last 24 hours</p>
-								</h3>
-								<button class="btn btn-large">
-									<i class="fa fa-search"></i>Search
-								</button>
-							</div>
-						</a>
-					</div>
-					<p class="description"></p>
-					<div class="details collapsible collapse">
-						<label>Details</label>
-						<p></p>
-					</div>
-					<div class="links collapsible collapse">
-						<label>Links</label>
-						<ol></ol>
-					</div>
-					<div class="buttons">
-						<button class="details-expander btn btn-sm" style="display:none"><i class="fa fa-list-ul"></i></button>
-						<button class="links-expander btn btn-sm" style="display:none"><i class="fa fa-link"></i></button>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="cord-19 col-sm-6">
-					<div class="covid content panel">
-						<a href="search.html?dataset=cord-19">
-							<div class="info">
-								<h1>Cord-19</h1>
-								<h3>
-									<p class='count'><span class="total-docs"></span> <span class='count-label'>documents</span></p>
-									<p class='count-sub'><span class="monthly-docs"></span> added this month</p>
-									<p class='count-sub'><span class="weekly-docs"></span> added this week</p>
-									<p class='count-sub'><span class="daily-docs"></span> added in the last 24 hours</p>
-								</h3>
-								<button class="btn btn-large">
-									<i class="fa fa-search"></i>Search
-								</button>
-							</div>
-						</a>
-					</div>
-					<p class="description"></p>
-					<div class="details collapsible collapse">
-						<label>Details</label>
-						<p></p>
-					</div>
-					<div class="links collapsible collapse">
-						<label>Links</label>
-						<ol></ol>
-					</div>
-					<div class="buttons">
-						<button class="details-expander btn btn-sm" style="display:none"><i class="fa fa-list-ul"></i></button>
-						<button class="links-expander btn btn-sm" style="display:none"><i class="fa fa-link"></i></button>
-					</div>
-				</div>
+			<div id="datasets">
+				<h2 class="message">Loading datasets...</h2>
+				<i class="fa fa-spinner fa-3x fa-spin"></i>
 			</div>
 		</div>
 	</div>
