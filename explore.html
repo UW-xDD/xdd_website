@@ -139,6 +139,21 @@
 	<script type="text/javascript" src="src/library/require/require-min.js"></script>
 	<script type="text/javascript" src="src/require-config.js"></script>
 	<script>
+
+		function toDescription(string) {
+			var terms = string.split(' ');
+			for (var i = 0; i < terms.length; i++) {
+				var term = terms[i];
+
+				// show urls as links
+				//
+				if (term.startsWith('http://') || term.startsWith('https://') || term.startsWith('www.')) {
+					terms[i] = '<a href="' + term + '" target="_blank">' + term + '</a>';
+				}
+			}
+			return terms.join(' ');
+		}
+
 		require([
 			'jquery',
 			'utilities/web/query-string'
@@ -152,14 +167,14 @@
 
 						// display dataset description
 						//
-						$(selector + ' + .description').html(info.description);
+						$(selector + ' + .description').html(toDescription(info.description));
 
 						// display dataset stats
 						//
-						$(selector + ' .total-docs').html(info.data.total);
-						$(selector + ' .daily-docs').html(info.data.lastDay);
-						$(selector + ' .weekly-docs').html(info.data.lastWeek);
-						$(selector + ' .monthly-docs').html(info.data.lastMonth);
+						$(selector + ' .total-docs').html(info.data.total.toLocaleString());
+						$(selector + ' .daily-docs').html(info.data.lastDay.toLocaleString());
+						$(selector + ' .weekly-docs').html(info.data.lastWeek.toLocaleString());
+						$(selector + ' .monthly-docs').html(info.data.lastMonth.toLocaleString());
 
 						// show links
 						//
