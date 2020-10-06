@@ -156,8 +156,10 @@
 
 		require([
 			'jquery',
+			'underscore',
+			'bootstrap',
 			'utilities/web/query-string'
-		], function ($, QueryString) {
+		], function ($, _, Bootstrap, QueryString) {
 			$.ajax('https://xdd.wisc.edu/api/sets?all', {
 				success: (data) => {
 					var results = data.success.data;
@@ -179,12 +181,16 @@
 						// show links
 						//
 						if (info.links.length > 0) {
-							$(selector + ' + .description + .links').show();
+							$(selector + ' + .description + .links button').show();
 							for (var j = 0; j < info.links.length; j++) {
 								var link = info.links[j];
 								$link = $('<li><a href="' + link.url + '">' + link.name + '</a>' + link.description + '</li>');
 								$(selector + ' + .description + .links ol').append($link);
 							}
+
+							$(selector + ' + .description + .links button').on('click', function() {
+								$(this).closest('.links').find('.collapsible').toggle();
+							});
 						}
 					}
 				}
@@ -229,9 +235,12 @@
 						</a>
 					</div>
 					<p class="description"></p>
-					<div class="links" style="display:none">
-						<label>Links</label>
-						<ol></ol>
+					<div class="links">
+						<div class="collapsible collapse">
+							<label>Links</label>
+							<ol></ol>
+						</div>
+						<button class="btn btn-sm" style="display:none"><i class="fa fa-link"></i></button>
 					</div>
 				</div>
 				<div class="col-sm-6">
@@ -252,9 +261,12 @@
 						</a>
 					</div>
 					<p class="description"></p>
-					<div class="links" style="display:none">
-						<label>Links</label>
-						<ol></ol>
+					<div class="links">
+						<div class="collapsible collapse">
+							<label>Links</label>
+							<ol></ol>
+						</div>
+						<button class="btn btn-sm" style="display:none"><i class="fa fa-link"></i></button>
 					</div>
 				</div>
 			</div>
@@ -277,9 +289,12 @@
 						</a>
 					</div>
 					<p class="description"></p>
-					<div class="links" style="display:none">
-						<label>Links</label>
-						<ol></ol>
+					<div class="links">
+						<div class="collapsible collapse">
+							<label>Links</label>
+							<ol></ol>
+						</div>
+						<button class="btn btn-sm" style="display:none"><i class="fa fa-link"></i></button>
 					</div>
 				</div>
 			</div>
