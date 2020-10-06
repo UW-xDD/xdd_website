@@ -28,7 +28,9 @@ define([
 		template: _.template(Template),
 
 		events: {
-			'click .panel': 'onClickPanel'
+			'click .panel': 'onClickPanel',
+			'click .details-expander': 'onClickDetailsExpander',
+			'click .links-expander': 'onClickLinksExpander'
 		},
 
 
@@ -37,17 +39,20 @@ define([
 		//
 
 		toHTML: function(string) {
-			var terms = string.split(' ');
-			for (var i = 0; i < terms.length; i++) {
-				var term = terms[i];
+			var words = string.split(' ');
+
+			// break text into words
+			//
+			for (var i = 0; i < words.length; i++) {
+				var word = words[i];
 
 				// show urls as links
 				//
-				if (term.startsWith('http://') || term.startsWith('https://') || term.startsWith('www.')) {
-					terms[i] = '<a href="' + term + '" target="_blank">' + term + '</a>';
+				if (word.startsWith('http://') || word.startsWith('https://') || word.startsWith('www.')) {
+					words[i] = '<a href="' + word + '" target="_blank">' + word + '</a>';
 				}
 			}
-			return terms.join(' ');
+			return words.join(' ');
 		},
 
 		templateContext: function() {
@@ -60,7 +65,7 @@ define([
 		onRender: function() {
 			var name = this.model.get('name');
 
-			// add styling class
+			// add styling to panel
 			//
 			if (name == 'xdd-covid-19' || name == 'cord-19') {
 				this.$el.find('.panel').addClass('covid');
@@ -80,10 +85,10 @@ define([
 			//
 			if (details) {
 				this.$el.find('.details p').html(this.toHTML(details));
+
+				// show expander button
+				//
 				this.$el.find('.details-expander').show();
-				this.$el.find('.details-expander').on('click', () => {
-					this.$el.find('.details.collapsible').toggle();
-				});
 			}
 		},
 
@@ -93,15 +98,18 @@ define([
 			// show links
 			//
 			if (links && links.length > 0) {
+
+				// show links list
+				//
 				for (var j = 0; j < links.length; j++) {
 					var link = links[j];
 					$link = $('<li><a href="' + link.url + '" target="_blank">' + link.name + '</a>' + link.description + '</li>');
 					this.$el.find('.links ol').append($link);
 				}
+
+				// show expander button
+				//
 				this.$el.find('.links-expander').show();
-				this.$el.find('.links-expander').on('click', () => {
-					this.$el.find('.links.collapsible').toggle();
-				});
 			}
 		},
 
@@ -111,14 +119,28 @@ define([
 
 		onClickPanel: function() {
 			var name = this.model.get('name');
+
+			// find search filter from name
+			//
 			if (name == 'xdd-covid-19') {
 				name = 'covid-19';
 			}
+
+			// go to search view
+			//
 			if (name == 'xDD') {
 				window.location = '/search.html';
 			} else {
 				window.location = '/search.html?dataset=' + name;
 			}
+		},
+
+		onClickDetailsExpander: function() {
+			this.$el.find('.details.collapsible').toggle();
+		},
+
+		onClickLinksExpander: function() {
+			this.$el.find('.links.collapsible').toggle();
 		}
 	});
 });
