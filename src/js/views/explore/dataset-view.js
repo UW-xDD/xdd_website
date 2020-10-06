@@ -67,7 +67,7 @@ define([
 
 			// add styling to panel
 			//
-			if (name == 'xdd-covid-19' || name == 'cord-19') {
+			if (name.toLowerCase().includes('covid-19') || name.toLowerCase().includes('cord-19')) {
 				this.$el.find('.panel').addClass('covid');
 			}
 
@@ -119,12 +119,6 @@ define([
 
 		onClickPanel: function() {
 			var name = this.model.get('name');
-
-			// find search filter from name
-			//
-			if (name == 'xdd-covid-19') {
-				name = 'covid-19';
-			}
 
 			// go to search view
 			//

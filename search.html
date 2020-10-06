@@ -87,28 +87,18 @@
 
 			// set active dataset
 			//
-			var dataset = QueryString.getParam('dataset') || 'xdd';
+			var dataset = QueryString.getParam('dataset') || 'xDD';
 			$('.dataset li.' + dataset).addClass('active');
 
 			// add dataset class to body
 			//
-			if (dataset == 'covid-19' || dataset == 'cord-19') {
+			if (dataset.toLowerCase().includes('covid-19') || dataset.toLowerCase().includes('cord-19')) {
 				$('body').addClass('covid');
 			}
 
 			// set dataset text
 			//
-			switch (dataset) {
-				case 'xdd':
-					$('h1 .dataset').html('xDD');
-					break;
-				case 'covid-19':
-					$('h1 .dataset').html('Covid-19');
-					break;
-				case 'cord-19':
-					$('h1 .dataset').html('Cord-19');
-					break;
-			}
+			$('h1 .dataset').html(dataset);
 
 			// render search view
 			//
