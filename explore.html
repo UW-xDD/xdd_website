@@ -73,7 +73,7 @@
 		display: relative;
 	}
 
-	.xdd.panel {
+	.panel {
 		background-image: url(dist/img/main_large.jpg);
 	}
 
@@ -140,7 +140,7 @@
 	<script type="text/javascript" src="src/require-config.js"></script>
 	<script>
 
-		function toDescription(string) {
+		function toHTML(string) {
 			var terms = string.split(' ');
 			for (var i = 0; i < terms.length; i++) {
 				var term = terms[i];
@@ -165,11 +165,11 @@
 					var results = data.success.data;
 					for (var i = 0; i < results.length; i++) {
 						var info = results[i];
-						var selector = '.' + info.name.toLowerCase() + '.panel';
+						var selector = '.' + info.name.toLowerCase() + '.col-sm-6';
 
 						// display dataset description
 						//
-						$(selector + ' + .description').html(toDescription(info.description));
+						$(selector + ' .description').html(toHTML(info.description));
 
 						// display dataset stats
 						//
@@ -178,18 +178,27 @@
 						$(selector + ' .weekly-docs').html(info.data.lastWeek.toLocaleString());
 						$(selector + ' .monthly-docs').html(info.data.lastMonth.toLocaleString());
 
+						// show details
+						//
+						if (info.details) {
+							$(selector + ' .details p').html(toHTML(info.details));
+							$(selector + ' .details-expander').show();
+							$(selector + ' .details-expander').on('click', function() {
+								$(this).closest('.col-sm-6').find('.details.collapsible').toggle();
+							});
+						}
+
 						// show links
 						//
 						if (info.links.length > 0) {
-							$(selector + ' + .description + .links button').show();
 							for (var j = 0; j < info.links.length; j++) {
 								var link = info.links[j];
 								$link = $('<li><a href="' + link.url + '">' + link.name + '</a>' + link.description + '</li>');
-								$(selector + ' + .description + .links ol').append($link);
+								$(selector + ' .links ol').append($link);
 							}
-
-							$(selector + ' + .description + .links button').on('click', function() {
-								$(this).closest('.links').find('.collapsible').toggle();
+							$(selector + ' .links-expander').show();
+							$(selector + ' .links-expander').on('click', function() {
+								$(this).closest('.col-sm-6').find('.links.collapsible').toggle();
 							});
 						}
 					}
@@ -217,8 +226,8 @@
 			<h1>Explore <span class="dataset"></span></h1>
 			<hr />
 			<div class="row">
-				<div class="col-sm-6">
-					<div class="xdd content panel">
+				<div class="xdd col-sm-6">
+					<div class="content panel">
 						<a href="/search.html">
 							<div class="info">
 								<h1>xDD</h1>
@@ -235,16 +244,21 @@
 						</a>
 					</div>
 					<p class="description"></p>
-					<div class="links">
-						<div class="collapsible collapse">
-							<label>Links</label>
-							<ol></ol>
-						</div>
-						<button class="btn btn-sm" style="display:none"><i class="fa fa-link"></i></button>
+					<div class="details collapsible collapse">
+						<label>Details</label>
+						<p></p>
+					</div>
+					<div class="links collapsible collapse">
+						<label>Links</label>
+						<ol></ol>
+					</div>
+					<div class="buttons">
+						<button class="details-expander btn btn-sm" style="display:none"><i class="fa fa-list-ul"></i></button>
+						<button class="links-expander btn btn-sm" style="display:none"><i class="fa fa-link"></i></button>
 					</div>
 				</div>
-				<div class="col-sm-6">
-					<div class="covid xdd-covid-19 content panel">
+				<div class="xdd-covid-19 col-sm-6">
+					<div class="covid content panel">
 						<a href="search.html?dataset=covid-19">
 							<div class="info">
 								<h1>Covid-19</h1>
@@ -261,18 +275,23 @@
 						</a>
 					</div>
 					<p class="description"></p>
-					<div class="links">
-						<div class="collapsible collapse">
-							<label>Links</label>
-							<ol></ol>
-						</div>
-						<button class="btn btn-sm" style="display:none"><i class="fa fa-link"></i></button>
+					<div class="details collapsible collapse">
+						<label>Details</label>
+						<p></p>
+					</div>
+					<div class="links collapsible collapse">
+						<label>Links</label>
+						<ol></ol>
+					</div>
+					<div class="buttons">
+						<button class="details-expander btn btn-sm" style="display:none"><i class="fa fa-list-ul"></i></button>
+						<button class="links-expander btn btn-sm" style="display:none"><i class="fa fa-link"></i></button>
 					</div>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-sm-6">
-					<div class="covid cord-19 content panel">
+				<div class="cord-19 col-sm-6">
+					<div class="covid content panel">
 						<a href="search.html?dataset=cord-19">
 							<div class="info">
 								<h1>Cord-19</h1>
@@ -289,12 +308,17 @@
 						</a>
 					</div>
 					<p class="description"></p>
-					<div class="links">
-						<div class="collapsible collapse">
-							<label>Links</label>
-							<ol></ol>
-						</div>
-						<button class="btn btn-sm" style="display:none"><i class="fa fa-link"></i></button>
+					<div class="details collapsible collapse">
+						<label>Details</label>
+						<p></p>
+					</div>
+					<div class="links collapsible collapse">
+						<label>Links</label>
+						<ol></ol>
+					</div>
+					<div class="buttons">
+						<button class="details-expander btn btn-sm" style="display:none"><i class="fa fa-list-ul"></i></button>
+						<button class="links-expander btn btn-sm" style="display:none"><i class="fa fa-link"></i></button>
 					</div>
 				</div>
 			</div>
