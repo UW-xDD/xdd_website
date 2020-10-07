@@ -5,7 +5,6 @@ If you do not have gulp installed globally, do that first with `npm install -g g
 
 `npm install`
 
-
 ## Running
 `python -m SimpleHTTPServer 8000`
 
