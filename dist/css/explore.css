@@ -1,0 +1,141 @@
+.row {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display:         flex;
+	align-items: center;
+	justify-content: center;
+	align-items: start;
+	margin-bottom: 20px;
+}
+
+.first-row {
+	margin-top: 35px;
+}
+
+.new-row {
+	margin-top: 35px;
+}
+
+.section-title h3 {
+	font-size: 30px;
+	letter-spacing: 1px;
+	font-weight: 300 !important;
+	color: #777;
+}
+
+@media(max-width: 600px) {
+	.row {
+		display: block;
+	}
+}
+
+.person-image {
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	height: 500px;
+}
+
+#gdd {
+	background-image: url('../img/gdd.png');
+}
+
+.about-img {
+	width: 100%;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.partner {
+	width: 140px;
+	margin: 10px;
+	height: auto;
+}
+
+.tf {
+	width: 200px;
+}
+
+.partner-small {
+	width: 100px;
+}
+
+.about-p {
+	line-height: 26px;
+}
+
+#datasets {
+	text-align: center;
+}
+
+#datasets > div {
+	text-align: left;
+}
+
+#datasets .message {
+	margin: 40px;
+}
+
+/* 
+ * panel styles
+ */
+
+.content.panel {
+	color: white;
+	text-align: center;
+	display: relative;
+}
+
+.panel {
+	background-image: url(../img/main_large.jpg);
+}
+
+.covid.panel {
+	color: white;
+	background-image: url(../img/cdc-covid-cropped.jpg);
+}
+
+.panel button {
+	margin: 20px;
+	color: black;
+}
+
+.panel .info {
+	padding: 20px;
+	position: relative;
+}
+
+.panel .info::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+	pointer-events: none;
+}
+
+.panel .info:hover::after {
+	background: rgba(255, 255, 255, 0.33);
+	cursor: pointer;
+}
+
+.panel.coming-soon .info:hover::after {
+	content: "Coming Soon!";
+	padding: 50px;
+	font-size: 3em;
+	position: absolute;
+	background: rgba(0, 0, 0, 0.75);
+	top: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+	pointer-events: none;
+}
+
+.links a {
+	margin-right: 10px;
+}

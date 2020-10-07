@@ -1,0 +1,64 @@
+.row {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display:         flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.first-row {
+	margin-top: 35px;
+}
+
+.new-row {
+	margin-top: 35px;
+}
+
+.section-title h3 {
+	font-size: 30px;
+	letter-spacing: 1px;
+	font-weight: 300 !important;
+	color: #777;
+}
+
+@media(max-width: 600px) {
+	.row {
+		display: block;
+	}
+}
+
+.person-image {
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	height: 500px;
+}
+
+#gdd {
+	background-image: url('./dist/img/gdd.png');
+}
+
+.about-img {
+	width: 100%;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.partner {
+	width: 140px;
+	margin: 10px;
+	height: auto;
+}
+
+.tf {
+	width: 200px;
+}
+
+.partner-small {
+	width: 100px;
+}
+
+.about-p {
+	line-height: 26px;
+}
