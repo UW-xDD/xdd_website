@@ -93,12 +93,12 @@
 
 			// set active dataset
 			//
-			var dataset = QueryString.getParam('dataset') || 'xdd';
+			var dataset = QueryString.getParam('dataset') || 'xDD';
 			$('.dataset li.' + dataset).addClass('active');
 
 			// add dataset class to body
 			//
-			if (dataset == 'covid-19' || dataset == 'cord-19') {
+			if (dataset.toLowerCase().includes('covid-19') || dataset.toLowerCase().includes('cord-19')) {
 				$('body').addClass('covid');
 			}
 
@@ -108,14 +108,7 @@
 
 			// set dataset text
 			//
-			switch (dataset) {
-				case 'xdd':
-					$('h1 .dataset').html('xDD');
-					break;
-				case 'covid':
-					$('h1 .dataset').html('Covid');
-					break;
-			}
+			$('h1 .dataset').html(dataset);
 		});      
 	</script>
 
@@ -125,7 +118,7 @@
 		<div class="header clearfix">
 			<nav>
 				<ul class="nav nav-pills pull-right">
-					<li role="presentation"><a href="/explore.html">Explore</a></li>
+					<li role="presentation" class="active"><a href="/explore.html">Explore</a></li>
 					<li role="presentation"><a href="/about.html">About</a></li>
 					<li role="presentation"><a href="/#the-team">Team</a></li>
 				</ul>
@@ -161,7 +154,7 @@
 				</div>
 				<div class="col-sm-4 footer-funding">
 					<a href="http://www.nsf.gov/"><img src="dist/img/nsf.jpg"></a>
-					<a href="http://earthcube.org/"><img src="dist/img/earthcube.jpg"></a>
+					<a href="http://www.morgridge.org/"><img src="dist/img/morgridge.png"></a>
 					<a href="http://chtc.cs.wisc.edu/"><img src="dist/img/chtc.jpg" class="chtc"></a>
 					<a href="http://geoscience.wisc.edu/geoscience/"><img src="dist/img/geobucky.jpg"></a>
 					<p>Funded by NSF ICER 1343760</p>

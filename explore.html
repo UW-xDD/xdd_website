@@ -67,13 +67,29 @@
 		line-height: 26px;
 	}
 
-	.content.panel a {
+	#datasets {
+		text-align: center;
+	}
+
+	#datasets > div {
+		text-align: left;
+	}
+
+	#datasets .message {
+		margin: 40px;
+	}
+
+	/* 
+	 * panel styles
+	 */
+
+	.content.panel {
 		color: white;
 		text-align: center;
 		display: relative;
 	}
 
-	.xdd.panel {
+	.panel {
 		background-image: url(dist/img/main_large.jpg);
 	}
 
@@ -141,39 +157,32 @@
 	<script>
 		require([
 			'jquery',
-			'utilities/web/query-string'
-		], function ($, QueryString) {
-			$.ajax('https://xdd.wisc.edu/api/sets?all', {
-				success: (data) => {
-					var results = data.success.data;
-					for (var i = 0; i < results.length; i++) {
-						var info = results[i];
-						var selector = '.' + info.name.toLowerCase() + '.panel';
+			'collections/datasets',
+			'views/explore/dataset-view'
+		], function ($, Datasets, DatasetView) {
 
-						// display dataset description
-						//
-						$(selector + ' + .description').html(info.description);
+			// fetch datasets
+			//
+			new Datasets().fetch({
 
-						// display dataset stats
-						//
-						$(selector + ' .total-docs').html(info.data.total);
-						$(selector + ' .daily-docs').html(info.data.lastDay);
-						$(selector + ' .weekly-docs').html(info.data.lastWeek);
-						$(selector + ' .monthly-docs').html(info.data.lastMonth);
+				// callbacks
+				//
+				success: function(collection) {
+					$('#datasets').empty();
 
-						// show links
-						//
-						if (info.links.length > 0) {
-							$(selector + ' + .description + .links').show();
-							for (var j = 0; j < info.links.length; j++) {
-								var link = info.links[j];
-								$link = $('<li><a href="' + link.url + '">' + link.name + '</a>' + link.description + '</li>');
-								$(selector + ' + .description + .links ol').append($link);
-							}
+					// render datasets
+					//
+					for (var i = 0; i < collection.length; i++) {
+						if (i % 2 == 0) {
+							var $row = $('<div class="row"></div>');
+							$('#datasets').append($row);
 						}
+						$row.append(new DatasetView({
+							model: collection.at(i)
+						}).render().$el);
 					}
 				}
-			})
+			});
 		});
 	</script>
 </head>
@@ -182,7 +191,7 @@
 		<div class="header clearfix">
 			<nav>
 				<ul class="nav nav-pills pull-right">
-					<li role="presentation"><a href="/explore.html">Explore</a></li>
+					<li role="presentation" class="active"><a href="/explore.html">Explore</a></li>
 					<li role="presentation"><a href="/about.html">About</a></li>
 					<li role="presentation"><a href="/#the-team">Team</a></li>
 				</ul>
@@ -195,78 +204,9 @@
 		<div class="container">
 			<h1>Explore <span class="dataset"></span></h1>
 			<hr />
-			<div class="row">
-				<div class="col-sm-6">
-					<div class="xdd content panel">
-						<a href="/search.html">
-							<div class="info">
-								<h1>xDD</h1>
-								<h3>
-									<p class='count'><span class="total-docs"></span> <span class='count-label'>documents</span></p>
-									<p class='count-sub'><span class="monthly-docs"></span> ingested this month</p>
-									<p class='count-sub'><span class="weekly-docs"></span> ingested this week</p>
-									<p class='count-sub'><span class="daily-docs"></span> ingested in the last 24 hours</p>
-								</h3>
-								<button class="btn btn-large">
-									<i class="fa fa-search"></i>Search
-								</button>
-							</div>
-						</a>
-					</div>
-					<p class="description"></p>
-					<div class="links" style="display:none">
-						<label>Links</label>
-						<ol></ol>
-					</div>
-				</div>
-				<div class="col-sm-6">
-					<div class="covid xdd-covid-19 content panel">
-						<a href="search.html?dataset=covid-19">
-							<div class="info">
-								<h1>Covid-19</h1>
-								<h3>
-									<p class='count'><span class="total-docs"></span> <span class='count-label'>documents</span></p>
-									<p class='count-sub'><span class="monthly-docs"></span> ingested this month</p>
-									<p class='count-sub'><span class="weekly-docs"></span> ingested this week</p>
-									<p class='count-sub'><span class="daily-docs"></span> ingested in the last 24 hours</p>
-								</h3>
-								<button class="btn btn-large">
-									<i class="fa fa-search"></i>Search
-								</button>
-							</div>
-						</a>
-					</div>
-					<p class="description"></p>
-					<div class="links" style="display:none">
-						<label>Links</label>
-						<ol></ol>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-sm-6">
-					<div class="covid cord-19 content panel">
-						<a href="search.html?dataset=cord-19">
-							<div class="info">
-								<h1>Cord-19</h1>
-								<h3>
-									<p class='count'><span class="total-docs"></span> <span class='count-label'>documents</span></p>
-									<p class='count-sub'><span class="monthly-docs"></span> ingested this month</p>
-									<p class='count-sub'><span class="weekly-docs"></span> ingested this week</p>
-									<p class='count-sub'><span class="daily-docs"></span> ingested in the last 24 hours</p>
-								</h3>
-								<button class="btn btn-large">
-									<i class="fa fa-search"></i>Search
-								</button>
-							</div>
-						</a>
-					</div>
-					<p class="description"></p>
-					<div class="links" style="display:none">
-						<label>Links</label>
-						<ol></ol>
-					</div>
-				</div>
+			<div id="datasets">
+				<h2 class="message">Loading datasets...</h2>
+				<i class="fa fa-spinner fa-3x fa-spin"></i>
 			</div>
 		</div>
 	</div>
@@ -284,7 +224,7 @@
 				</div>
 				<div class="col-sm-4 footer-funding">
 					<a href="http://www.nsf.gov/"><img src="dist/img/nsf.jpg"></a>
-					<a href="http://earthcube.org/"><img src="dist/img/earthcube.jpg"></a>
+					<a href="http://www.morgridge.org/"><img src="dist/img/morgridge.png"></a>
 					<a href="http://chtc.cs.wisc.edu/"><img src="dist/img/chtc.jpg" class="chtc"></a>
 					<a href="http://geoscience.wisc.edu/geoscience/"><img src="dist/img/geobucky.jpg"></a>
 					<p>Funded by NSF ICER 1343760</p>

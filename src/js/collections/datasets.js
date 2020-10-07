@@ -1,10 +1,10 @@
 /******************************************************************************\
 |                                                                              |
-|                                 journals.js                                  |
+|                                 datasets.js                                  |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This file defines a collection of search results.                     |
+|        This file defines a collection of datasets.                           |
 |                                                                              |
 |        Author(s): Abe Megahed                                                |
 |                                                                              |
@@ -16,63 +16,57 @@
 \******************************************************************************/
 
 define([
-	'collections/results'
-], function(Results) {
+	'models/base-model',
+	'collections/base-collection',
+	'utilities/web/query-string'
+], function(BaseModel, BaseCollection, QueryString) {
 	'use strict';
 	
-	return Results.extend({
+	return BaseCollection.extend({
 
 		//
 		// attributes
 		//
 
-		baseUrl: Results.prototype.baseUrl + '/journals',
+		model: BaseModel,
+		baseUrl: 'https://xdd.wisc.edu/api/sets?all',
 
 		//
-		// searching methods
+		// ajax methods
 		//
 
-		search: function(options) {
-			var params = {};
+		fetch: function(options) {
 
+			// make request
 			//
-			// set API params
-			//
+			$.ajax(this.baseUrl, {
 
-			if (options.data) {
-
-				// set dataset
+				// callbacks
 				//
-				if (options.data.dataset) {
-					params.dataset = options.data.dataset;
-				}
-				
-				// set journal name param
-				//
-				if (options.data.journal) {
-					if (this.isQuotated(options.data.journal)) {
-						params.journal = this.unQuotated(options.data.journal);
-					} else {
-						params.journal_like = options.data.journal;
+				success: (data) => {
+					if (data.success && data.success.data) {
+						
+						// parse model data into collection
+						//
+						this.reset(this.parse(data.success.data));
 					}
-				} else {
-					params.all = true;
-				}
 
-				// set journal publishing param
-				//
-				if (options.data.publisher && options.data.publisher != 'undefined') {
-					params.publisher = options.data.publisher;
+					// perform callback
+					//
+					if (options.success) {
+						options.success(this);
+					}
+				},
+
+				error: (response) => {
+
+					// perform callback
+					//
+					if (options.error) {
+						options.error(response);
+					}
 				}
-			}
-			
-			// perform search
-			//
-			this.fetch({
-				data: params,
-				success: options.success,
-				error: options.error
-			});
-		},
+			}); 
+		}
 	});
 });
