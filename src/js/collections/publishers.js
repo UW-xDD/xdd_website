@@ -41,6 +41,12 @@ define([
 
 			if (options.data) {
 
+				// set dataset
+				//
+				if (options.data.dataset) {
+					params.dataset = options.data.dataset;
+				}
+				
 				// set publisher name param
 				//
 				if (options.data.publisher) {

@@ -61,7 +61,8 @@ h1 {
 	text-align: center;
 }
 .footer-funding > a > img {
-	height: 40px;
+	max-height: 40px;
+	max-width: 160px;
 	margin: 10px;
 }
 .chtc {
