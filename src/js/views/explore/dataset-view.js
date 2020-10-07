@@ -71,6 +71,10 @@ define([
 				this.$el.find('.panel').addClass('covid');
 			}
 
+			if (name.toLowerCase().includes('cord-19')) {
+				this.$el.addClass('coming-soon');
+			}
+
 			// show additional info
 			//
 			this.showDetails();

@@ -122,7 +122,7 @@
 	cursor: pointer;
 }
 
-.panel.coming-soon .info:hover::after {
+.coming-soon .panel .info:hover::after {
 	content: "Coming Soon!";
 	padding: 50px;
 	font-size: 3em;
