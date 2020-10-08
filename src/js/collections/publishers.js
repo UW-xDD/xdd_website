@@ -4,7 +4,7 @@
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This file defines a collection of search results.                     |
+|        This is a collection of publishers search results.                    |
 |                                                                              |
 |        Author(s): Abe Megahed                                                |
 |                                                                              |

@@ -4,7 +4,7 @@
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This file defines a collection of datasets.                           |
+|        This is a collection of datasets.                                     |
 |                                                                              |
 |        Author(s): Abe Megahed                                                |
 |                                                                              |

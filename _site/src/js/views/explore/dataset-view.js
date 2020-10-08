@@ -4,7 +4,7 @@
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines a view for displaying a search interface.                |
+|        This defines a view for displaying a a dataset panel.                 |
 |                                                                              |
 |******************************************************************************|
 |        Copyright (C) 2012-2020 Morgridge Institute for Research (MIR)        |
