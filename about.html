@@ -1,252 +1,200 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>xDD: Project Overview</title>
-	<meta charset="utf-8" />
-	<meta http-equiv="Content-Language" content="en">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-	<link rel="stylesheet" type="text/css" href="./vendor/bootstrap/css/bootstrap.min.css"/>
-	<link rel="stylesheet" type="text/css" href="./dist/css/styles.css"/>
-	<link rel="stylesheet" type="text/css" href="./dist/css/about.css"/>
-	<script>
-		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+---
+layout: page
+title: About
+---
 
-		ga('create', 'UA-81221089-1', 'auto');
-		ga('send', 'pageview');
-	</script>
-</head>
-<body>
-	<div class="wrapper container-fluid">
-		<div class="header clearfix">
-			<nav>
-				<ul class="nav nav-pills pull-right">
-					<li role="presentation"><a href="/explore.html">Explore</a></li>
-					<li role="presentation" class="active"><a href="/about.html">About</a></li>
-					<li role="presentation"><a href="/#the-team">Team</a></li>
-				</ul>
-			</nav>
-			<h3 class="text-muted title-full"><a href="/">xDD</a></h3>
-			<h3 class="text-muted title-short"><a href="/">xDD</a></h3>
-		</div>
+<h1>About</h1>
 
-		<div class="row first-row">
-			<div class="col-sm-3 section-title">
-				<h3>Motivation</h3>
-			</div>
-			<div class="col-sm-7">
-				<p class="about-p">
-				Synthesizing data from the published literature is critical to addressing a wide range of questions, ranging from the <a href="http://science.sciencemag.org/content/321/5885/97" target="_blank">history</a> and <a href="http://www.nature.com/nature/journal/v471/n7336/full/nature09678.html" target="_blank">future</a> of global biodiversity to the <a href="http://www.nature.com/nature/journal/v523/n7560/full/nature14584.html" target="_blank">evolution of continental crust</a>. Doing so manually, however, can be prohibitively time consuming and produces a monolithic database that is disconnected from primary sources that are difficult to fully cite.</p>
-				<p class="about-p">We are building a scalable, dependable cyberinfrastructure to facilitate <a href="http://dx.doi.org/10.1371/journal.pone.0113523" target="_blank">new approaches</a> to the discovery, acquisition, utilization, and citation of data and knowledge in the published literature.
-				</p>
-				<p class="about-p">Formerly known as GeoDeepDive, xDD was renamed in order to clarify the core mission: We aim to enable e<u><b>x</b></u>traction of <u><b>d</b></u>ark <u><b>d</b></u>ata from scientific works which would otherwise remain unseen in the enormous volume of literature. The tools are agnostic to discipline and application framework, despite the implication of the prior "Geo" and "DeepDive" nomenclature.
-				</p>
-			</div>
-		</div>
+<div class="row first-row">
+	<div class="col-sm-3 section-title">
+		<h3>Motivation</h3>
+	</div>
+	<div class="col-sm-7">
+		<p class="about-p">
+		Synthesizing data from the published literature is critical to addressing a wide range of questions, ranging from the <a href="http://science.sciencemag.org/content/321/5885/97" target="_blank">history</a> and <a href="http://www.nature.com/nature/journal/v471/n7336/full/nature09678.html" target="_blank">future</a> of global biodiversity to the <a href="http://www.nature.com/nature/journal/v523/n7560/full/nature14584.html" target="_blank">evolution of continental crust</a>. Doing so manually, however, can be prohibitively time consuming and produces a monolithic database that is disconnected from primary sources that are difficult to fully cite.</p>
+		<p class="about-p">We are building a scalable, dependable cyberinfrastructure to facilitate <a href="http://dx.doi.org/10.1371/journal.pone.0113523" target="_blank">new approaches</a> to the discovery, acquisition, utilization, and citation of data and knowledge in the published literature.
+		</p>
+		<p class="about-p">Formerly known as GeoDeepDive, xDD was renamed in order to clarify the core mission: We aim to enable e<u><b>x</b></u>traction of <u><b>d</b></u>ark <u><b>d</b></u>ata from scientific works which would otherwise remain unseen in the enormous volume of literature. The tools are agnostic to discipline and application framework, despite the implication of the prior "Geo" and "DeepDive" nomenclature.
+		</p>
+	</div>
+</div>
 
- 		<hr>
+<hr>
 
-		<div class="row new-row">
-			<div class="col-sm-3 section-title">
-				<h3>Overview</h3>
-			</div>
-			<div class="col-sm-7">
-				<p class="about-p">
-					The primary focus of this U.S. National Science Foundation <a href="http://earthcube.org" target="_blank">EarthCube building block</a> project (NSF ICER 1343760) is the construction of a cyberinfrastructure that is capable of supporting end-to-end text and data mining (TDM) and knowledge base creation/augmentation activities in the geosciences and biosciences. The infrastructure includes the following key components:
-					<ul class="about-p">
-						<li>Automated, rate-controlled and authenticated original document fetching</li>
-						<li>Secure original document storage and bibliographic/source metadata management</li>
-						<li>Automated pre-processing of documents by <a href="https://geodeepdive.org/api/v1/tools?all">multiple software tools</a>; ability to quickly deploy new tools/versions of tools across all documents</li>
-						<li><a href="https://geodeepdive.org/api" target="_blank">API</a> for basic full-text search and discovery capabilities</li>
-						<li>Ability to pre-index content using external dictionaries (e.g., <a href="https://macrostrat.org/api/v2/defs/lithologies?all" target="_blank">Macrostrat lithologies)</a></li>
-						<li>Ability to generate fully documented, bibliographically complete testing and development datasets based on user-supplied terms</li>
-						<li>Capacity to support the deployment of user-developed <a href="http://www.nature.com/news/computers-read-the-fossil-record-1.17868" target="_blank">TDM applications</a> across full corpus, with on-demand updates as new relevant documents are acquired</li>
-					</ul>
-				</p>
-			</div>
-		</div>
+<div class="row new-row">
+	<div class="col-sm-3 section-title">
+		<h3>Overview</h3>
+	</div>
+	<div class="col-sm-7">
+		<p class="about-p">
+			The primary focus of this U.S. National Science Foundation <a href="http://earthcube.org" target="_blank">EarthCube building block</a> project (NSF ICER 1343760) is the construction of a cyberinfrastructure that is capable of supporting end-to-end text and data mining (TDM) and knowledge base creation/augmentation activities in the geosciences and biosciences. The infrastructure includes the following key components:
+			<ul class="about-p">
+				<li>Automated, rate-controlled and authenticated original document fetching</li>
+				<li>Secure original document storage and bibliographic/source metadata management</li>
+				<li>Automated pre-processing of documents by <a href="https://geodeepdive.org/api/v1/tools?all">multiple software tools</a>; ability to quickly deploy new tools/versions of tools across all documents</li>
+				<li><a href="https://geodeepdive.org/api" target="_blank">API</a> for basic full-text search and discovery capabilities</li>
+				<li>Ability to pre-index content using external dictionaries (e.g., <a href="https://macrostrat.org/api/v2/defs/lithologies?all" target="_blank">Macrostrat lithologies)</a></li>
+				<li>Ability to generate fully documented, bibliographically complete testing and development datasets based on user-supplied terms</li>
+				<li>Capacity to support the deployment of user-developed <a href="http://www.nature.com/news/computers-read-the-fossil-record-1.17868" target="_blank">TDM applications</a> across full corpus, with on-demand updates as new relevant documents are acquired</li>
+			</ul>
+		</p>
+	</div>
+</div>
 
- 		<hr>
+<hr>
 
-		<div class="row new-row">
-			<div class="col-sm-3 section-title">
-				<h3>Current Partners</h3>
-			</div>
-			<div class="col-sm-7">
-				<p>
-					<a href="https://www.elsevier.com" target="_blank">
-						<img src="./dist/img/elsevier.jpeg" alt="elsevier" class="partner-small"/>
-					</a>
-					<a href="http://www.wiley.com" target="_blank">
-						<img src="./dist/img/wiley_wordmark.png" alt="wiley" class="partner"/>
-					</a>
-					<a href="https://sites.agu.org" target="_blank">
-						<img src="./dist/img/agu.png" alt="agu" class="partner"/>
-					</a>
-					<a href="http://www.sepm.org" target="_blank">
-						<img src="./dist/img/sepm.jpg" alt="SEPM" class="partner-small"/>
-					</a>
-					<a href="http://www.usgs.gov" target="_blank">
-						<img src="./dist/img/usgs.jpg" alt="USGS" class="partner"/>
-					</a>
-				 <a href="http://www.geosociety.org/index.htm" target="_blank">
-						<img src="./dist/img/GSA.jpg" alt="GSA" class="partner-small"/>
-					</a>
-					<a href="http://www.cdnsciencepub.com" target="_blank">
-						<img src="./dist/img/CSP.png" alt="CSP" class="partner"/>
-					</a>
-					<a href="http://taylorandfrancis.com" target="_blank">
-						<img src="./dist/img/TF.jpg" alt="TF" class="partner tf"/>
-					</a>
-				</p>
-				<p>Check back often. We are actively seeking new partnerships and content providers.</p>
-			</div>
-		</div>
+<div class="row new-row">
+	<div class="col-sm-3 section-title">
+		<h3>Current Partners</h3>
+	</div>
+	<div class="col-sm-7">
+		<p>
+			<a href="https://www.elsevier.com" target="_blank">
+				<img src="assets/images/logos/elsevier.jpeg" alt="elsevier" class="partner-small"/>
+			</a>
+			<a href="http://www.wiley.com" target="_blank">
+				<img src="assets/images/logos/wiley_wordmark.png" alt="wiley" class="partner"/>
+			</a>
+			<a href="https://sites.agu.org" target="_blank">
+				<img src="assets/images/logos/agu.png" alt="agu" class="partner"/>
+			</a>
+			<a href="http://www.sepm.org" target="_blank">
+				<img src="assets/images/logos/sepm.jpg" alt="SEPM" class="partner-small"/>
+			</a>
+			<a href="http://www.usgs.gov" target="_blank">
+				<img src="assets/images/logos/usgs.jpg" alt="USGS" class="partner"/>
+			</a>
+		 <a href="http://www.geosociety.org/index.htm" target="_blank">
+				<img src="assets/images/logos/GSA.jpg" alt="GSA" class="partner-small"/>
+			</a>
+			<a href="http://www.cdnsciencepub.com" target="_blank">
+				<img src="assets/images/logos/CSP.png" alt="CSP" class="partner"/>
+			</a>
+			<a href="http://taylorandfrancis.com" target="_blank">
+				<img src="assets/images/logos/TF.jpg" alt="TF" class="partner tf"/>
+			</a>
+		</p>
+		<p>Check back often. We are actively seeking new partnerships and content providers.</p>
+	</div>
+</div>
 
- 		<hr>
+<hr>
 
-		<div class="row new-row">
-			<div class="col-sm-3 section-title">
-				<h3>Derived Data Products</h3>
-			</div>
-			<div class="col-sm-7">
-				<div class="row product">
-					<div class="col-sm-5 center">
-						<div class="aligner">
-							<h1>CoreNLP</h1>
-						</div>
-					</div>
-
-					<div class="col-sm-7 center">
-						<div class="aligner">
-							<p>Natural language analysis output from <a href="http://stanfordnlp.github.io/CoreNLP/index.html" target="_blank">Stanford CoreNLP.</a> Mutiple versions are available.</p>
-						</div>
-					</div>
+<div class="row new-row">
+	<div class="col-sm-3 section-title">
+		<h3>Derived Data Products</h3>
+	</div>
+	<div class="col-sm-7">
+		<div class="row product">
+			<div class="col-sm-5 center">
+				<div class="aligner">
+					<h1>CoreNLP</h1>
 				</div>
+			</div>
 
-				<div class="row product">
-					<div class="col-sm-5 center">
-						<div class="aligner">
-							<h1>Tesseract</h1>
-						</div>
-					</div>
-					<div class="col-sm-7 center">
-						<div class="aligner">
-							<p>Optical character recognition and layout parsing from <a href="https://github.com/tesseract-ocr" target="_blank">tesseract-ocr</a>.</p>
-						</div>
-					</div>
+			<div class="col-sm-7 center">
+				<div class="aligner">
+					<p>Natural language analysis output from <a href="http://stanfordnlp.github.io/CoreNLP/index.html" target="_blank">Stanford CoreNLP.</a> Mutiple versions are available.</p>
 				</div>
-
-				<div class="row product">
-					<div class="col-sm-5 center">
-						<div class="aligner">
-							<h1>Cuneiform</h1>
-						</div>
-					</div>
-					<div class="col-sm-7 center">
-						<div class="aligner">
-							<p>Optical character recognition and layout parsing from <a href="https://launchpad.net/cuneiform-linux" target="_blank">cuneiform</a>.</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="row product">
-					<div class="col-sm-5 center">
-						<div class="aligner">
-							<h1>Custom</h1>
-						</div>
-					</div>
-					<div class="col-sm-7 center">
-						<div class="aligner">
-							<p>Custom font and layout recognition output developed for <a href="http://dx.doi.org/10.1371/journal.pone.0113523" target="_blank">PaleoDeepDive</a>.</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="row product">
-					<div class="col-sm-5 center">
-						<div class="aligner">
-							<h1>TBA</h1>
-						</div>
-					</div>
-					<div class="col-sm-7 center">
-						<div class="aligner">
-							<p>We have the ability to rapidly run new tools and versions of tools against the entire TDM library as they become available.</p>
-						</div>
-					</div>
-				</div>
-
 			</div>
 		</div>
 
- 		<hr>
-
-		<div class="row new-row">
-			<div class="col-sm-3 section-title">
-				<h3>Pipeline</h3>
+		<div class="row product">
+			<div class="col-sm-5 center">
+				<div class="aligner">
+					<h1>Tesseract</h1>
+				</div>
 			</div>
-			<div class="col-sm-7">
-				 <p class="about-p">The path of a document from its source at a content provider, to a derived data product and, ultimately, to a <a href="http://www.nature.com/news/computers-read-the-fossil-record-1.17868" target="_blank">synthetic result set</a>, is referred to as the “pipeline”. A rough schematic of the pipeline leading up to the raw data for TDM work is as follows:</p>
-				 <img src="./dist/img/README_diagram.png" alt="gdd"  class="about-img">
-				<br><br>
-				 <p class="about-p">
-					As an example, the full range of TDM raw data produced by our infrastructure for a single, open access <a href="https://www.sciencebase.gov/catalog/item/4f4e4a4ee4b07f02db627e5e" target="_blank">USGS Professional Paper</a> can be downloaded here: [<a href="./dist/img/usgs_example.tgz">tgz archive</a>]. The linked tarball archive includes all file outputs that are produced by processing the original document input. Sentence tables are generated by processing NLP XML file output and formatting it for easy ingestion into PostgreSQL, a useful starting point for building <a href="http://deepdive.stanford.edu/doc/advanced/deepdiveapp.html" target="_blank">DeepDive applications</a>.
-				</p>
+			<div class="col-sm-7 center">
+				<div class="aligner">
+					<p>Optical character recognition and layout parsing from <a href="https://github.com/tesseract-ocr" target="_blank">tesseract-ocr</a>.</p>
+				</div>
 			</div>
 		</div>
 
- 		<hr>
-
-		<div class="row new-row">
-			<div class="col-sm-3 section-title">
-				<h3>Infrastructure Schematic Overview</h3>
+		<div class="row product">
+			<div class="col-sm-5 center">
+				<div class="aligner">
+					<h1>Cuneiform</h1>
+				</div>
 			</div>
-			<div class="col-sm-7">
-				 <p class="about-p">The following image provides a general overview of the pipeline. The processes starts on the right-hand side of the “brick wall”. Here, our secure servers fetch original documents from partner content providers. These documents, and associated bibliographic and URL metadata, are stored on secure servers that have highly restricted access. Each content provider has its own mechanism of providing documents and our fetching system can be fine-tuned to accommodate the preferred rates specified by each provider, if applicable. </p>
-				 <img src="./dist/img/gdd.jpg" alt="gdd" class="about-img">
-				 <p class="about-p">After obtaining original documents and associated bibliographic metadata, the next step is processing them to generate derived data products (such as NLP, see above). Doing so requires the use of <a href="https://research.cs.wisc.edu/htcondor/htc.html" target="_blank">High Throughput Computing</a>. All of the files that are transferred to the HTC system are encrypted to prevent unauthorized access of any original content in the unlikely event that the HTC jobs get lost or intercepted. The data products for each document, consisting of files with formatting, layout, and linguistic annotations, are now ready for use in <a href="http://deepdive.stanford.edu/doc/advanced/deepdiveapp.html" target="_blank">TDM applications</a>.</p>
+			<div class="col-sm-7 center">
+				<div class="aligner">
+					<p>Optical character recognition and layout parsing from <a href="https://launchpad.net/cuneiform-linux" target="_blank">cuneiform</a>.</p>
+				</div>
 			</div>
 		</div>
 
- 		<hr>
-
-		<div class="row new-row">
-			<div class="col-sm-3 section-title">
-				<h3>End Use</h3>
+		<div class="row product">
+			<div class="col-sm-5 center">
+				<div class="aligner">
+					<h1>Custom</h1>
+				</div>
 			</div>
-			<div class="col-sm-7">
-				<p class="about-p">
-					Every word and datum that can be derived from our infrastructure is fully traceable back to the original content provided by our partner publishers and organizations. Users must provide full citation and, when relevant, URL links back to all of the original works that contributed data to an application or result. The xDD infrastructure can also be cited and we welcome new collaborations, both scientific and informatic.
-				</p>
-				<p class="about-p">
-					Applications can be developed and run on our infrastructure using the xDD <a href="https://github.com/UW-Deepdive-Infrastructure/app-template">app-template</a>.
-				</p>
+			<div class="col-sm-7 center">
+				<div class="aligner">
+					<p>Custom font and layout recognition output developed for <a href="http://dx.doi.org/10.1371/journal.pone.0113523" target="_blank">PaleoDeepDive</a>.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="row product">
+			<div class="col-sm-5 center">
+				<div class="aligner">
+					<h1>TBA</h1>
+				</div>
+			</div>
+			<div class="col-sm-7 center">
+				<div class="aligner">
+					<p>We have the ability to rapidly run new tools and versions of tools against the entire TDM library as they become available.</p>
+				</div>
 			</div>
 		</div>
 
 	</div>
-	<div class="footer">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-4 footer-title">
-					<h3><a href="/">xDD</a></h3>
-				</div>
-				<div class="col-sm-4 footer-links">
-					<p><a href="/about.html">About</a></p>
-					<p><a href="/#contact">Contact</a></p>
-					<p><a href="/#the-team">Team</a></p>
-				</div>
-				<div class="col-sm-4 footer-funding">
-					<a href="http://www.nsf.gov/"><img src="dist/img/nsf.jpg"></a>
-					<a href="http://www.morgridge.org/"><img src="dist/img/morgridge.png"></a>
-					<a href="http://chtc.cs.wisc.edu/"><img src="dist/img/chtc.jpg" class="chtc"></a>
-					<a href="http://geoscience.wisc.edu/geoscience/"><img src="dist/img/geobucky.jpg"></a>
-					<p>Funded by NSF ICER 1343760</p>
-				</div>
-			</div>
-		</div>
+</div>
+
+<hr>
+
+<div class="row new-row">
+	<div class="col-sm-3 section-title">
+		<h3>Pipeline</h3>
 	</div>
-</body>
-</html>
+	<div class="col-sm-7">
+		 <p class="about-p">The path of a document from its source at a content provider, to a derived data product and, ultimately, to a <a href="http://www.nature.com/news/computers-read-the-fossil-record-1.17868" target="_blank">synthetic result set</a>, is referred to as the “pipeline”. A rough schematic of the pipeline leading up to the raw data for TDM work is as follows:</p>
+		 <img src="assets/images/diagrams/README_diagram.png" alt="gdd"  class="about-img">
+		<br><br>
+		 <p class="about-p">
+			As an example, the full range of TDM raw data produced by our infrastructure for a single, open access <a href="https://www.sciencebase.gov/catalog/item/4f4e4a4ee4b07f02db627e5e" target="_blank">USGS Professional Paper</a> can be downloaded here: [<a href="assets/examples/usgs_example.tgz">tgz archive</a>]. The linked tarball archive includes all file outputs that are produced by processing the original document input. Sentence tables are generated by processing NLP XML file output and formatting it for easy ingestion into PostgreSQL, a useful starting point for building <a href="http://deepdive.stanford.edu/doc/advanced/deepdiveapp.html" target="_blank">DeepDive applications</a>.
+		</p>
+	</div>
+</div>
+
+<hr>
+
+<div class="row new-row">
+	<div class="col-sm-3 section-title">
+		<h3>Infrastructure Schematic Overview</h3>
+	</div>
+	<div class="col-sm-7">
+		 <p class="about-p">The following image provides a general overview of the pipeline. The processes starts on the right-hand side of the “brick wall”. Here, our secure servers fetch original documents from partner content providers. These documents, and associated bibliographic and URL metadata, are stored on secure servers that have highly restricted access. Each content provider has its own mechanism of providing documents and our fetching system can be fine-tuned to accommodate the preferred rates specified by each provider, if applicable. </p>
+		 <img src="assets/images/diagrams/gdd.jpg" alt="gdd" class="about-img">
+		 <p class="about-p">After obtaining original documents and associated bibliographic metadata, the next step is processing them to generate derived data products (such as NLP, see above). Doing so requires the use of <a href="https://research.cs.wisc.edu/htcondor/htc.html" target="_blank">High Throughput Computing</a>. All of the files that are transferred to the HTC system are encrypted to prevent unauthorized access of any original content in the unlikely event that the HTC jobs get lost or intercepted. The data products for each document, consisting of files with formatting, layout, and linguistic annotations, are now ready for use in <a href="http://deepdive.stanford.edu/doc/advanced/deepdiveapp.html" target="_blank">TDM applications</a>.</p>
+	</div>
+</div>
+
+<hr>
+
+<div class="row new-row">
+	<div class="col-sm-3 section-title">
+		<h3>End Use</h3>
+	</div>
+	<div class="col-sm-7">
+		<p class="about-p">
+			Every word and datum that can be derived from our infrastructure is fully traceable back to the original content provided by our partner publishers and organizations. Users must provide full citation and, when relevant, URL links back to all of the original works that contributed data to an application or result. The xDD infrastructure can also be cited and we welcome new collaborations, both scientific and informatic.
+		</p>
+		<p class="about-p">
+			Applications can be developed and run on our infrastructure using the xDD <a href="https://github.com/UW-Deepdive-Infrastructure/app-template">app-template</a>.
+		</p>
+	</div>
+</div>

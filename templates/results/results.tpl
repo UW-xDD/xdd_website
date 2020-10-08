@@ -26,7 +26,7 @@
 <div class="results"></div>
 <div class="message"></div>
 
-<div class="page-controls form-group">
+<div class="page-controls form-group" style="display:none">
 	<label>Page</label>
 	<div class="search input-group">
 

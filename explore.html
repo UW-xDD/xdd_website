@@ -1,103 +1,49 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>xDD: Search</title>
-	<meta charset="utf-8" />
-	<meta http-equiv="Content-Language" content="en">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+---
+layout: page
+title: Explore
+---
+<h1>Explore <span class="dataset"></span></h1>
+<hr />
+<div id="datasets">
+	<h2 class="message">Loading datasets...</h2>
+	<i class="fa fa-spinner fa-3x fa-spin"></i>
+</div>
 
-	<link rel="stylesheet" type="text/css" href="./vendor/bootstrap/css/bootstrap.min.css"/>
-	<link rel="stylesheet" type="text/css" href="./fonts/font-awesome-4.7.0/css/font-awesome.min.css"/>
-	<link rel="stylesheet" type="text/css" href="./dist/css/styles.css"/>
-	<link rel="stylesheet" type="text/css" href="./dist/css/explore.css"/>
-	<script>
-		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+<!-- script for dynamically adding datasets to page -->
+<script>
+	require([
+		'jquery',
+		'collections/datasets',
+		'views/explore/dataset-view'
+	], function ($, Datasets, DatasetView) {
 
-		ga('create', 'UA-81221089-1', 'auto');
-		ga('send', 'pageview');
-	</script>
-	<script type="text/javascript" src="src/library/require/require-min.js"></script>
-	<script type="text/javascript" src="src/require-config.js"></script>
-	<script>
-		require([
-			'jquery',
-			'collections/datasets',
-			'views/explore/dataset-view'
-		], function ($, Datasets, DatasetView) {
+		// fetch datasets
+		//
+		new Datasets().fetch({
 
-			// fetch datasets
+			// callbacks
 			//
-			new Datasets().fetch({
+			success: function(collection) {
+				$('#datasets').empty();
 
-				// callbacks
+				// render datasets
 				//
-				success: function(collection) {
-					$('#datasets').empty();
+				for (var i = 0; i < collection.length; i++) {
 
-					// render datasets
+					// create a new row every two datasets
 					//
-					for (var i = 0; i < collection.length; i++) {
-						if (i % 2 == 0) {
-							var $row = $('<div class="row"></div>');
-							$('#datasets').append($row);
-						}
-						$row.append(new DatasetView({
-							model: collection.at(i)
-						}).render().$el);
+					if (i % 2 == 0) {
+						var $row = $('<div class="row"></div>');
+						$('#datasets').append($row);
 					}
+
+					// add dataset to row
+					//
+					$row.append(new DatasetView({
+						model: collection.at(i)
+					}).render().$el);
 				}
-			});
+			}
 		});
-	</script>
-</head>
-<body>
-	<div class="wrapper container-fluid">
-		<div class="header clearfix">
-			<nav>
-				<ul class="nav nav-pills pull-right">
-					<li role="presentation" class="active"><a href="/explore.html">Explore</a></li>
-					<li role="presentation"><a href="/about.html">About</a></li>
-					<li role="presentation"><a href="/#the-team">Team</a></li>
-				</ul>
-			</nav>
-			<h3 class="text-muted title-full" style="display:inline-block; float:left; margin-right:25px">
-				<a href="/">xDD</a>
-			</h3>
-		</div>
-
-		<div class="container">
-			<h1>Explore <span class="dataset"></span></h1>
-			<hr />
-			<div id="datasets">
-				<h2 class="message">Loading datasets...</h2>
-				<i class="fa fa-spinner fa-3x fa-spin"></i>
-			</div>
-		</div>
-	</div>
-
-	<div class="footer">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-4 footer-title">
-					<h3><a href="/">xDD</a></h3>
-				</div>
-				<div class="col-sm-4 footer-links">
-					<p><a href="/about.html">About</a></p>
-					<p><a href="/#contact">Contact</a></p>
-					<p><a href="/#the-team">Team</a></p>
-				</div>
-				<div class="col-sm-4 footer-funding">
-					<a href="http://www.nsf.gov/"><img src="dist/img/nsf.jpg"></a>
-					<a href="http://www.morgridge.org/"><img src="dist/img/morgridge.png"></a>
-					<a href="http://chtc.cs.wisc.edu/"><img src="dist/img/chtc.jpg" class="chtc"></a>
-					<a href="http://geoscience.wisc.edu/geoscience/"><img src="dist/img/geobucky.jpg"></a>
-					<p>Funded by NSF ICER 1343760</p>
-				</div>
-			</div>
-		</div>
-	</div>
-</body>
-</html>
+	});
+</script>

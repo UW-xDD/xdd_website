@@ -24,7 +24,7 @@ define([
 		// attributes
 		//
 
-		className: 'col-sm-6',
+		className: 'dataset col-sm-6',
 		template: _.template(Template),
 
 		events: {
@@ -71,6 +71,8 @@ define([
 				this.$el.find('.panel').addClass('covid');
 			}
 
+			// add styling to panel
+			//
 			if (name.toLowerCase().includes('cord-19')) {
 				this.$el.addClass('coming-soon');
 			}
