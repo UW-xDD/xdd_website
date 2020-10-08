@@ -1,0 +1,479 @@
+/******************************************************************************\
+|                                                                              |
+|                                   main.scss                                  |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2012-2020 Morgridge Institute for Research (MIR)        |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                                  styles.scss                                 |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2012-2020 Morgridge Institute for Research (MIR)        |
+\******************************************************************************/
+/* headers */
+.header { padding: 10px; border-bottom: 1px solid #e5e5e5; }
+
+.header h3 { margin-top: 0; margin-bottom: 0; line-height: 40px; }
+
+.header > h3 > a { color: inherit; }
+
+/* page headers */
+.page.header { width: 100%; padding: 20px; margin: 20px 0; border-radius: 5px; color: white; background-image: url(../images/main_large.jpg); }
+
+/* headings */
+h1 { display: inline-block; }
+
+h3 i { margin-right: 10px; }
+
+/* titles */
+.title, .summary-type { display: flex; align-items: center; justify-content: center; }
+
+.title > h1 { font-size: 65px; font-weight: 200; letter-spacing: 1px; max-width: 50%; display: block; }
+
+/* footers */
+.footer { bottom: 0; width: 100%; border-top: 1px solid #aaa; padding: 20px; color: #777; }
+
+.footer-title > .title-full { color: #777 !important; }
+
+.footer-links { text-align: center; font-size: 17px; }
+
+.footer-links > p > a { color: #777 !important; }
+
+.footer-funding { text-align: center; }
+
+.footer-funding > a > img { max-height: 40px; max-width: 160px; margin: 10px; }
+
+/* rows */
+.row { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; }
+
+.first-row { margin-top: 35px; }
+
+.new-row { margin-top: 35px; }
+
+.first-row { margin-top: 15px; }
+
+.new-row { margin-top: 35px; }
+
+.wrapper { max-width: 1200px; margin: 0 auto; padding-bottom: 50px; }
+
+.section-title h3 { font-size: 30px; letter-spacing: 1px; font-weight: 300 !important; color: #777; }
+
+/* alignment */
+.center { display: inline-block; vertical-align: middle; float: none; }
+
+.aligner { display: flex; align-items: center; justify-content: center; }
+
+.aligner h1, .aligner p { margin: 0 auto; }
+
+.aligner h1 { font-weight: 100; }
+
+/* desktop styles */
+@media screen and (min-width: 600px) { .num-results { width: 50%; float: left; } .results li { padding-left: 50px; } .input-group-addon:not(:first-child):not(:last-child) { border-right: none; border-left: none; } }
+
+/* mobile styles */
+@media (max-width: 600px) { .row { display: block; } .nav.nav-pills.pull-right { margin-right: -25px; } .footer-title { text-align: center; } /* date form input groups (after / before) */ .date.form-group .input-group { display: inline-block; } .date.form-group .input-group-addon { border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-bottom: none; border-right-width: 1px; border-right-style: solid; border-right-color: lightgrey; } .date.form-group input { margin-bottom: 15px; border-top-left-radius: 0 !important; border-top-right-radius: 0 !important; border-bottom-left-radius: 5px !important; border-bottom-right-radius: 5px !important; } }
+
+/******************************************************************************\
+|                                                                              |
+|                                   navs.scss                                  |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2012-2020 Morgridge Institute for Research (MIR)        |
+\******************************************************************************/
+/* nav pills */
+.nav-pills > li a { color: #777; cursor: default; }
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus { background-color: #777; }
+
+/* links */
+a { font-weight: 500; }
+
+a:hover { text-decoration: none; }
+
+/* nav links */
+.nav > li > a:hover, .nav > li > a:focus { background-color: silver; color: white; }
+
+/******************************************************************************\
+|                                                                              |
+|                                 buttons.scss                                 |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2012-2020 Morgridge Institute for Research (MIR)        |
+\******************************************************************************/
+.btn { border: 1px solid lightgrey; /* button icons */ /* remove focus outline */ /* active state */ /* primary buttons */ }
+
+.btn i { margin-right: 5px; }
+
+.btn.btn-sm i { margin-right: 0; }
+
+.btn:active, .btn:focus, .btn:active:focus { outline: none; }
+
+.btn.active, .btn.active:focus { color: white; background-color: grey; border-color: grey; outline: none; }
+
+.btn.btn-primary, .btn.btn-primary:focus { color: white; background: grey; border-color: grey; }
+
+.btn.btn-primary:hover, .btn.btn-primary:active, .btn.btn-primary:hover:focus, .btn.btn-primary:active:focus { background: darkgrey; border-color: darkgrey; }
+
+/******************************************************************************\
+|                                                                              |
+|                                  index.scss                                  |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2012-2020 Morgridge Institute for Research (MIR)        |
+\******************************************************************************/
+#home h1 { font-weight: bold; letter-spacing: 1px; }
+
+#home .wrapper { height: 100%; padding: 0; }
+
+#home .header { margin-right: 25px; margin-left: 25px; }
+
+#home .title-full, #home .title-short, #home .nav-pills > li > a { color: #fff; letter-spacing: 1px; }
+
+#home .header > h3 { font-size: 35px; }
+
+#home .nav-pills > li > a { font-size: 17px; }
+
+#home .main { height: 100%; width: 100%; margin-top: -115px; background: url("../images/main_large.jpg"); background-size: cover; background-repeat: no-repeat; }
+
+#home .contact { height: 100%; width: 100%; background: url("../images/typewriter.jpg"); background-size: cover; background-repeat: no-repeat; }
+
+#home .contact-title { font-size: 60px; text-shadow: 5px 5px #000000; }
+
+#home .contact-text { font-size: 20px; }
+
+#home .contact-copy > p { margin-top: 10%; max-width: 500px; }
+
+#home .contact-email { letter-spacing: 1px; }
+
+#home .wrapper { max-width: none; }
+
+#home .copy-container { width: 100%; display: flex; align-items: center; justify-content: center; }
+
+#home .copy { font-size: 25px; color: #ffffff; text-align: center; padding: 150px; }
+
+#home .big { font-size: 55px; }
+
+#home .section { height: 100%; width: 100%; }
+
+#home .section.publishers { margin-top: 75px; }
+
+#home .half-section { width: 50%; height: 100%; display: inline-block; }
+
+#home .publishers { background: url("../images/publishers.jpg"); background-size: contain; background-repeat: no-repeat; background-position: center; }
+
+#home .count { font-weight: bold; font-size: 95px; }
+
+#home .count-label { font-size: 55%; }
+
+#home .count-sub { font-size: 25px; }
+
+#home .publishers > .copy-container { text-align: center; height: 100%; }
+
+#home .sqldump { background: url("../images/data.jpg"); background-size: cover; background-repeat: no-repeat; float: left; }
+
+#home .tdm { height: 100%; }
+
+#home .tdm > div { padding: 50px; }
+
+#home .info { padding-bottom: 15px; font-size: 15px; line-height: 26px; }
+
+#home .apps, #home .team, #home .news { padding: 50px; height: auto; }
+
+#home .team-blurb { width: 50%; font-weight: 200; }
+
+#home .person { display: flex; align-items: center; margin: 2px; padding: 10px; background-color: rgba(0, 0, 0, 0.03); }
+
+#home .person-pic { height: 100px; width: 100px; display: inline-block; border-radius: 4px; }
+
+#home .person-desc { display: inline-block; margin-left: 15px; }
+
+#home .person-desc > h4 { margin-bottom: 5px; }
+
+#home .person-desc > p { margin: 0; }
+
+#home .person-title { font-style: italic; }
+
+#home .person-dept { color: #333; font-weight: 200; }
+
+#home .wisconsin { padding: 25px; }
+
+#home .stanford > .team-blurb { text-align: right; margin-left: 50%; }
+
+#home .collaborators > .team-blurb { text-align: right; margin-left: 50%; }
+
+#home .group { letter-spacing: 2px; font-size: 25px; text-align: right; }
+
+#home .news-items { list-style: none; margin-left: 0; padding-left: 0; }
+
+#home .news-items > li { margin-top: 30px; margin-bottom: 30px; }
+
+#home .news-items > li > a { font-size: 80%; }
+
+#home .news-item-title { font-size: 110%; font-weight: 500; }
+
+@media (max-width: 600px) { #home .main { margin-top: -120px; height: 110%; } #home .header { margin: 0; } #home .sqldump { min-height: 400px; } #home .nav-pills > li > a { font-size: 14px; } #home .big { font-size: 35px; } #home .copy { font-size: 15px; padding: 0; margin-top: 80px; margin-left: 15px; margin-right: 15px; } #home .count { font-size: 50px; line-height: 40px; } #home .half-section { width: 100%; height: 50%; display: inline-table; } #home .data { height: auto; } #home .apps { height: auto; padding: 25px; } #home .team-blurb { width: 100%; } #home .wisconsin { padding: 0; } #home .team { padding: 10px; } #home .stanford > .team-blurb { margin-left: 0; } #home .collaborators > .team-blurb { margin-left: 0; } #home .collaborators { padding: 0; } #home .contact-title { font-size: 40px; } #home .contact-text { font-size: 18px; } #home .count-sub { font-size: 17px; } }
+
+/******************************************************************************\
+|                                                                              |
+|                                 branding.scss                                |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2012-2020 Morgridge Institute for Research (MIR)        |
+\******************************************************************************/
+/* GeoDeepDive */
+#gdd { background-image: url("./dist/img/gdd.png"); }
+
+/* Center for High Throughput Computing */
+.chtc { height: 35px !important; }
+
+/* Taylor and Francis */
+.tf { width: 200px; }
+
+/* partner info */
+.partner { width: 140px; margin: 10px; height: auto; }
+
+.partner-small { width: 100px; }
+
+/* about info */
+.about-p { line-height: 26px; }
+
+.about-img { width: 100%; padding-top: 15px; padding-bottom: 15px; }
+
+/******************************************************************************\
+|                                                                              |
+|                               publications.scss                              |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2012-2020 Morgridge Institute for Research (MIR)        |
+\******************************************************************************/
+.publisher { font-size: 38px; }
+
+.journal { border-width: 3px; border-style: solid; padding: 25px; }
+
+.journal:not(:first-child) { border-left-width: 0; }
+
+.journal-wrapper { text-align: center; }
+
+.journal-source { font-size: 14px; letter-spacing: 2px; font-weight: 200; }
+
+.product { padding: 35px 0; }
+
+.title-short { display: none; }
+
+/* summaries */
+.summary-row { padding: 20px; }
+
+.summary-stat > span { display: block; font-size: 25px; font-weight: 200; }
+
+.summary-stat { font-size: 15px; text-align: center; font-weight: bold; color: #ccc; }
+
+.summary-type { font-size: 40px; color: #F7F7F7 !important; }
+
+.summary-type.journal { font-size: 25px; }
+
+/* fetched items */
+div[id*="-fetched"] > span { font-size: 525px; }
+
+.fetched { border-bottom-width: 0; }
+
+.fetched > span { font-size: 50px; }
+
+/* recent items */
+.recent { border: 3px solid #E06E2D; }
+
+.recent-title { background-color: #E06E2D; height: 160px; }
+
+.recent-list { list-style: none; }
+
+.recent-list > li { padding: 10px 0; padding-left: 2em; text-indent: -2em; color: #555; }
+
+.recent-list a { color: #333; text-decoration: none; }
+
+/* mobile styles */
+@media (max-width: 600px) { .title-full { display: none; } .title-short { display: block; } .journal:not(:first-child) { border-left-width: 3px; } .journal:not(:last-child) { border-bottom-width: 0; } }
+
+/******************************************************************************\
+|                                                                              |
+|                                 datasets.scss                                |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2012-2020 Morgridge Institute for Research (MIR)        |
+\******************************************************************************/
+#datasets { text-align: center; }
+
+#datasets .row { margin-bottom: 20px; justify-content: center; }
+
+#datasets .row .dataset { align-items: start; text-align: left; }
+
+#datasets .row .dataset .panel { color: white; text-align: center; display: relative; background-image: url(../images/main_large.jpg); }
+
+#datasets .row .dataset .panel .message { margin: 40px; }
+
+#datasets .row .dataset .panel button { margin: 20px; color: black; }
+
+#datasets .row .dataset .panel .info { padding: 20px; position: relative; }
+
+#datasets .row .dataset .panel .info::after { content: ""; position: absolute; top: 0; right: 0; width: 100%; height: 100%; cursor: pointer; pointer-events: none; }
+
+#datasets .row .dataset .panel .info:hover::after { background: rgba(255, 255, 255, 0.33); cursor: pointer; }
+
+#datasets .row .dataset .panel.covid { color: white; background-image: url(../images/cdc-covid-cropped.jpg); }
+
+#datasets .row .dataset .links a { margin-right: 10px; }
+
+#datasets .row .dataset.coming-soon .info:hover::after { content: "Coming Soon!"; padding: 50px; font-size: 3em; position: absolute; background: rgba(0, 0, 0, 0.75); top: 0; right: 0; width: 100%; height: 100%; cursor: pointer; pointer-events: none; }
+
+.top.buttons { float: right; margin-left: 10px; margin-top: -7px; }
+
+/* covid datasets */
+.covid { /* headers */ /* nav pills */ /* links */ /* buttons */ }
+
+.covid .page.header { background-image: url(../images/cdc-covid-cropped.jpg); }
+
+.covid .nav-pills a { color: #800000; }
+
+.covid .nav-pills > li.active > a, .covid .nav-pills > li.active > a:hover, .covid .nav-pills > li.active > a:focus { background-color: #800000; }
+
+.covid .nav-pills > li:hover > a { background-color: #f04040; }
+
+.covid a { color: #800000; }
+
+.covid a:hover { color: #f04040; }
+
+.covid .btn-primary, .covid .btn-primary:focus { background: #800000; border-color: #800000; }
+
+.covid .btn-primary:hover, .covid .btn-primary:active, .covid .btn-primary:hover:focus, .covid .btn-primary:active:focus { background: #f04040; border-color: #f04040; }
+
+/******************************************************************************\
+|                                                                              |
+|                                 results.scss                                 |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2012-2020 Morgridge Institute for Research (MIR)        |
+\******************************************************************************/
+.results { /* results list items */ }
+
+.results li { padding: 15px; /* wells */ /* dividers */ }
+
+.results li .heading { font-size: 125%; }
+
+.results li i { margin: 0 5px; }
+
+.results li .well { margin-top: 20px; position: relative; }
+
+.results li .well em { font-weight: bold; }
+
+.results li .well .badge { position: absolute; right: -10px; top: -10px; margin-left: -20px; border: 2px solid white; box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25); }
+
+.results li:not(:last-child) { border-bottom: 1px dashed lightgrey; }
+
+/* region for showing search status */
+.status.well { padding: 5px; margin: 20px 0; text-align: center; }
+
+/* remove spinners from num results input */
+.num-results input[type=number]::-webkit-inner-spin-button, .num-results input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+
+/* page controls */
+.page-controls { width: 100%; text-align: center; /* remove spinners from page controls inputs */ }
+
+.page-controls label { width: 100%; }
+
+.page-controls input[type=number]::-webkit-inner-spin-button, .page-controls input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+
+.page-controls .input-group { display: inline-table; width: 1px; }
+
+.page-controls .input-group .form-control { width: 4em; }
+
+.page-controls .input-group .input-group-addon { padding: 5px; }
+
+.page-controls .input-group .input-group-addon i { margin-right: 0; }
+
+.page-controls .input-group .input-group-addon button { width: 20px; text-align: center; padding: 0; border: none; outline: none; background: none; }
+
+/* mobile styles */
+@media (max-width: 600px) { button.search-again i { margin-right: 0; } }
+
+/*# sourceMappingURL=styles.css.map */

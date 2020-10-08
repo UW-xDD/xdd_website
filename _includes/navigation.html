@@ -1,0 +1,12 @@
+<div class="header clearfix">
+	<nav>
+		<ul class="nav nav-pills pull-right">
+			{% for item in site.data.navigation %}
+			<li role="presentation"{% if page.url == item.link %} class="active"{% endif %}><a href="{{ item.link }}">{{ item.name }}</a></li>
+			{% endfor %}
+		</ul>
+	</nav>
+	<h3 class="text-muted title-full" style="display:inline-block; float:left; margin-right:25px">
+		<a href="/">xDD</a>
+	</h3>
+</div>

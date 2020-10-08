@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Search</title>
+		<link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" href="/vendor/jquery/fancybox/jquery.fancybox.css" />
+		<link rel="stylesheet" href="/assets/css/styles.css">
+		<link rel="stylesheet" href="/fonts/optima/styles.css">
+		<link rel="stylesheet" href="/fonts/font-awesome-4.7.0/css/font-awesome.css">
+		<script type="text/javascript" src="src/library/require/require-min.js"></script>
+		<script type="text/javascript" src="src/require-config.js"></script>
+		<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Search</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Search" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="http://localhost:4000/search.html" />
+<meta property="og:url" content="http://localhost:4000/search.html" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/search.html","headline":"Search","@type":"WebPage","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+	</head>
+	<body>
+		<div class="wrapper container-fluid">
+			<div class="header clearfix">
+	<nav>
+		<ul class="nav nav-pills pull-right">
+			
+			<li role="presentation"><a href="/about.html">About</a></li>
+			
+			<li role="presentation"><a href="/index.html#news">News</a></li>
+			
+			<li role="presentation"><a href="/index.html#the-team">Team</a></li>
+			
+			<li role="presentation"><a href="/api">API</a></li>
+			
+			<li role="presentation"><a href="/explore.html">Explore</a></li>
+			
+		</ul>
+	</nav>
+	<h3 class="text-muted title-full" style="display:inline-block; float:left; margin-right:25px">
+		<a href="/">xDD</a>
+	</h3>
+</div>
+			<div class="page header">
+	<div class="container">
+		<h1>Search <span class="dataset"></span></h1>
+	</div>
+</div>
+<hr />
+
+<div class="container">
+	<div id="search"></div>
+</div>
+
+<!-- script for rendering and performing search -->
+<script>
+	require([
+		'jquery',
+		'views/search/search-view',
+		'utilities/web/query-string'
+	], function ($, SearchView, QueryString) {
+
+		// set active dataset
+		//
+		var dataset = QueryString.getParam('dataset') || 'xDD';
+		$('.dataset li.' + dataset).addClass('active');
+
+		// add dataset class to body
+		//
+		if (dataset.toLowerCase().includes('covid-19') || dataset.toLowerCase().includes('cord-19')) {
+			$('body').addClass('covid');
+		}
+
+		// set dataset text
+		//
+		$('h1 .dataset').html(dataset);
+
+		// render search view
+		//
+		var searchView = new SearchView();
+		$('#search').append(searchView.render().$el);
+		searchView.onAttach();
+	});      
+</script>
+		</div>
+		<div class="footer">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-4 footer-title">
+				<h3><a href="/">xDD</a></h3>
+			</div>
+			<div class="col-sm-4 footer-links">
+				<p><a href="/about.html">About</a></p>
+				<p><a href="/#contact">Contact</a></p>
+				<p><a href="/#the-team">Team</a></p>
+			</div>
+			<div class="col-sm-4 footer-funding">
+				<a href="http://www.nsf.gov/"><img src="assets/images/logos/nsf.jpg"></a>
+				<a href="http://www.morgridge.org/"><img src="assets/images/logos/morgridge.png"></a>
+				<a href="http://chtc.cs.wisc.edu/"><img src="assets/images/logos/chtc.jpg" class="chtc"></a>
+				<a href="http://geoscience.wisc.edu/geoscience/"><img src="assets/images/logos/geobucky.jpg"></a>
+				<p>Funded by NSF ICER 1343760</p>
+			</div>
+		</div>
+	</div>
+</div>
+	</body>
+</html>

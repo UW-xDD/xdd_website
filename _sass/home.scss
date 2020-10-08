@@ -1,0 +1,340 @@
+/******************************************************************************\
+|                                                                              |
+|                                  index.scss                                  |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2012-2020 Morgridge Institute for Research (MIR)        |
+\******************************************************************************/
+
+#home {
+
+	h1 {
+		font-weight: bold;
+		letter-spacing: 1px;
+	}
+
+	.wrapper {
+		height: 100%;
+		padding: 0;
+	}
+
+	.header {
+		margin-right: 25px;
+		margin-left: 25px;
+	}
+
+	.title-full, .title-short, .nav-pills>li>a {
+		color: #fff;
+		letter-spacing: 1px;
+	}
+
+	.header > h3 {
+		font-size: 35px;
+	}
+
+	.nav-pills > li > a {
+		font-size: 17px;
+	}
+
+	.main {
+		height: 100%;
+		width: 100%;
+		margin-top: -115px;
+		background: url('../images/main_large.jpg');
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
+
+	.contact {
+		height: 100%;
+		width: 100%;
+		background: url('../images/typewriter.jpg');
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
+
+	.contact-title {
+		font-size: 60px;
+		text-shadow: 5px 5px #000000;
+	}
+
+	.contact-text {
+		font-size: 20px;
+	}
+
+	.contact-copy > p {
+		margin-top: 10%;
+		max-width: 500px;
+	}
+
+	.contact-email {
+		letter-spacing: 1px;
+	}
+
+	.wrapper {
+		max-width: none;
+	}
+
+	.copy-container {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.copy {
+		font-size: 25px;
+		color: #ffffff;
+		text-align: center;
+		padding: 150px;
+	}
+
+	.big {
+		font-size: 55px;
+	}
+
+	.section {
+		height: 100%;
+		width: 100%;
+
+		&.publishers {
+			margin-top: 75px;
+		}
+	}
+
+	.half-section {
+		width: 50%;
+		height: 100%;
+		display: inline-block;
+	}
+
+	.publishers {
+		background: url('../images/publishers.jpg');
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+
+	.count {
+		font-weight: bold;
+		font-size: 95px;
+	}
+
+	.count-label {
+		font-size: 55%;
+	}
+
+	.count-sub {
+		font-size: 25px;
+	}
+
+	.publishers > .copy-container {
+		text-align: center;
+		height: 100%;
+	}
+
+	.sqldump {
+		background: url('../images/data.jpg');
+		background-size: cover;
+		background-repeat: no-repeat;
+		float: left;
+	}
+
+	.tdm {
+		height: 100%;
+	}
+
+	.tdm > div {
+		padding: 50px;
+	}
+
+	.info {
+		padding-bottom: 15px;
+		font-size: 15px;
+		line-height: 26px;
+	}
+
+	.apps, .team, .news {
+		padding: 50px;
+		height: auto;
+	}
+
+	.team-blurb {
+		width: 50%;
+		font-weight: 200;
+	}
+
+	.person {
+		display: flex;
+		align-items: center;
+		margin: 2px;
+		padding: 10px;
+		background-color: rgba(0,0,0,0.03);
+	}
+
+	.person-pic {
+		height: 100px;
+		width: 100px;
+		display: inline-block;
+		border-radius: 4px;
+	}
+
+	.person-desc {
+		display: inline-block;
+		margin-left: 15px;
+	}
+
+	.person-desc > h4 {
+		margin-bottom: 5px;
+	}
+
+	.person-desc > p {
+		margin: 0;
+	}
+
+	.person-title {
+		font-style: italic;
+	}
+
+	.person-dept {
+		color: #333;
+		font-weight: 200;
+	}
+
+	.wisconsin {
+		padding: 25px;
+	}
+
+	.stanford > .team-blurb {
+		text-align: right;
+		margin-left: 50%;
+	}
+
+	.collaborators > .team-blurb {
+		text-align: right;
+		margin-left: 50%;
+	}
+
+	.group {
+		letter-spacing: 2px;
+		font-size: 25px;
+		text-align: right;
+	}
+
+	.news-items {
+		list-style: none;
+		margin-left: 0;
+		padding-left: 0;
+	}
+
+	.news-items > li {
+		margin-top: 30px;
+		margin-bottom: 30px;
+	}
+
+	.news-items > li > a {
+		font-size: 80%;
+	}
+
+	.news-item-title {
+		font-size: 110%;
+		font-weight: 500;
+	}
+
+	@media(max-width: 600px) {
+
+		.main {
+			margin-top: -120px;
+			height: 110%;
+		}
+
+		.header {
+			margin: 0;
+		}
+
+		.sqldump {
+			min-height: 400px;
+		}
+
+		.nav-pills > li > a {
+			font-size: 14px;
+		}
+
+		.big {
+			font-size: 35px;
+		}
+
+		.copy {
+			font-size: 15px;
+			padding: 0;
+			margin-top: 80px;
+			margin-left: 15px;
+			margin-right: 15px;
+		}
+
+		.count {
+			font-size: 50px;
+			line-height: 40px;
+		}
+
+		.half-section {
+			width: 100%;
+			height: 50%;
+			display: inline-table;
+		}
+
+		.data {
+			height: auto;
+		}
+
+		.apps {
+			height: auto;
+			padding: 25px;
+		}
+
+		.team-blurb {
+			width: 100%;
+		}
+
+		.wisconsin {
+			padding: 0;
+		}
+
+		.team {
+			padding: 10px;
+		}
+
+		.stanford > .team-blurb {
+			margin-left: 0;
+		}
+
+		.collaborators > .team-blurb {
+			margin-left: 0;
+		}
+
+		.collaborators {
+			padding: 0;
+		}
+
+		.contact-title {
+			font-size: 40px;
+		}
+
+		.contact-text {
+			font-size: 18px;
+		}
+		
+		.count-sub {
+			font-size: 17px;
+		}
+	}
+}
