@@ -35,12 +35,16 @@ define([
 		search: function(options) {
 			var params = {};
 
+			// set API params from options
 			//
-			// set API params
-			//
-
 			if (options.data) {
 
+				// set dataset param
+				//
+				if (options.data.dataset) {
+					params.dataset = options.data.dataset;
+				}
+				
 				// set term param
 				//
 				if (options.data.term) {
