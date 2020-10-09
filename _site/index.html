@@ -3,25 +3,21 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Home</title>
-		<link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.css">
-		<link rel="stylesheet" href="/vendor/jquery/fancybox/jquery.fancybox.css" />
-		<link rel="stylesheet" href="/assets/css/styles.css">
-		<link rel="stylesheet" href="/fonts/optima/styles.css">
-		<link rel="stylesheet" href="/fonts/font-awesome-4.7.0/css/font-awesome.css">
+		<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" href="vendor/jquery/fancybox/jquery.fancybox.css" />
+		<link rel="stylesheet" href="assets/css/styles.css">
+		<link rel="stylesheet" href="fonts/font-awesome-4.7.0/css/font-awesome.css">
 		<link rel="stylesheet" type="text/css" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
 		<script type="text/javascript" src="src/library/require/require-min.js"></script>
 		<script type="text/javascript" src="src/require-config.js"></script>
-		<!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Home</title>
-<meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="Home" />
-<meta property="og:locale" content="en_US" />
-<link rel="canonical" href="http://localhost:4000/" />
-<meta property="og:url" content="http://localhost:4000/" />
-<script type="application/ld+json">
-{"url":"http://localhost:4000/","@type":"WebSite","headline":"Home","@context":"https://schema.org"}</script>
-<!-- End Jekyll SEO tag -->
-
+		<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-81221089-1', 'auto');
+	ga('send', 'pageview');
+</script>
 	</head>
 	<body>
 		<div id="home">
@@ -29,15 +25,15 @@
 	<nav>
 		<ul class="nav nav-pills pull-right">
 			
-			<li role="presentation"><a href="/about.html">About</a></li>
+			<li role="presentation"><a href="about.html">About</a></li>
 			
-			<li role="presentation"><a href="/index.html#news">News</a></li>
+			<li role="presentation"><a href="index.html#news">News</a></li>
 			
-			<li role="presentation"><a href="/index.html#the-team">Team</a></li>
+			<li role="presentation"><a href="index.html#the-team">Team</a></li>
 			
-			<li role="presentation"><a href="/api">API</a></li>
+			<li role="presentation"><a href="api">API</a></li>
 			
-			<li role="presentation"><a href="/explore.html">Explore</a></li>
+			<li role="presentation"><a href="explore.html">Explore</a></li>
 			
 		</ul>
 	</nav>
@@ -292,6 +288,26 @@
 		</div>
 	</div>
 </div>
+
+<!-- script to dynamically set document counts -->
+<script src="src/library/jquery/jquery-3.4.1.min.js"></script>
+<script>
+	function commaize(x) {
+		x = parseInt(x);
+		var parts = x.toString().split(".");
+		parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		return parts.join(".");
+	}
+
+	$(document).ready(function() {
+		$.get("https://geodeepdive.org/api/v1/metrics/basic", function(data) {
+			$('#totalDocs').html(commaize(data.success.data.total))
+			$('#monthlyDocs').html(commaize(data.success.data.lastMonth))
+			$('#weeklyDocs').html(commaize(data.success.data.lastWeek))
+			$('#dailyDocs').html(commaize(data.success.data.lastDay))
+		})
+	});
+</script>
 		</div>
 		<div class="footer">
 	<div class="container">

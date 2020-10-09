@@ -9,3 +9,23 @@ layout: home
 {% include workflow.html %}
 {% include contact.html %}
 {% include team.html %}
+
+<!-- script to dynamically set document counts -->
+<script src="src/library/jquery/jquery-3.4.1.min.js"></script>
+<script>
+	function commaize(x) {
+		x = parseInt(x);
+		var parts = x.toString().split(".");
+		parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		return parts.join(".");
+	}
+
+	$(document).ready(function() {
+		$.get("https://geodeepdive.org/api/v1/metrics/basic", function(data) {
+			$('#totalDocs').html(commaize(data.success.data.total))
+			$('#monthlyDocs').html(commaize(data.success.data.lastMonth))
+			$('#weeklyDocs').html(commaize(data.success.data.lastWeek))
+			$('#dailyDocs').html(commaize(data.success.data.lastDay))
+		})
+	});
+</script>
