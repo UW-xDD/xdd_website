@@ -2,7 +2,7 @@
 	<nav>
 		<ul class="nav nav-pills pull-right">
 			{% for item in site.data.navigation %}
-			<li role="presentation"{% if page.url == item.link %} class="active"{% endif %}><a href="{{ item.link }}">{{ item.name }}</a></li>
+			<li role="presentation"{% if page.url == item.link) %} class="active"{% endif %}><a href="{{ item.link }}">{{ item.name }}</a></li>
 			{% endfor %}
 		</ul>
 	</nav>

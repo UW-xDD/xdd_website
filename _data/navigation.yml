@@ -1,10 +1,10 @@
 - name: About
-  link: about.html
+  link: /about.html
 - name: News
-  link: index.html#news
+  link: /index.html#news
 - name: Team
-  link: index.html#the-team
+  link: /index.html#the-team
 - name: API
-  link: api
+  link: /api
 - name: Explore
-  link: explore.html
+  link: /explore.html
