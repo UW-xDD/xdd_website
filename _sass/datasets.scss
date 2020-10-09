@@ -1,0 +1,162 @@
+/******************************************************************************\
+|                                                                              |
+|                                 datasets.scss                                |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2012-2020 Morgridge Institute for Research (MIR)        |
+\******************************************************************************/
+
+#datasets {
+	text-align: center;
+
+	.row {
+		margin-bottom: 20px;
+		justify-content: center;
+
+		.dataset {
+			align-items: start;
+			text-align: left;
+
+			.panel {
+				color: white;
+				text-align: center;
+				display: relative;
+				background-image: url(../images/main_large.jpg);
+
+				.message {
+					margin: 40px;
+				}
+
+				button {
+					margin: 20px;
+					color: black;
+				}
+
+				.info {
+					padding: 20px;
+					position: relative;
+
+					&::after {
+						content: "";
+						position: absolute;
+						top: 0;
+						right: 0;
+						width: 100%;
+						height: 100%;
+						cursor: pointer;
+						pointer-events: none;
+					}
+
+					&:hover::after {
+						background: rgba(255, 255, 255, 0.33);
+						cursor: pointer;
+					}
+				}
+
+				&.covid {
+					color: white;
+					background-image: url(../images/cdc-covid-cropped.jpg);
+				}
+			}
+
+			.links a {
+				margin-right: 10px;
+			}
+		
+			&.coming-soon {
+				.info:hover::after {
+					content: "Coming Soon!";
+					padding: 50px;
+					font-size: 3em;
+					position: absolute;
+					background: rgba(0, 0, 0, 0.75);
+					top: 0;
+					right: 0;
+					width: 100%;
+					height: 100%;
+					cursor: pointer;
+					pointer-events: none;
+				}
+			}
+		}
+	}
+}
+
+.top.buttons {
+	float: right;
+	margin-left: 10px;
+	margin-top: -7px;
+}
+
+/*
+ * covid datasets
+ */
+
+.covid {
+
+	/*
+	 * headers
+	 */
+
+	.page.header {
+		background-image: url(../images/cdc-covid-cropped.jpg);
+	}
+
+	/*
+	 * nav pills
+	 */
+
+	.nav-pills a {
+		color: #800000;
+	}
+
+	.nav-pills {
+		> li {
+			&.active {
+				> a, > a:hover, > a:focus {
+					background-color: #800000;
+				}
+			}
+
+			&:hover > a {
+				background-color: #f04040;
+			}
+		}
+	}
+
+	/*
+	 * links
+	 */
+
+	a {
+		color: #800000;
+
+		&:hover {
+			color: #f04040;
+		}
+	}
+
+	/*
+	 * buttons
+	 */
+
+	.btn-primary, .btn-primary:focus {
+		background: #800000;
+		border-color: #800000;
+	}
+
+	.btn-primary:hover, .btn-primary:active,
+	.btn-primary:hover:focus, .btn-primary:active:focus {
+		background: #f04040;
+		border-color: #f04040;
+	}
+}

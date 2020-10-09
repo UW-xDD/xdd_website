@@ -1,0 +1,82 @@
+/******************************************************************************\
+|                                                                              |
+|                                  people.scss                                 |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2012-2020 Morgridge Institute for Research (MIR)        |
+\******************************************************************************/
+
+.person-info {
+	background-color:#fbfbfb;
+}
+
+.person-name, .person-details {
+	background-color: #fff;
+	padding: 15px;
+}
+
+.person-name {
+	margin-top: 15px;
+}
+
+.person-name > p {
+	color: #777;
+	letter-spacing: 1px;
+	font-weight: 200;
+}
+
+.person-details {
+	color: #444;
+	font-weight: 300;
+}
+
+.person-details > p {
+	max-width: 400px;
+	line-height: 26px;
+}
+
+.person-image {
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	height: 500px;
+}
+
+.person-title {
+	color: #555;
+}
+
+/*
+ * team styles
+ */
+
+#team {
+	background-image: url('../img/team.jpg');
+}
+
+.team-heading {
+	color: #aaa;
+	font-weight: 300;
+	letter-spacing: 1px;
+	padding-bottom: 2px;
+}
+
+.person-team {
+	line-height: 12px;
+	font-size: 15px;
+	padding-top: 10px;
+	padding-left: 10px;
+
+	a {
+		color: #333;
+	}
+}

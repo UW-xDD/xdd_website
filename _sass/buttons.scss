@@ -1,0 +1,69 @@
+/******************************************************************************\
+|                                                                              |
+|                                 buttons.scss                                 |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2012-2020 Morgridge Institute for Research (MIR)        |
+\******************************************************************************/
+
+.btn {
+	border: 1px solid lightgrey;
+
+	/*
+	 * button icons
+	 */
+
+	i {
+		margin-right: 5px;
+	}
+
+	&.btn-sm {
+		i {
+			margin-right: 0;
+		}
+	}
+
+	/*
+	 * remove focus outline
+	 */
+
+	&:active, &:focus, &:active:focus {
+		outline: none;
+	}
+
+	/*
+	 * active state
+	 */
+
+	&.active, &.active:focus {
+		color: white;
+		background-color: grey;
+		border-color: grey;
+		outline: none;
+	}
+
+	/*
+	 * primary buttons
+	 */
+
+	&.btn-primary, &.btn-primary:focus {
+		color: white;
+		background: grey;
+		border-color: grey;
+	}
+
+	&.btn-primary:hover, &.btn-primary:active,
+	&.btn-primary:hover:focus, &.btn-primary:active:focus {
+		background: darkgrey;
+		border-color: darkgrey;
+	}
+}

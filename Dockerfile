@@ -1,10 +1,7 @@
-FROM node:10 as build
+FROM jekyll/minimal as build
 WORKDIR /usr/src/app
 COPY . ./
-RUN npm install -g gulp
-RUN npm install
-RUN gulp deploy
+RUN jekyll build 
 
 FROM nginx:1.15
-COPY --from=build /usr/src/app /usr/share/nginx/html
-
+COPY --from=build /usr/src/app/_site /usr/share/nginx/html

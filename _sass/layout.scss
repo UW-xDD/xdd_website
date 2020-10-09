@@ -1,0 +1,247 @@
+/******************************************************************************\
+|                                                                              |
+|                                  styles.scss                                 |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2012-2020 Morgridge Institute for Research (MIR)        |
+\******************************************************************************/
+
+/*
+ * headers
+ */
+
+.header {
+	padding: 10px;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.header h3 {
+	margin-top: 0;
+	margin-bottom: 0;
+	line-height: 40px;
+}
+
+.header > h3 > a {
+	color: inherit;
+}
+
+/*
+ * page headers
+ */
+
+.page.header {
+	width: 100%;
+	padding: 20px;
+	margin: 20px 0;
+	border-radius: 5px;
+	color: white;
+	background-image: url(../images/main_large.jpg);
+}
+
+/*
+ * headings
+ */
+
+h1 {
+	display: inline-block;
+}
+
+h3 {
+	i {
+		margin-right: 10px;
+	}
+}
+
+/*
+ * titles
+ */
+
+.title, .summary-type {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.title > h1 {
+	font-size: 65px;
+	font-weight: 200;
+	letter-spacing: 1px;
+	max-width: 50%;
+	display: block;
+}
+
+/*
+ * footers
+ */
+
+.footer {
+	bottom: 0;
+	width: 100%;
+	border-top: 1px solid #aaa;
+	padding: 20px;
+	color: #777;
+}
+
+.footer-title > .title-full {
+	color: #777 !important;
+}
+
+.footer-links {
+	text-align: center;
+	font-size: 17px;
+}
+
+.footer-links > p > a {
+	color: #777 !important;
+}
+
+.footer-funding {
+	text-align: center;
+}
+
+.footer-funding > a > img {
+	max-height: 40px;
+	max-width: 160px;
+	margin: 10px;
+}
+
+/*
+ * rows
+ */
+
+.row {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+}
+
+.first-row {
+	margin-top: 35px;
+}
+
+.new-row {
+	margin-top: 35px;
+}
+
+.first-row {
+	margin-top: 15px;
+}
+
+.new-row {
+	margin-top: 35px;
+}
+
+.wrapper {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding-bottom: 50px;
+}
+
+.section-title h3 {
+	font-size: 30px;
+	letter-spacing: 1px;
+	font-weight: 300 !important;
+	color: #777;
+}
+
+/*
+ * alignment
+ */
+
+.center {
+	display: inline-block;
+	vertical-align: middle;
+	float: none;
+}
+
+.aligner {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.aligner h1, .aligner p {
+	margin: 0 auto;
+}
+
+.aligner h1 {
+	font-weight: 100;
+}
+
+/*
+ * desktop styles
+ */
+
+@media screen and (min-width: 600px) {
+	.num-results {
+		width: 50%;
+		float: left;
+	}
+
+	.results li {
+			padding-left: 50px;
+	}
+
+	.input-group-addon:not(:first-child):not(:last-child) {
+		border-right: none;
+		border-left: none;
+	}
+}
+
+/*
+ * mobile styles
+ */
+
+@media(max-width: 600px) {
+
+	.row {
+		display: block;
+	}
+
+	.nav.nav-pills.pull-right {
+		margin-right: -25px;
+	}
+
+	.footer-title {
+		text-align: center;
+	}
+
+	/*
+	 * date form input groups (after / before)
+	 */
+
+	.date.form-group {
+		.input-group {
+			display: inline-block;
+		}
+
+		.input-group-addon {
+			border-top-left-radius: 5px;
+			border-top-right-radius: 5px;
+			border-bottom-left-radius: 0;
+			border-bottom-right-radius: 0;
+			border-bottom: none;
+			border-right-width: 1px;
+			border-right-style: solid;
+			border-right-color: lightgrey;
+		}
+
+		input {
+			margin-bottom: 15px;
+			border-top-left-radius: 0 !important;
+			border-top-right-radius: 0 !important;
+			border-bottom-left-radius: 5px !important;
+			border-bottom-right-radius: 5px !important;
+		}
+	}
+}

@@ -1,0 +1,68 @@
+/******************************************************************************\
+|                                                                              |
+|                                 branding.scss                                |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines various CSS styles used in this application.             |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2012-2020 Morgridge Institute for Research (MIR)        |
+\******************************************************************************/
+
+/*
+ * GeoDeepDive
+ */
+
+#gdd {
+	background-image: url('./dist/img/gdd.png');
+}
+
+/*
+ * Center for High Throughput Computing
+ */
+ 
+.chtc {
+	height: 35px !important;
+}
+
+/*
+ * Taylor and Francis
+ */
+
+.tf {
+	width: 200px;
+}
+
+/*
+ * partner info
+ */
+
+.partner {
+	width: 140px;
+	margin: 10px;
+	height: auto;
+}
+
+.partner-small {
+	width: 100px;
+}
+
+/*
+ * about info
+ */
+
+.about-p {
+	line-height: 26px;
+}
+
+.about-img {
+	width: 100%;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
