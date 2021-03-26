@@ -1,4 +1,4 @@
-FROM jekyll/minimal as build
+FROM jekyll/jekyll as build
 WORKDIR /usr/src/app
 COPY . ./
 RUN jekyll build 
