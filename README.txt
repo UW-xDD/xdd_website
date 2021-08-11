@@ -1,8 +1,8 @@
 xDD website
 -----------
 
-To run, execute the command:
-jekyll serve
+```
+docker build . -t website
+docker run -p 80:80 website
+```
 
-Then, to view, open your browser to:
-localhost:4000
