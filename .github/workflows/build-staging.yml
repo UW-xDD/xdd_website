@@ -6,7 +6,7 @@ on:
     tags:
       - 'staging*'
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
 
 jobs:
   docker:
