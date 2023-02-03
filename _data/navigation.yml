@@ -4,6 +4,8 @@
   link: /index.html#news
 - name: Team
   link: /index.html#the-team
+- name: Apps
+  link: /applications.html
 - name: API
   link: /api
 - name: Explore
