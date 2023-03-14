@@ -8,57 +8,16 @@
 			<div class="person-group wisconsin">
 				<h3 class="group">Project Leads</h3>
 
-				<div class="row person-row">
-					<div class="col-sm-4 person">
-						<img class="person-pic" src="assets/images/people/shanan.jpg">
-						<div class="person-desc">
-							<h4><a href="http://strata.geology.wisc.edu" target="_blank">Shanan Peters</a></h4>
-							<p class="person-title">Project Lead</p>
-							<p class="person-dept">Geoscience</p>
+				<div class="row">
+					{% assign leads = site.data.team | where_exp: "x", "x.role == 'Project Lead'" | sort: "order" %}
+					{% for person in leads %}
+						{% include person-card.liquid %}
+					{% endfor %}
+					{% for i in (1..3) %}
+						<div class="person-container col-xs-12 col-sm-6 col-md-4">
+							<div class="person-filler"></div>
 						</div>
-					</div>
-					<div class="col-sm-4 person">
-						<img class="person-pic" src="assets/images/people/miron.jpg">
-						<div class="person-desc">
-							<h4><a href="http://www.cs.wisc.edu/people/miron" target="_blank">Miron Livny</a></h4>
-							<p class="person-title">Project Lead</p>
-							<p class="person-dept">Morgridge Institute for Research</p>
-						</div>
-					</div>
-					<div class="col-sm-4 person">
-						<img class="person-pic" src="assets/images/people/theo.jpg">
-						<div class="person-desc">
-							<h4><a href="http://pages.cs.wisc.edu/~thodrek/" target="_blank">Theo Rekatsinas</a></h4>
-							<p class="person-title">Project Lead</p>
-							<p class="person-dept">ETH Zurich</p>
-						</div>
-					</div>
-				</div>
-				<div class="row person-row">
-					<div class="col-sm-4 person">
-						<img class="person-pic" src="assets/images/people/shivaram.jpg">
-						<div class="person-desc">
-							<h4><a href="https://shivaram.org/" target="_blank">Shivaram Venkataraman</a></h4>
-							<p class="person-title">Project Lead</p>
-							<p class="person-dept">Computer Science</p>
-						</div>
-					</div>
-					<div class="col-sm-4 person">
-						<img class="person-pic" src="assets/images/people/brianb.jpg">
-						<div class="person-desc">
-							<h4><a href="https://morgridge.org/profile/brian-bockelman/" target="_blank">Brian Bockelman</a></h4>
-							<p class="person-title">Infrastructure Lead</p>
-							<p class="person-dept">Morgridge Institute for Research</p>
-						</div>
-					</div>
-					<div class="col-sm-4 person">
-						<img class="person-pic" src="assets/images/people/ian.jpg">
-						<div class="person-desc">
-							<h4><a href="https://www.cs.wisc.edu/people/iross" target="_blank">Ian Ross</a></h4>
-							<p class="person-title">Lead Developer</p>
-							<p class="person-dept">Computer Science</p>
-						</div>
-					</div>
+					{% endfor %}
 				</div>
 				<div class="row person-row">
 			</div>
@@ -66,182 +25,31 @@
 			<div class="person-group collaborators">
 				<h3 class="group">Core Team</h3>
 				<p class="team-blurb"></p>
-
-				<div class="row person-row">
-					<div class="col-sm-4 person">
-						<img class="person-pic" src="assets/images/people/daven.jpg">
-						<div class="person-desc">
-							<h4><a href="http://davenquinn.com" target="_blank">Daven Quinn</a></h4>
-							<p class="person-title">Research Scientist (Geoscience)</p>
-						</div>
+				<div class="row">
+					{% assign core = site.data.team | where_exp: "x", "x.role == 'Core Team'" | sort: "name" %}
+					{% for person in core %}
+						{% include person-card.liquid %}
+					{% endfor %}
+					{% for i in (1..3) %}
+					<div class="person-container col-xs-12 col-sm-6 col-md-4">
+						<div class="person-filler"></div>
 					</div>
-					<div class="col-sm-4 person">
-						<img class="person-pic" src="assets/images/people/brianA.jpg">
-						<div class="person-desc">
-							<h4>Brian Aydemir</h4>
-							<p class="person-title">Developer</p>
-							<p class="person-dept">Morgridge Institute for Research</p>
-						</div>
-					</div>
-					<div class="col-sm-4 person">
-						<img class="person-pic" src="assets/images/people/carle.jpg">
-						<div class="person-desc">
-							<h4>Carl Edquist</h4>
-							<p class="person-title">Developer</p>
-							<p class="person-dept">Computer Sciences</p>
-						</div>
-					</div>
-				</div>
-				<div class="row person-row">
-					<div class="col-sm-4 person">
-						<img class="person-pic" src="assets/images/people/jeffp.jpg">
-						<div class="person-desc">
-							<h4>Jeff Peterson</h4>
-							<p class="person-title">Systems Administrator</p>
-							<p class="person-dept">Morgridge Institute for Research</p>
-						</div>
-					</div>
-					<div class="col-sm-4 person">
-						<img class="person-pic" src="assets/images/people/aimee.jpg">
-						<div class="person-desc">
-							<div class="person-desc">
-								<h4><a href="https://www.library.wisc.edu/about/directory/staff-page/aimee-glassel/" target="_blank">Aimee Glassel</a></h4>
-								<p class="person-title">Academic Librarian</p>
-								<p class="person-dept">Libraries</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-4 person">
-						<img class="person-pic" src="assets/images/people/cannonl.jpg">
-						<div class="person-desc">
-							<h4>Cannon Lock</h4>
-							<p class="person-title">Web Developer</p>
-							<p class="person-dept">Morgridge Institute for Research</p>
-						</div>
-					</div>
-				</div>
-				<div class="row person-row">
-					<div class="col-sm-4 person">
-						<img class="person-pic" src="assets/images/people/default-person.png">
-						<div class="person-desc">
-							<h4>Mohil Patel</h4>
-							<p class="person-title">Software Developer</p>
-							<p class="person-dept">Graduate Student</p>
-						</div>
-					</div>
-					<div class="col-sm-4 person">
-						<img class="person-pic" src="assets/images/people/default-person.png">
-						<div class="person-desc">
-							<h4>Xuxiang Sun</h4>
-							<p class="person-title">Software Developer</p>
-							<p class="person-dept">Undergraduate Student</p>
-						</div>
-					</div>
-					<div class="col-sm-4 person"></div>
+					{% endfor %}
 				</div>
 			</div>
 			<div class="person-group collaborators">
 				<h3 class="group">Collaborators</h3>
 				<p class="team-blurb"></p>
 				<div class="row person-row">
-					<div class="col-sm-4 person">
-						<img class="person-pic" src="assets/images/people/chris.jpg">
-						<div class="person-desc">
-							<h4><a href="http://cs.stanford.edu/people/chrismre/" target="_blank">Christoper Ré</a></h4>
-							<p class="person-title">GeoDeepDive former project lead</p>
-							<p class="person-dept">Stanford Computer Science</p>
+					{% assign collaborators = site.data.team | where_exp: "x", "x.role == 'Collaborator'" | sort: "name" %}
+					{% for person in collaborators %}
+						{% include person-card.liquid %}
+					{% endfor %}
+					{% for i in (1..3) %}
+						<div class="person-container col-xs-12 col-sm-6 col-md-4">
+							<div class="person-filler"></div>
 						</div>
-					</div>
-					<div class="col-sm-4 person">
-						<img class="person-pic" src="assets/images/people/jon.jpg">
-						<div class="person-desc">
-							<h4><a href="http://www.jonhusson.com" target="_blank">Jon Husson</a></h4>
-							<p class="person-title">Assistant Professor</p>
-							<p class="person-dept">University of Victoria</p>
-						</div>
-					</div>
-					<div class="col-sm-4 person">
-						<img class="person-pic" src="assets/images/people/andrew.jpg">
-						<div class="person-desc">
-							<h4><a href="http://www.azstrata.org" target="_blank">Andrew Zaffos</a></h4>
-							<p class="person-title">Senior Research Scientist</p>
-							<p class="person-dept">Arizona Geological Survey</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="row person-row">
-					<div class="col-sm-4 person">
-						<img class="person-pic" src="assets/images/people/julia.jpg">
-						<div class="person-desc">
-							<h4>Julia Wilcots</h4>
-							<p class="person-title">App Builder</p>
-							<p class="person-dept">Princeton Graduate Student</p>
-						</div>
-					</div>
-					<div class="col-sm-4 person">
-						<img class="person-pic" src="assets/images/people/john.jpg">
-						<div class="person-desc">
-							<h4><a href="https://www.johnjcz.com" target="_blank">John Czaplewski</a></h4>
-							<p class="person-title">Developer (former)</p>
-						</div>
-					</div>
-					<div class="col-sm-4 person">
-						<img class="person-pic" src="assets/images/people/valerie.jpg">
-						<div class="person-desc">
-							<h4>Valerie Syverson</h4>
-							<p class="person-title">Postdoctoral Researcher</p>
-							<p class="person-dept">Geoscience</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="row person-row">
-					<div class="col-sm-4 person">
-						<img class="person-pic" src="assets/images/people/ce.jpg">
-						<div class="person-desc">
-							<h4><a href="https://www.inf.ethz.ch/personal/ce.zhang/" target="_blank">Ce Zhang</a></h4>
-							<p class="person-title">Assistant Professor</p>
-							<p class="person-dept">ETH Zurich</p>
-						</div>
-					</div>
-					<div class="col-sm-4 person">
-						<img class="person-pic" src="assets/images/people/erika.jpg">
-						<div class="person-desc">
-							<h4><a href="https://github.com/ItoErika/ItoErika.github.io" target="_blank">Erika Ito</a></h4>
-							<p class="person-title">Data Integrator</p>
-							<p class="person-dept">KoBold Metals</p>
-						</div>
-					</div>
-					<div class="col-sm-4 person">
-						<img class="person-pic" src="assets/images/people/default-person.png">
-						<div class="person-desc">
-							<h4>Chao Liu</h4>
-							<p class="person-title">Postdoctoral App Builder</p>
-							<p class="person-dept">Carnegie Institute</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="row person-row">
-					<div class="col-sm-4 person">
-						<img class="person-pic" src="assets/images/people/default-person.png">
-						<div class="person-desc">
-							<h4>Daniel Wieferich</h4>
-							<p class="person-title">Physical Scientist</p>
-							<p class="person-dept">USGS</p>
-						</div>
-					</div>
-					<div class="col-sm-4 person">
-						<img class="person-pic" src="assets/images/people/default-person.png">
-						<div class="person-desc">
-							<h4>Brandon Serna</h4>
-							<p class="person-title">Software Developer</p>
-							<p class="person-dept">USGS</p>
-						</div>
-					</div>
-					<div class="col-sm-4 person">
-					</div>
+					{% endfor %}
 				</div>
 			</div>
 		</div>
