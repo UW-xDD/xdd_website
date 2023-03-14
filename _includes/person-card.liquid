@@ -1,0 +1,14 @@
+<div class="person-container col-xs-12 col-sm-6 col-md-4">
+    <div class="person">
+        <img class="person-pic" src="{{ person.img }}">
+        <div class="person-desc">
+            {% if person.website %}
+                <h4><a href="{{ person.website}}" target="_blank">{{ person.name }}</a></h4>
+            {% else %}
+                <h4>{{ person.name }}</h4>
+            {% endif %}
+            <p class="person-title">{{ person.title }}</p>
+            <p class="person-dept">{{ person.department }}</p>
+        </div>
+    </div>
+</div>
