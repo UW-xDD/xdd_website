@@ -1,7 +1,6 @@
 FROM jekyll/jekyll as build
 WORKDIR /usr/src/app
 COPY . ./
-RUN chmod a+w ./Gemfile.lock
 RUN mkdir .jekyll-cache _site # https://github.com/jekyll/jekyll/issues/7591
 RUN jekyll build 
 
