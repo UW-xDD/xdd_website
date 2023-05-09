@@ -1,8 +1,8 @@
-FROM jekyll/jekyll as build
+FROM ruby:3.2.2 as build
 WORKDIR /usr/src/app
 COPY . ./
-RUN mkdir .jekyll-cache _site # https://github.com/jekyll/jekyll/issues/7591
-RUN jekyll build 
+RUN bundle install
+RUN JEKYLL_ENV=production bundle exec jekyll build
 
 FROM nginx:1.15
 COPY --from=build /usr/src/app/_site /usr/share/nginx/html
