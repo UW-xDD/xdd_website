@@ -21,7 +21,7 @@ layout: home
 	}
 
 	$(document).ready(function() {
-		$.get("https://geodeepdive.org/api/v1/metrics/basic", function(data) {
+		$.get("https://xdd.wisc.edu/api/v1/metrics/basic", function(data) {
 			$('#totalDocs').html(commaize(data.success.data.total))
 			$('#monthlyDocs').html(commaize(data.success.data.lastMonth))
 			$('#weeklyDocs').html(commaize(data.success.data.lastWeek))
